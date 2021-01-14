@@ -1,7 +1,10 @@
+import Carousel from "./Carousel"
+import Logo from "./Logo";
 const Section=()=>{
     return (
         <div className="container">
-            <p>asdsadsadsd</p>
+            <Logo />
+            <Carousel />
         </div>
     )
 }

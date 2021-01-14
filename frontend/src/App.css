@@ -5,8 +5,50 @@ html *{
 }
 /* HEADER */
 header{
+  width: 100vw;
   padding: 10px 10px;
+  border: solid red;
 }
 .logo{
-  width: 70px;
+  width: 6vw;
 }
+#nav1 ul{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* CAROUSEL */
+.car1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.car2{
+  margin: 0 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.fotos{
+  margin-bottom: 2vh;
+  border: solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nombreCiudad{
+  color: rgb(245, 248, 41);   
+  font-size: 1.3rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+  text-align: center;
+  width: 100%;
+  background-image: -webkit-linear-gradient( top left, hsla(120, 1%, 25%, 0.603), #4328bba6);
+}
+.car1 button{
+  background-color: rgba(0, 128, 0, 0);
+  border: none; 
+}
+.MuiSvgIcon-root{
+  font-size: 3rem!important;
+}
+
