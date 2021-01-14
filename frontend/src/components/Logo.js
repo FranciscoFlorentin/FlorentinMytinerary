@@ -3,14 +3,14 @@ const Logo=()=>{
     return (
         <>
             <div style={{
-                backgroundImage:'url("./assets/MYtineraryLogo.png")',
+                backgroundImage:'url("./assets/1.png")',
                 backgroundSize: "contain",
                 backgroundRepeat:"no-repeat",
                 backgroundPosition:"center", 
-                width: "100%",
+                width: "50%",
                 height: "30vh"
             }}></div>
-            <h4 style={{textAlign:"center", padding:"0 10vw"}}>Find your perfect trip, designed by insiders who know and love their cities</h4>
+            <h4 style={{width:"100%", textAlign:"right", padding:""}}>Find your perfect trip,<br></br> designed by insiders <br></br>who know and love<br></br> their cities</h4>
         </>
     )
 }

@@ -29,7 +29,7 @@ const Carousel = () => {
         <>  
             <h4 style={{textAlign:"center"}}>Popular Mytineraries</h4>
             <div className="car1">
-                <button onClick={ (indiceActual!=0) ? ( ()=>setIndiceActual(indiceActual-1) )
+                <button onClick={ (indiceActual!==0) ? ( ()=>setIndiceActual(indiceActual-1) )
                     : (()=>setIndiceActual(2) )}><ArrowBackIosIcon/></button>
 
                 <div className="car2 container">
@@ -46,7 +46,7 @@ const Carousel = () => {
                         </div>})}
                 </div>
 
-                <button onClick={ (indiceActual!=2) ? ( ()=>setIndiceActual(indiceActual+1) )
+                <button onClick={ (indiceActual!==2) ? ( ()=>setIndiceActual(indiceActual+1) )
                     : ( ()=>setIndiceActual(0) )}><ArrowForwardIosIcon/></button>
             </div>
         </>
