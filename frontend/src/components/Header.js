@@ -2,13 +2,12 @@ import NavBar from "./NavBar"
 const Header=()=>{
     return(
         <>
-            <header className="row">
-                <div className="col s9 ">
-                    <img className="logo" src="./assets/usuario.jpg"></img>
+            <header style={{height:"50vh", backgroundImage: 'url("../assets/travel.jpg")',
+            backgroundSize:"cover", backgroundRepeat:"no-repeat", backgroundPositionY:"45%"}}>
+                <div>
+                    <img className="fotoUsuario" src="./assets/usuario.png"></img>
                 </div>
-                <div className="col s3">
-                    <NavBar />
-                </div>
+                <NavBar />
             </header>
         </>
     )

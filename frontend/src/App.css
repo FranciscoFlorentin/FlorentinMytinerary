@@ -3,14 +3,21 @@ html *{
   margin: 0;
   box-sizing: border-box;
 }
+
 /* HEADER */
 header{
-  width: 100vw;
-  padding: 10px 10px;
-  border: solid red;
+  display: flex!important;
+  justify-content: space-between!important;
+  padding: 2vh 5vw;
+  align-items: flex-end;
 }
-.logo{
+.fotoUsuario{
   width: 6vw;
+}
+/* Nav */
+#nav1{
+  width: 20vw;
+  background-color: rgba(105, 105, 238, 0.829);
 }
 #nav1 ul{
   display: flex;
@@ -52,3 +59,22 @@ header{
   font-size: 3rem!important;
 }
 
+/* Section */
+section{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.logo{
+  border-bottom: solid rgb(0, 0, 0);
+}
+.textoLogo{
+  border-bottom: solid black; 
+  padding: 2vh 0;
+}
+.divCall{
+  display: flex;
+}
+.botonCall{
+  border-radius: 2%;
+  height: 10vh;
+  width: 20vw;
+}

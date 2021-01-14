@@ -1,11 +1,13 @@
 import Carousel from "./Carousel"
 import Logo from "./Logo";
+import CallToAction from "./CallToAction"
 const Section=()=>{
     return (
-        <div className="container">
+        <section className="container" >
             <Logo />
+            <CallToAction />
             <Carousel />
-        </div>
+        </section>
     )
 }
 
