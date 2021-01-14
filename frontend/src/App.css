@@ -61,6 +61,7 @@ header{
 
 /* Section */
 section{
+  background-image: radial-gradient(khaki);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .logo{
@@ -70,8 +71,15 @@ section{
   border-bottom: solid black; 
   padding: 2vh 0;
 }
-.divCall{
+.divCall1{
+  height: 30vh;
   display: flex;
+}
+.divCall2{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
 }
 .botonCall{
   border-radius: 2%;
