@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Section from "./components/Section";
 import Cities from "./components/Cities";
-import {BrowserRouter,Route,Switch} from "react-router-dom";
+import {BrowserRouter,Route} from "react-router-dom";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Section} />
-        <Route exact path="/cities" component={Cities} />
+        <Route path="/cities" component={Cities} />
         <Footer />
       </BrowserRouter>
     </div>
