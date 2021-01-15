@@ -55,7 +55,6 @@ header{
 .fotos div:hover{
   font-size: 2vw;
   color: yellow;
-  font-family: cursive;
 }
 .fotos{
   margin: 2vh 2vw;
@@ -83,7 +82,7 @@ header{
 /* Section */
 section{
   background-image: radial-gradient(khaki);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Fraunces', serif;
 }
 .logo{
   border-bottom: solid rgb(0, 0, 0); 
@@ -122,7 +121,7 @@ footer{
   margin-top: 5vh;
   height: 30vh;
   display: flex;
-  background-color: rgba(160, 160, 160, 0.479);
+  background-color: #fcffac;
 }
 .footerDiv0{
   display: flex;
@@ -152,7 +151,10 @@ footer{
   width: 6vw;
   border: solid black;
   border-radius: 40%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .navFooter div:hover,.footerRedes svg:hover{
   background-color: rgba(240, 230, 140, 0.534);

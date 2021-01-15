@@ -11,15 +11,15 @@ const slides=[
     ],
     [
         {ciudad:"Ámsterdam", dir:"./assets/amsterdam.jpg"},
-        {ciudad:"Lisboa", dir:"./assets/Lisboa.jpg"},
-        {ciudad:"Roma", dir:"./assets/roma.jpg"},
-        {ciudad:"Praga", dir:"./assets/praga.jpg"}
+        {ciudad:"Lisbon", dir:"./assets/Lisboa.jpg"},
+        {ciudad:"Rome", dir:"./assets/roma.jpg"},
+        {ciudad:"Prague", dir:"./assets/praga.jpg"}
     ],
     [
-        {ciudad:"Seúl", dir:"./assets/seul.jpg"},
+        {ciudad:"Seoul", dir:"./assets/seul.jpg"},
         {ciudad:"Shenzhen", dir:"./assets/shenzhen.jpg"},
         {ciudad:"Bangkok", dir:"./assets/bangkok.jpg"},
-        {ciudad:"Pekín", dir:"./assets/pekin.jpg"}
+        {ciudad:"Beijing", dir:"./assets/pekin.jpg"}
     ]
 ];
 

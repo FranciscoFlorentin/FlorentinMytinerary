@@ -4,7 +4,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 const CallToAction = () => {
     return (
         <div className="divCall1">
-            <div className="divCall2">
+            <div className="divCall2" style={{width:"50%",backgroundImage:"url('./assets/callToAction.png')",backgroundSize:"contain"}}>
                 <Link to="/cities"><button className="botonCall"><h6>Discover more Itineraries</h6><MenuBookIcon color="primary" /></button></Link>
             </div>
             <div style={{width:"50%",backgroundImage:"url('./assets/Screenshot_2.png')",
