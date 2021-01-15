@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Section} />
-        <Route path="/cities" component={Cities} />
+        <Route exact path="/cities" component={Cities} />
         <Footer />
       </BrowserRouter>
     </div>
