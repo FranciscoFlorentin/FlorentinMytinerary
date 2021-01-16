@@ -5,10 +5,17 @@ import {Link} from "react-router-dom";
 const CallToAction = () => {
     return (
         <div className="divCall1" style={{backgroundImage:"url('../assets/travelers.jpg')"}}>
-            <h2>Don't be a tourist,</h2>
-            <h2>be a traveler.</h2>
-            <p>Travel for all the cities of the world,</p>
-            <p>you can find the best travel itineraries here.</p>
+            <div>
+                <h2>Don't be a tourist,</h2>
+            </div>
+            
+            <div>
+                <h2>be a traveler.</h2>
+            </div> 
+            <div>
+                <p>Travel for all the cities of the world,</p>
+                <p>you can find the best travel itineraries here.</p>
+            </div>
             <div>
                 <div className="divBotonCallToAction">
                     <ArrowForwardIcon style={{color:"orange"}}/>

@@ -26,14 +26,14 @@ header{
 /* Nav */
 #nav1{
   width: 20vw;
-  background-color: rgba(223, 104, 35, 0.74);
+  background-color: rgba(35, 132, 223, 0.74);
 }
 #nav1 ul{
   display: flex;
   justify-content: space-evenly;
 }
 .active{
-  background-color: rgba(207, 126, 21, 0.87);
+  background-color: rgba(47, 49, 197, 0.575);
 }
 #nav1 ul p{
   font-size: 1.7rem;
@@ -133,13 +133,13 @@ section{
   background-color: white;
   height: 50vh;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   margin-bottom: 10vh;
   background-size: 65%;
   background-repeat: no-repeat;
   background-position: right;
   background-position-x: 120%;
-  padding: 4vh 0;
 }
 .divCall1 h2{
   text-align: center;
@@ -147,7 +147,6 @@ section{
   font-size: 3rem;
   background-color: rgba(241, 141, 60, 0.767);
   margin: 0;
-  margin-bottom: 3vh;
   border-bottom-left-radius: 20%;
   border-bottom: solid black;
   
@@ -162,17 +161,17 @@ section{
 }
 .divBotonCallToAction{
   width: 45%;
-  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 13vh;
 
 }
 .divBotonCallToAction button{
   color: black;
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background-color: salmon  ;
   height: 8vh;
   width: 13vw;
@@ -181,7 +180,7 @@ section{
 .divBotonCallToAction button:hover{
   width:15vw ;
   height: 10vh  ;
-  font-size: 2.3rem;
+  font-size: 1.7rem;
 }
 
 /* Footer */
