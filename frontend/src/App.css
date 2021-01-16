@@ -171,7 +171,7 @@ section{
   color: black;
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
-  font-size: 1.5rem;
+  font-size: 150%;
   background-color: salmon  ;
   height: 8vh;
   width: 13vw;
@@ -180,7 +180,7 @@ section{
 .divBotonCallToAction button:hover{
   width:15vw ;
   height: 10vh  ;
-  font-size: 1.7rem;
+  font-size: 170%;
 }
 
 /* Footer */
@@ -210,11 +210,11 @@ footer{
 .navFooter{
   display: flex;
   justify-content: space-evenly;
-  width: 15vw;
+  width: 25%;
 }
 .navFooter div{
-  height: 5vh;
-  width: 6vw;
+  height: 80%;
+  width: 120%;
   border: solid black;
   border-radius: 30%;
   display: flex;
@@ -227,7 +227,7 @@ footer{
   border-radius: 40%;
 }
 .navFooter p{
-  font-size: 1.5rem;
+  font-size: 150%;
 }
 .footerRedes{
   width: 30vw;
