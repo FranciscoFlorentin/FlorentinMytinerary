@@ -16,8 +16,16 @@ const Footer=()=>{
                             <div><DehazeIcon /></div>
                             <p>Links</p>
                             <div className="navFooter">
-                                <Link to="/" style={{color:"black"}}><div><p>Home</p></div></Link>
-                                <Link to="/cities" style={{color:"black"}}><div><p>Cities</p></div></Link>
+                                <Link to="/" style={{color:"black"}}>
+                                    <div>
+                                        <p>Home</p>
+                                    </div>
+                                </Link>
+                                <Link to="/cities" style={{color:"black"}}>
+                                    <div>
+                                        <p>Cities</p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                         <div className="footerDiv1">
