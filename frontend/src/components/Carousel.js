@@ -6,7 +6,7 @@ const slides=[
     [
         {ciudad:"Santa Fe", dir:"./assets/santa fe.jpg"},
         {ciudad:"Montevideo", dir:"./assets/Montevideo.jpg"},
-        {ciudad:"São Paulo", dir:"./assets/Sao Paulo.jpg"},
+        {ciudad:"Sao Paulo", dir:"./assets/Sao Paulo.jpg"},
         {ciudad:"Cartagena", dir:"./assets/Cartagena.jpg"}
     ],
     [

@@ -2,16 +2,12 @@
 const Logo=()=>{
     return (
         <>
-            <div className="logo" style={{
-                backgroundImage:'url("./assets/1.png")',
-                backgroundSize: "contain",
-                backgroundRepeat:"no-repeat",
-                backgroundPosition:"center", 
-                width: "50%",
-                height: "30vh"}}>
+            <div className="logoYtitulo">
+                <div className="logo" style={{backgroundImage:'url("./assets/1.png")'}}></div>
+                <h1 className="tituloLogo">MYtinerary</h1>
             </div>
             <div className="logoTexto">
-                <div style={{width:"50%",backgroundImage:"url('./assets/Screenshot_1.png')",
+                <div style={{width:"50%",backgroundImage:"url('./assets/pensando.svg')",
                     backgroundSize:"contain", backgroundRepeat:"no-repeat",backgroundPositionX:"50%"}}>
                 </div>
                 <div className="textoLogo">

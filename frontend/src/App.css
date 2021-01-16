@@ -10,29 +10,37 @@ body{
 header{
   display: flex!important;
   justify-content: space-between!important;
-  padding: 2vh 5vw;
+  padding: 1vh 5vw;
   align-items: flex-end;
 }
+.divHeader{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 1vw;
+}
 .fotoUsuario{
-  width: 6vw;
+  width: 5vw;
 }
 /* Nav */
 #nav1{
   width: 20vw;
-  background-color: rgba(92, 92, 201, 0.678);
+  background-color: rgba(223, 104, 35, 0.74);
 }
 #nav1 ul{
   display: flex;
   justify-content: space-evenly;
 }
 .active{
-  background-color: rgb(136, 136, 248);
+  background-color: rgba(207, 126, 21, 0.87);
 }
 #nav1 ul p{
   font-size: 1.7rem;
 }
 /* CAROUSEL */
 .tituloCar{
+  padding: 2vh;
   text-align: center;
   background-color: moccasin;
 }
@@ -54,7 +62,6 @@ header{
 }
 .fotos div:hover{
   font-size: 2vw;
-  color: yellow;
 }
 .fotos{
   margin: 2vh 2vw;
@@ -64,12 +71,12 @@ header{
   align-items: center;
 }
 .nombreCiudad{
-  color: yellow;
+  color: white  ;
   font-size: 1.4rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
   text-align: center;
   width: 100%;
-  background-image: -webkit-linear-gradient( top left,#88c9e78e, #4454e2f1);
+  background-image: -webkit-linear-gradient( top left,rgba(236, 85, 85, 0.877),rgba(255, 38, 38, 0.836));
 }
 .car1 button{
   background-color: rgba(0, 128, 0, 0);
@@ -84,11 +91,34 @@ section{
   background-image: radial-gradient(khaki);
   font-family: 'Fraunces', serif;
 }
-.logo{
-  border-bottom: solid rgb(0, 0, 0); 
-  margin-bottom: 4vh; 
+.logoYtitulo{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  height: 30vh;
+  margin-bottom: 8vh;
+  padding-bottom: 1vh;
+  border-bottom: 4px solid black;
+}
+.logo{ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  width: 40%;
+  height: 95%;
+  
+}
+.tituloLogo{
+  color: rgba(255, 67, 67, 0.911);
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  width: 50%;
+  font-size: 55px;
+  padding-left: 0.5vw;
 }
 .textoLogo{
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  box-shadow: 3px 3px;
   border-bottom: solid rgb(0, 0, 0); 
   padding: 2vh 0; 
   background-color: moccasin;
@@ -97,25 +127,63 @@ section{
 }
 .logoTexto{
   display: flex;
-  margin-bottom: 4vh;
+  margin-bottom: 10vh;
 }
 .divCall1{
-  height: 30vh;
+  background-color: white;
+  height: 50vh;
   display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 120%;
+  padding: 4vh 0;
 }
-.divCall2{
+.divCall1 h2{
+  text-align: center;
+  width: 45%;
+  font-size: 3rem;
+  background-color: rgba(241, 141, 60, 0.767);
+  margin: 0;
+  margin-bottom: 3vh;
+  border-bottom-left-radius: 20%;
+  border-bottom: solid black;
+  
+}
+.divCall1 p{
+  background-color: moccasin;
+  width: 45%;
+  text-align: center;
+  font-size: 1.4rem;
   display: flex;
-  width: 50%;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+.divBotonCallToAction{
+  width: 45%;
+  height: 15vh;
+  display: flex;
   align-items: center;
+  justify-content: center;
+
 }
-.botonCall{
-  background-color: rgba(188, 248, 109, 0.329);
-  text-shadow: 0.5px 0.5px;
-  border-radius: 0%;
-  height: 12vh;
-  width: 15vw;
+.divBotonCallToAction button{
+  color: black;
+  border-top-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  font-size: 2rem;
+  background-color: salmon  ;
+  height: 8vh;
+  width: 13vw;
+  box-shadow: 3px 3px;
 }
+.divBotonCallToAction button:hover{
+  width:15vw ;
+  height: 10vh  ;
+  font-size: 2.3rem;
+}
+
 /* Footer */
 footer{
   margin-top: 5vh;
@@ -128,7 +196,6 @@ footer{
   justify-content: space-around;
   height: 25vh;
   padding: 2vh 0;
-
 }
 .footerDiv1{
   width: 50%;
@@ -150,14 +217,14 @@ footer{
   height: 5vh;
   width: 6vw;
   border: solid black;
-  border-radius: 40%;
+  border-radius: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-color:rgba(81, 70, 228, 0.473);
 }
 .navFooter div:hover,.footerRedes svg:hover{
-  background-color: rgba(240, 230, 140, 0.534);
+  background-color:rgba(255, 166, 50, 0.87);
   border-radius: 40%;
 }
 .navFooter p{

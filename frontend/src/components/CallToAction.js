@@ -1,14 +1,20 @@
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import React from 'react'
 import {Link} from "react-router-dom";
-import MenuBookIcon from '@material-ui/icons/MenuBook';
 const CallToAction = () => {
     return (
-        <div className="divCall1">
-            <div className="divCall2" style={{width:"50%",backgroundImage:"url('./assets/callToAction.png')",backgroundSize:"contain"}}>
-                <Link to="/cities"><button className="botonCall"><h6>Discover more Itineraries</h6><MenuBookIcon color="primary" /></button></Link>
-            </div>
-            <div style={{width:"50%",backgroundImage:"url('./assets/Screenshot_2.png')",
-                backgroundSize:"contain", backgroundRepeat:"no-repeat",backgroundPositionX:"80%"}}>
+        <div className="divCall1" style={{backgroundImage:"url('../assets/travelers.jpg')"}}>
+            <h2>Don't be a tourist,</h2>
+            <h2>be a traveler.</h2>
+            <p>Travel for all the cities of the world,</p>
+            <p>you can find the best travel itineraries here.</p>
+            <div>
+                <div className="divBotonCallToAction">
+                    <ArrowForwardIcon style={{color:"orange"}}/>
+                    <Link to="/cities"><button>Explore Cities</button></Link>
+                    <ArrowBackIcon style={{color:"orange"}}/>
+                </div>
             </div>
         </div>
     )

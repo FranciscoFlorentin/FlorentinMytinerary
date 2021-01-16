@@ -4,10 +4,12 @@ const Header=()=>{
         <>
             <header style={{height:"50vh", backgroundImage: 'url("../assets/travel.jpg")',
             backgroundSize:"cover", backgroundRepeat:"no-repeat", backgroundPositionY:"45%"}}>
-                <div>
-                    <img className="fotoUsuario" src="./assets/usuario.png"></img>
-                </div>
+                <div className="divHeader">
+                    <div>
+                        <img className="fotoUsuario" alt="" src="./assets/usuario.png"></img>
+                    </div>
                 <NavBar />
+                </div>
             </header>
         </>
     )

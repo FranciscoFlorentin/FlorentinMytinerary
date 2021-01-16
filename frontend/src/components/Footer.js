@@ -23,12 +23,13 @@ const Footer=()=>{
                         <div className="footerDiv1">
                             <div><ForumIcon/></div>
                             <p>Social</p>
-                            <div className="footerRedes"><FacebookIcon /><TwitterIcon /><LinkedInIcon /><InstagramIcon /><TelegramIcon /></div>
+                            <div className="footerRedes"><FacebookIcon color="primary" /><TwitterIcon color="primary"/>
+                            <LinkedInIcon color="primary"/><InstagramIcon color="primary"/><TelegramIcon color="primary"/></div>
                         </div>
                     </div>
                 </div>
                 <div className="footerText">
-                    <p>Copyright © 2021 MyTinerary. All Rights Reserved</p>
+                    <p>Copyright © 2021 MYtinerary. All Rights Reserved</p>
                 </div>
             </footer>
         </>
