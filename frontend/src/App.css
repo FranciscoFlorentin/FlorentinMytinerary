@@ -55,13 +55,12 @@ header{
   flex-wrap: wrap;
   justify-content: center;
 }
-.fotos:hover{
-  background-size: 35vw !important;
-  background-position: 40%;
+.fotos:hover{ 
+  background-position: 15%;
  
 }
 .fotos div:hover{
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 .fotos{
   margin: 2vh 2vw;
@@ -236,5 +235,20 @@ footer{
 }
 .footerText{
   text-align: center;
+}
+
+.prueba{
+  width: 100vw;
+  height: 90vh;
+  background-color: khaki;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.prueba div{
+  border: solid black;
+  padding: 1vh 1vw;
+  height: 20vh;
+  width: 30vw;
 }
 

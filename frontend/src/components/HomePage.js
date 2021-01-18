@@ -1,7 +1,7 @@
 import Carousel from "./Carousel"
 import Logo from "./Logo";
 import CallToAction from "./CallToAction"
-const Section=()=>{
+const HomePage=()=>{
     return (
         <section className="container" >
             <Logo />
@@ -11,4 +11,4 @@ const Section=()=>{
     )
 }
 
-export default Section;
+export default HomePage;

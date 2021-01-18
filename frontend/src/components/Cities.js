@@ -1,13 +1,16 @@
 const Cities=()=>{
     return (
         <>
-            <section className="container">
-                <h1>Componente cities</h1>
-                <h1>hola</h1><h1>hola</h1>
-                <h1>hola</h1>
-                <h1>hola</h1>
-                <h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1><h1>hola</h1>
-            </section>
+            <div className="prueba">
+                <div>1
+                </div>
+                <div>2</div>
+                
+                <div>4</div>
+                
+                <div>5</div>
+                <div>5</div>
+            </div>
         </>
     )
 }
