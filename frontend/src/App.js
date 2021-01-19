@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import Cities from "./components/Cities";
-import Itinerarie from "./components/Itinerarie"
+import Itinerary from "./components/Itinerary"
 import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cities" component={Cities} />
-          <Route path="/itineraries/:id" component={Itinerarie} />
+          <Route path="/itineraries/:cityName" component={Itinerary} />
           <Redirect to="/" />
         </Switch>
         <Footer />

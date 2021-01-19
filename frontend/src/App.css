@@ -267,3 +267,23 @@ footer{
   padding: 0.5vh;
   background-color: rgba(255, 29, 29, 0.836);
 }
+/* Itinerarie */
+.sectionItinerary{
+  padding: 2vh 0;
+}
+.sectionItinerary div{
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 10%;
+}
+.sectionItinerary h5{
+  background-color: red;
+  color: white;
+  width: 100%;
+  text-align: center;
+}

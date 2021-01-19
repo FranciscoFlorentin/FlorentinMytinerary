@@ -16,6 +16,17 @@ const citiesController={
         res.json({
             response: cities
         })
+    },
+    singleCity: (req,res)=>{
+        const cityName=(req.params.cityName)
+        cities.map(city=>{
+            if(city.name.replace(/ /g, "")===cityName){
+                res.json({
+                    response:city
+                })
+            }
+        })
+        
     }
 }
 

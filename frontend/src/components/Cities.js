@@ -16,7 +16,6 @@ const Cities=()=>{
     // Cada vez que actualizo el inputValue modifico el estado del array que voy a mostrar
     useEffect(()=>{
         setCitiesToShow(cities.filter( city=> city.name.toUpperCase().indexOf(inputValue.toUpperCase())===0))
-        // console.log("--------------ACTUALIZO-------------"+inputValue)
     },[inputValue])
 
     return (
