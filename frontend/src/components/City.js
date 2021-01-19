@@ -5,8 +5,11 @@ export default class City extends Component {
         return (
             <>
                 <div className="city1">
-                    <div className="city2">
-                        {this.props.city}
+                    <div className="city2" style={{
+                        backgroundImage:`url("${this.props.city.dir}")`,
+                        color:"yellow"
+                    }}> 
+                        {this.props.city.name}
                     </div>
                 </div>
             </>
