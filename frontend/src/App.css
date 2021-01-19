@@ -245,12 +245,25 @@ footer{
 }
 .city1{
   width: 50%;
-  height: 20vh;
+  height: 50vh;
   border: solid black;
   padding: 1vh 1vw;
 }
-.city2{
+.city1 div{
   border: solid blue;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.city1 h5{
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+  padding: 0.5vh;
+  background-color: rgba(255, 29, 29, 0.836);
 }
