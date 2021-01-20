@@ -1,12 +1,16 @@
 import { useState,useEffect } from "react"
 import City from "./City"
 
-const cities=[{id:"sf" ,name:"Santa Fe"},{id:"ba" ,name:"Buenos Aires"},{id:"cb" ,name:"Cordoba"},
+const cities1=[{id:"sf" ,name:"Santa Fe"},{id:"ba" ,name:"Buenos Aires"},{id:"cb" ,name:"Cordoba"},
 {id:"mz" ,name:"Mendoza"},{id:"mn" ,name:"Misiones"},{id:"st" ,name:"Salta"},{id:"sj" ,name:"San Juan"},
 {id:"jj" ,name:"Jujuy"}]
 
 const Cities=()=>{
     const [inputValue,setImputValue]=useState("");
+    const [cities,setCities]=useState([]);
+    useEffect(() => {
+        setCities(cities1);
+    }, [])
     return (
         <>
             <section className="container sectionCities">
