@@ -1,14 +1,13 @@
-const express=require("express");
-const router = express.Router()
-const citiesController=require("../controllers/citiesController");
+const express = require("express");
+const router = express.Router();
+const cityController=require("../controllers/cityController");
 // Devuelve toodas las ciudades
 router.route("/cities")
-.post(citiesController.addCity)
-
-// .get(citiesController.allTheCities)
+.get(cityController.allTheCities)
+.post(cityController.addCity)
 
 // Devuelve 1 sola ciudad
 router.route("/itineraries/:cityName")
-// .get(citiesController.singleCity)
+// .get(cityController.singleCity)
 
 module.exports=router
