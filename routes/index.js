@@ -8,6 +8,6 @@ router.route("/cities")
 
 // Devuelve 1 sola ciudad
 router.route("/itineraries/:cityName")
-// .get(cityController.singleCity)
+.get(cityController.singleCity)
 
 module.exports=router

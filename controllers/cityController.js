@@ -18,7 +18,7 @@ const cityController ={
         // .save devuelve una promesa
         cityAgrabar.save()
         .then(newCity=> {
-            return res.json({sucess:true, respuesta: newCity})
+            return res.json({sucess:true, response: newCity})
         })
         .catch(error=>{
             return res.json({sucess:false, error:error})
@@ -26,25 +26,25 @@ const cityController ={
     },
     allTheCities: (req,res)=>{
         // al modelo City encontrame devuelve una promesa
-        console.log("entro a get allTheCities")
+        // const data= await City.find();
+        // res.json({response: data});
+        City.find()
+        .then(data=>{return res.json({sucess:true, response:data})})
+        .catch(error=>{return res.json({sucess:false, response:error})})
         // try{
         //     await City.find()
         //     res.json({sucess:true,})
-        // } catch(e){
+        // } catch(error){
+        //     console.log(error);
         // } finally{
         //     res.json({sucess: false})
         // }
-        res.json({response:data})
     },
-    singleCity: (req,res)=>{
-        const cityName=(req.params.cityName)
-        cities.map(city=>{
-            if(city.name.replace(/ /g, "")===cityName){
-                res.json({
-                    response:city
-                })
-            }
-        })   
+    singleCity: async (req,res)=>{
+        const reqCityName=(req.params.cityName);
+        console.log(reqCityName)
+        const data= await City.findOne({cityName:reqCityName});
+        res.json({response: data});
     }
 }
 

@@ -1,11 +1,11 @@
 import React,{useEffect, useState} from 'react'
 
 const Itinerarie = (props) => {
-    const cityName=props.match.params.cityName;
-    const [city,setCity]=useState([]);
+    const propsCityName=props.match.params.cityName;
+    const [city,setCity]=useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/itineraries/${cityName}`)
+        fetch(`http://localhost:4000/api/itineraries/${propsCityName}`)
         .then(response=>response.json())
         .then(date=>setCity(date.response))
     }, [])
@@ -13,9 +13,9 @@ const Itinerarie = (props) => {
     return (
         <>
             <section className="container sectionItinerary">
-                <div style={{backgroundImage:`url(".${city.dir}")`}}>
-                    <h5>{city.name}</h5>
-                    {console.log(city)}
+                {console.log(city)}
+                <div style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
+                    <h5>{city.cityName}</h5>
                 </div> 
 
             </section>
