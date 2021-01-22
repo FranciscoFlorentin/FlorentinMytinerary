@@ -9,9 +9,13 @@ body{
 /* HEADER */
 header{
   display: flex!important;
-  justify-content: space-between!important;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 1vh 5vw;
-  align-items: flex-end;
+  height: 90vh!important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 20%;
 }
 .divHeader{
   display: flex;
@@ -33,7 +37,7 @@ header{
   justify-content: space-evenly;
 }
 .active{
-  background-color: rgba(47, 49, 197, 0.575);
+  background-color: rgba(67, 70, 243, 0.5);
 }
 #nav1 ul p{
   font-size: 1.7rem;
@@ -75,7 +79,7 @@ header{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
   text-align: center;
   width: 100%;
-  background-image: -webkit-linear-gradient( top left,rgba(236, 85, 85, 0.877),rgba(255, 38, 38, 0.836));
+  background-color:#19456b;
 }
 .car1 button{
   background-color: rgba(0, 128, 0, 0);
@@ -87,7 +91,7 @@ header{
 
 /* Section */
 section{
-  background-image: radial-gradient(khaki);
+  background-image: radial-gradient(#f8f1f1);
   font-family: 'Fraunces', serif;
 }
 .logoYtitulo{
@@ -108,8 +112,8 @@ section{
   
 }
 .tituloLogo{
-  color: rgba(255, 67, 67, 0.911);
-  text-shadow: 2px 2px rgb(0, 0, 0);
+  color: #19456b;
+  text-shadow: 2px 1px rgba(37, 24, 155, 0.377);
   width: 50%;
   font-size: 55px;
   padding-left: 0.5vw;
@@ -117,10 +121,11 @@ section{
 .textoLogo{
   border-top-left-radius: 20%;
   border-bottom-right-radius: 20%;
-  box-shadow: 3px 3px;
+  box-shadow: 6px 6px black;
   border-bottom: solid rgb(0, 0, 0); 
   padding: 2vh 0; 
-  background-color: moccasin;
+  color: white;
+  background-color:#16c79a;
   width: 50%;
   text-align: center;
 }
@@ -144,14 +149,14 @@ section{
   text-align: center;
   width: 45%;
   font-size: 3rem;
-  background-color: rgba(241, 141, 60, 0.767);
+  background-color: #16c79a;
+  color: white;
   margin: 0;
   border-bottom-left-radius: 20%;
   border-bottom: solid black;
-  
 }
 .divCall1 p{
-  background-color: moccasin;
+  background-color: #11698e;
   width: 45%;
   text-align: center;
   font-size: 1.4rem;
@@ -171,10 +176,11 @@ section{
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
   font-size: 150%;
-  background-color: salmon  ;
+  background-color: rgba(35, 132, 223, 0.74)  ;
+  color :white;
   height: 8vh;
   width: 13vw;
-  box-shadow: 3px 3px;
+  box-shadow: 3px 3px black;
 }
 .divBotonCallToAction button:hover{
   width:15vw ;
@@ -187,7 +193,7 @@ footer{
   margin-top: 5vh;
   height: 30vh;
   display: flex;
-  background-color: #fcffac;
+  background-color: rgba(35, 132, 223, 0.74);
 }
 .footerDiv0{
   display: flex;
@@ -222,7 +228,7 @@ footer{
   background-color:rgba(81, 70, 228, 0.473);
 }
 .navFooter div:hover,.footerRedes svg:hover{
-  background-color:rgba(255, 166, 50, 0.87);
+  background-color:white;
   border-radius: 40%;
 }
 .navFooter p{
@@ -239,18 +245,21 @@ footer{
 
 /* City */
 .sectionCities{
-  border: solid red;
   display: flex;
   flex-wrap: wrap;
+  padding: 3vh 0;
+}
+.sectionCities input{
+  height: 10vh!important;
+  text-align: center;
+  font-size: 2.7vw !important;
 }
 .city1{
   width: 50%;
   height: 50vh;
-  border: solid black;
-  padding: 1vh 1vw;
+  padding: 4vh 1vw;
 }
 .city1 div{
-  border: solid blue;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -258,6 +267,10 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 15%;
+}
+.city1:hover{
+  padding: 2.5vh 0vw;
 }
 .city1 h5{
   color: white;
@@ -265,7 +278,7 @@ footer{
   width: 100%;
   height: 10%;
   padding: 0.5vh;
-  background-color: rgba(255, 29, 29, 0.836);
+  background-color: rgba(35, 132, 223, 0.74);
 }
 /* Itinerarie */
 .sectionItinerary{

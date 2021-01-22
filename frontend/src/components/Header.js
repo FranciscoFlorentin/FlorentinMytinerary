@@ -2,11 +2,11 @@ import NavBar from "./NavBar"
 const Header=()=>{
     return(
         <>
-            <header style={{height:"50vh", backgroundImage: 'url("../assets/travel.jpg")',
+            <header style={{height:"50vh", backgroundImage: 'url("../assets/1.jpg")',
             backgroundSize:"cover", backgroundRepeat:"no-repeat", backgroundPositionY:"45%"}}>
                 <div className="divHeader">
                     <div>
-                        <img className="fotoUsuario" alt="" src="./assets/usuario.png"></img>
+                        <img className="fotoUsuario" alt="" src="../assets/usuario.png"></img>
                     </div>
                 <NavBar />
                 </div>

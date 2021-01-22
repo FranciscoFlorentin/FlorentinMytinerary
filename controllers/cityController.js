@@ -1,12 +1,4 @@
 const City= require("../models/City");
-const data=[
-    {
-        name: "asd"
-    },
-    {
-        name: "toasds"
-    }
-]
 const cityController ={
     addCity: (req, res)=>{
         const cityAgrabar = new City({
@@ -25,24 +17,13 @@ const cityController ={
         })
     },
     allTheCities: (req,res)=>{
-        // al modelo City encontrame devuelve una promesa
-        // const data= await City.find();
-        // res.json({response: data});
         City.find()
         .then(data=>{return res.json({sucess:true, response:data})})
         .catch(error=>{return res.json({sucess:false, response:error})})
-        // try{
-        //     await City.find()
-        //     res.json({sucess:true,})
-        // } catch(error){
-        //     console.log(error);
-        // } finally{
-        //     res.json({sucess: false})
-        // }
     },
     singleCity: async (req,res)=>{
+        // Obtengo el nombre de la ruta de la ciudad de /Itineraries/:cityName
         const reqCityName=(req.params.cityName);
-        console.log(reqCityName)
         const data= await City.findOne({cityName:reqCityName});
         res.json({response: data});
     }
