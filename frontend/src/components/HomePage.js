@@ -1,13 +1,22 @@
 import Carousel from "./Carousel"
 import Logo from "./Logo";
 import CallToAction from "./CallToAction"
+import Header from "./Header"
+import {useEffect} from "react"
 const HomePage=()=>{
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     return (
-        <section className="container" >
-            <Logo />
-            <CallToAction />
-            <Carousel />
-        </section>
+        <>
+            <Header/>
+            <section className="container" >
+                <Logo />
+                <CallToAction />
+                <Carousel />
+            </section>
+        </>
     )
 }
 

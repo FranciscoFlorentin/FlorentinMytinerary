@@ -31,8 +31,8 @@ const Footer=()=>{
                         <div className="footerDiv1">
                             <div><ForumIcon/></div>
                             <p>Social</p>
-                            <div className="footerRedes"><FacebookIcon color="primary" /><TwitterIcon color="primary"/>
-                            <LinkedInIcon color="primary"/><InstagramIcon color="primary"/><TelegramIcon color="primary"/></div>
+                            <div className="footerRedes"><FacebookIcon /><TwitterIcon />
+                            <LinkedInIcon   /><InstagramIcon /><TelegramIcon /></div>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,10 @@
 import React,{useEffect, useState} from 'react'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import {Link} from "react-router-dom";
+import HomeIcon from '@material-ui/icons/Home';
+import NavBar from "./NavBar";
+import NotItineraries from './NotItineraries';
+import {Link} from "react-router-dom"
+
 const Itinerarie = (props) => {
     const propsCityName=props.match.params.cityName;
     const [city,setCity]=useState({});
@@ -9,15 +13,21 @@ const Itinerarie = (props) => {
         fetch(`http://localhost:4000/api/itineraries/${propsCityName}`)
         .then(response=>response.json())
         .then(date=>setCity(date.response))
+        window.scrollTo(0, 0)
     }, [])
 
     return (
         <>
+            <NavBar/>
             <section className="container sectionItinerary">
-                <div style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
+                <div className="itinerarie" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
                     <h5>{city.cityName}</h5>
                 </div>
-                <button onClick={()=>props.history.goBack()} ><ArrowBackIcon />Back</button>
+                <NotItineraries/>
+                <div className="divItinerary">
+                    <button onClick={()=>props.history.goBack()} ><ArrowBackIcon /></button>
+                    <button ><Link to="/home"><HomeIcon /></Link></button>
+                </div>
             </section>
         </>
     )

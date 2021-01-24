@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-mongoose.connect("mongodb+srv://FranciscoFlorentin:dbFranciscoFlorentin@cluster0.jyz0c.mongodb.net/mytinerary?retryWrites=true&w=majority",{
+mongoose.connect(process.env.MONGOBD,{
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

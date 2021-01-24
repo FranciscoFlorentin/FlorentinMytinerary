@@ -10,19 +10,32 @@ body{
 header{
   display: flex!important;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1vh 5vw;
+  justify-content: space-between;
   height: 90vh!important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 20%;
+  align-items: flex-end;
+}
+header h1{
+  font-family: 'Lemonada', cursive;
+  width: 35%;
+  margin-top: 15vh;
+  margin-right: 10vw;
+  text-align: center;
+  color: white;
+  background-color: #48afb1cb;
+}
+header h1:hover{
+  background-color: #48afb1;
+  
 }
 .divHeader{
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh 1vw;
+  padding: 3vh 6vw;
 }
 .fotoUsuario{
   width: 5vw;
@@ -44,9 +57,10 @@ header{
 }
 /* CAROUSEL */
 .tituloCar{
+  color: white;
   padding: 2vh;
   text-align: center;
-  background-color: moccasin;
+  background-color: #16c79a;
 }
 .car1{
   display: flex;
@@ -79,7 +93,7 @@ header{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
   text-align: center;
   width: 100%;
-  background-color:#19456b;
+  background-color:#11698edb;
 }
 .car1 button{
   background-color: rgba(0, 128, 0, 0);
@@ -91,6 +105,7 @@ header{
 
 /* Section */
 section{
+  min-height: 90vh;
   background-image: radial-gradient(#f8f1f1);
   font-family: 'Fraunces', serif;
 }
@@ -112,7 +127,7 @@ section{
   
 }
 .tituloLogo{
-  color: #19456b;
+  color: #11698e;
   text-shadow: 2px 1px rgba(37, 24, 155, 0.377);
   width: 50%;
   font-size: 55px;
@@ -125,7 +140,7 @@ section{
   border-bottom: solid rgb(0, 0, 0); 
   padding: 2vh 0; 
   color: white;
-  background-color:#16c79a;
+  background-color:#50b2b4;
   width: 50%;
   text-align: center;
 }
@@ -149,7 +164,7 @@ section{
   text-align: center;
   width: 45%;
   font-size: 3rem;
-  background-color: #16c79a;
+  background-color: #11698e;
   color: white;
   margin: 0;
   border-bottom-left-radius: 20%;
@@ -157,6 +172,7 @@ section{
 }
 .divCall1 p{
   background-color: #11698e;
+  color: white;
   width: 45%;
   text-align: center;
   font-size: 1.4rem;
@@ -193,7 +209,7 @@ footer{
   margin-top: 5vh;
   height: 30vh;
   display: flex;
-  background-color: rgba(35, 132, 223, 0.74);
+  background-color: rgba(35, 132, 223, 0.644);
 }
 .footerDiv0{
   display: flex;
@@ -221,15 +237,12 @@ footer{
   height: 80%;
   width: 120%;
   border: solid black;
-  border-radius: 30%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color:rgba(81, 70, 228, 0.473);
+  align-items: center;  
 }
 .navFooter div:hover,.footerRedes svg:hover{
-  background-color:white;
-  border-radius: 40%;
+  background-color:#11698e;
 }
 .navFooter p{
   font-size: 150%;
@@ -280,12 +293,27 @@ footer{
   padding: 0.5vh;
   background-color: rgba(35, 132, 223, 0.74);
 }
-/* Itinerarie */
+.cityNotFound{
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 100%;
+}
+.cityNotFound h3{
+  background-color: #3a928485;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Itineraries */
 .sectionItinerary{
   padding: 2vh 0;
 }
-.sectionItinerary div{
-  height: 60vh;
+.itinerarie{
+  margin: 4vh 0;
+  height: 50vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -293,10 +321,46 @@ footer{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 10%;
+  border-radius: 15%;
+
 }
 .sectionItinerary h5{
-  background-color: red;
+  background-color: #039ae5de;
+  height: 5vh;
+  font-size: 2.5vw;
   color: white;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notItineraries{
+  background-size: cover;
+  padding-left: 2vw;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: left!important;
+  align-items: center;
+}
+.notItineraries h3{
+  font-size: 2.5vw;
+}
+.divItinerary{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  padding: 5vh 0;
+}
+.divItinerary button{
+  margin: 0 2vw;
+  color: #039be5;
+}
+
+/* Loader */
+.loader{
+  width: 100%;
+  height: 30vh;
+  display: flex ;
+  justify-content: center;
 }
