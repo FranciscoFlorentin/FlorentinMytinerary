@@ -2,12 +2,9 @@ const City= require("../models/City");
 const cityController ={
     addCity: (req, res)=>{
         const cityAgrabar = new City({
-            // pordria destructurar los datos
-            // const {cityName,cityPic}
             cityName: req.body.cityName,
             cityPic: req.body.cityPic
         })
-        // .save devuelve una promesa
         cityAgrabar.save()
         .then(newCity=> {
             return res.json({sucess:true, response: newCity})

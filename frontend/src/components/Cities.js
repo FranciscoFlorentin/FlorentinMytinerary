@@ -32,8 +32,8 @@ const Cities=()=>{
             <section className="container sectionCities">
                 <input type="text" placeholder="Place a city name" onChange={(e)=>setImputValue(e.target.value)}/> 
                 {/* muestra el loader mientras fetchea la data o muestra las ciudades que coinciden y si no coinciden muetra mensaje */ }   
-                {(loader==true)? <Loader/>
-                :  ((citiesToShow.length!=0) ? citiesToShow.map(city => <City key={city._id} city={city}/>)
+                {(loader===true)? <Loader/>
+                :  ((citiesToShow.length!==0) ? citiesToShow.map(city => <City key={city._id} city={city}/>)
                 :  <CityNotFound /> )}
                
             </section>

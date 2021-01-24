@@ -13,6 +13,8 @@ const Itinerarie = (props) => {
         fetch(`http://localhost:4000/api/itineraries/${propsCityName}`)
         .then(response=>response.json())
         .then(date=>setCity(date.response))
+        .catch(error=>{alert("Id not found: redirecting...")
+        props.history.goBack()})
         window.scrollTo(0, 0)
     }, [])
 
