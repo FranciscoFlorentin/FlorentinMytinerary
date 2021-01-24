@@ -8,7 +8,6 @@ const CallToAction = () => {
             <div>
                 <h2>Don't be a tourist,</h2>
             </div>
-            
             <div>
                 <h2>be a traveler.</h2>
             </div> 
