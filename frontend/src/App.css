@@ -15,16 +15,15 @@ header{
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 20%;
-  align-items: flex-end;
+  align-items: center;
 }
 header h1{
   font-family: 'Lemonada', cursive;
   width: 35%;
-  margin-top: 15vh;
-  margin-right: 10vw;
   text-align: center;
   color: white;
-  background-color: #48afb1cb;
+  background-color: #48afb1af;
+  margin-bottom: 45vh;
 }
 header h1:hover{
   background-color: #48afb1;
@@ -283,11 +282,13 @@ footer{
   border-radius: 15%;
 }
 .city1:hover{
-  padding: 2.5vh 0vw;
+  padding: 3vh 1.5vh;
 }
 .city1 h5{
   color: white;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 10%;
   padding: 0.5vh;
