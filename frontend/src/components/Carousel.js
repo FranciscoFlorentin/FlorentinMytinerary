@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 const slides=[
     [
-        {ciudad:"Santa Fe", dir:"./assets/santa fe.jpg"},
+        {ciudad:"Paris", dir:"./assets/paris.jpg"},
         {ciudad:"Montevideo", dir:"./assets/Montevideo.jpg"},
         {ciudad:"Sao Paulo", dir:"./assets/Sao Paulo.jpg"},
         {ciudad:"Cartagena", dir:"./assets/Cartagena.jpg"}
@@ -34,16 +34,15 @@ const Carousel = () => {
 
                 <div className="car2 ">
                     {slides[indiceActual].map(slider=>{
-                        return <div className="fotos " key={slider.ciudad} 
-                        style={{
-                            width:"25vw",
-                            height:"30vh",
-                            backgroundImage:`url("${slider.dir}")`,
-                            backgroundRepeat:"no-repeat",
-                            backgroundSize:"cover"
-                        }}>
-                            <div className="nombreCiudad">{slider.ciudad}</div>
-                        </div>})}
+                        return (
+                        <>
+                            <div className="fotos1">
+                                <div className="fotos2 " key={slider.ciudad} style={{backgroundImage:`url("${slider.dir}")`}}>
+                                    <div className="nombreCiudad">{slider.ciudad}</div>
+                                </div>
+                            </div>
+                        </>)
+                        })}
                 </div>
 
                 <button onClick={ (indiceActual!==2) ? ( ()=>setIndiceActual(indiceActual+1) )

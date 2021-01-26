@@ -27,7 +27,7 @@ const Itinerarie = (props) => {
                 </div>
                 <NotItineraries/>
                 <div className="divItinerary">
-                    <button onClick={()=>props.history.goBack()} ><ArrowBackIcon /></button>
+                    <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
                     <button ><Link to="/home"><HomeIcon /></Link></button>
                 </div>
             </section>

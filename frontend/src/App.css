@@ -72,19 +72,28 @@ header h1:hover{
   flex-wrap: wrap;
   justify-content: center;
 }
-.fotos:hover{ 
-  background-position: 15%;
- 
-}
-.fotos div:hover{
-  font-size: 1.5vw;
-}
-.fotos{
-  margin: 2vh 2vw;
-  border: solid black;
+.fotos1{
+  width: 30vw;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.fotos2{
+  width: 29vw;
+  height: 34vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+.fotos2:hover{ 
+  width: 29.5vw;
+  height: 34.5vh;
+}
+.fotos2 div:hover{
+  font-size: 1.8vw;
 }
 .nombreCiudad{
   color: white  ;
