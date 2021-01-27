@@ -29,7 +29,9 @@ const itineraryController ={
     },
     deleteItinerary: async (req, res) => {
         const {_id} = req.params;
-        console.log(_id)
+        Itinerary.findOneAndRemove({_id})
+        .then(data=>{return res.json({sucess:true, response:"Itinerary deleted"})})
+        .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     }
 }
 

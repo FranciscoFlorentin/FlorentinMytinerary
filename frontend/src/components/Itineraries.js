@@ -10,11 +10,11 @@ const Itineraries = (props) => {
     const [city,setCity]=useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/itineraries/${propsCityName}`)
+        fetch(`http://localhost:4000/api/cities/${propsCityName}`)
         .then(response=>response.json())
         .then(date=>setCity(date.response))
         .catch(error=>{alert("Id not found: redirecting...")
-        props.history.goBack()})
+            props.history.goBack()})
         window.scrollTo(0, 0)
     }, [])
 

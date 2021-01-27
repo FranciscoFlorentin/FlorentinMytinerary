@@ -10,7 +10,7 @@ router.route("/cities")
 
 //Manejo de 1 ciudad en particular
 
-router.route("/itineraries/:cityName")
+router.route("/cities/:cityName")
     .get(cityController.singleCity)
     .delete(cityController.deleteCity);
 
@@ -20,6 +20,6 @@ router.route("/itineraries")
     .post(itineraryController.addItinerary)
     .get(itineraryController.getAllItineraries)
 
-router.route("/itineraries/:id")
+router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
 module.exports=router

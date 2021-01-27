@@ -12,8 +12,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/cities" component={Cities} />
-          <Route path="/itineraries/:cityName" component={Itineraries} />
+          <Route exact path="/cities" component={Cities} />
+          <Route path="/cities/:cityName" component={Itineraries} />
           <Redirect to="/" />
         </Switch>
         <Footer />
