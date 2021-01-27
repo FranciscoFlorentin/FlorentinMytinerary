@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-const Comment=new mongoose.Schema({
+const commentSchema=new mongoose.Schema({
     userName: {type: String, required:true},
     userPic: {type:String, required: true},
     userComment: {type:String,required: true},
