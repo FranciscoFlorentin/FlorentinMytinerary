@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 import NotItineraries from './NotItineraries';
 import {Link} from "react-router-dom"
 
-const Itinerarie = (props) => {
+const Itineraries = (props) => {
     const propsCityName=props.match.params.cityName;
     const [city,setCity]=useState({});
 
@@ -35,4 +35,4 @@ const Itinerarie = (props) => {
     )
 }
 
-export default Itinerarie;
+export default Itineraries;

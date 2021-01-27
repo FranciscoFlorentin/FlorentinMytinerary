@@ -3,7 +3,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import Cities from "./components/Cities";
-import Itinerary from "./components/Itinerary"
+import Itineraries from "./components/Itineraries"
 import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cities" component={Cities} />
-          <Route path="/itineraries/:cityName" component={Itinerary} />
+          <Route path="/itineraries/:cityName" component={Itineraries} />
           <Redirect to="/" />
         </Switch>
         <Footer />
