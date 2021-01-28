@@ -21,6 +21,7 @@ const Itineraries = (props) => {
 
         window.scrollTo(0, 0)
         props.allItineraries()
+        
     }, [])
     return (
         <>
@@ -28,14 +29,15 @@ const Itineraries = (props) => {
             <section className="container sectionItinerary">
             {props.itineraries ? props.itineraries.map(itinerary=><h5>{itinerary.itineraryName}</h5>) : <h1>loading-...</h1>}
 
-                {/* <div className="itinerarie" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
+                {/* {
+                 <div className="itinerarie" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
                     <h5>{city.cityName}</h5>
-                </div>
-                <NotItineraries/>
-                <div className="divItinerary">
+                </div> */}
+                   <NotItineraries/>
+                {/* <div className="divItinerary">
                     <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
                     <button ><Link to="/home"><HomeIcon /></Link></button>
-                </div> */}
+                </div>  */}
             </section>
         </>
     )

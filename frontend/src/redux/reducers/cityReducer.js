@@ -11,7 +11,7 @@ const cityReducer=(state=inicialState,action)=>{
         case ("FILTERED_CITIES"):
             return{
                 ...state,
-                cities: action.payload
+                filteredCities: action.payload
             }
             break;
             
