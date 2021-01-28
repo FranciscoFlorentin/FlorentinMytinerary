@@ -6,5 +6,5 @@ const commentSchema=new mongoose.Schema({
     userComment: {type:String,required: true},
     idItinerary:{type: mongoose.Schema.ObjectId,ref: "itinerary"}
 })
-const Comment = mongoose.model("comment",CommentSchema);
+const Comment = mongoose.model("comment",commentSchema);
 module.exports = Comment;

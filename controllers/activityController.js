@@ -1,9 +1,8 @@
-const { json } = require("express");
 const Activity = require("../models/Activity")
 const activityController={
        addActivity:(req,res)=>{
-           const {activityName,activityPic,idItinerary}=req.body;
-           const newActivity=new Activity({activityName,activityPic,idItinerary})
+        // Instancio una nueva Activity y le paso los parametros mandados a traves desde (req.body)
+           const newActivity=new Activity(req.body)
            newActivity.save()
            .then(async loadedActivity=> { 
             const populateActivity= await loadedActivity.populate("idItinerary").execPopulate()

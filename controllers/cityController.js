@@ -5,7 +5,6 @@ const cityController ={
             cityName: req.body.cityName,
             cityPic:req.body.cityPic
         })
-        console.log(cityAgrabar)
         cityAgrabar.save()
         .then(newCity=> {
             return res.json({sucess:true, response: `newCity load ${newCity}`})

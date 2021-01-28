@@ -2,14 +2,13 @@ const Comment= require("../models/Comment");
 
 const commentController= {
     addComment:(req,res)=>{
-        const {userName,userPic,userComment,idItinerary}=req.body;
-        const newComment=new Comment({userName,userPic,userComment,idItinerary});
+        const newComment=new Comment(req.body);
         newComment.save()
         .then(async loadedComment=>{
             const populateComment= await loadedComment.populate("idItinerary").execPopulate()
             res.json({sucess:true, response: populateComment})
         })
-        .catch(erro=>{return res.json({sucess:false, response: "Fail to load new Comment"})})
+        .catch(error=>{return res.json({sucess:false, response: "Fail to load new Comment"})})
     },
     getComments:(req,res)=>{
         Comment.find()

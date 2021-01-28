@@ -5,29 +5,29 @@ const cityController=require("../controllers/cityController");
 const itineraryController=require("../controllers/itineraryController");
 const commentController=require("../controllers/commentController");
 
-// Manejo de /cities
+// CITIES
 router.route("/cities")
     .get(cityController.allTheCities)
     .post(cityController.addCity);
-
-//Manejo de 1 ciudad en particular
-
 router.route("/cities/:cityName")
     .get(cityController.singleCity)
     .delete(cityController.deleteCity);
 
-// Manejo de todos los itineraries
+// ITINERARIES
 router.route("/itineraries")
     .post(itineraryController.addItinerary)
     .get(itineraryController.getAllItineraries);
 
 router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
-    
+    .put(itineraryController.editItinerary)
+
+// ACTIVITIES
 router.route("/activities")
     .post(activityController.addActivity)
     .get(activityController.getActivities);
 
+// COMMENTS
 router.route("/comments")
     .post(commentController.addComment)
     .get(commentController.getComments);

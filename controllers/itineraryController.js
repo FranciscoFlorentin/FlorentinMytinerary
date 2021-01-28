@@ -1,37 +1,33 @@
 const Itinerary=require("../models/Itinerary");
 const itineraryController ={
     addItinerary: (req, res)=>{
-        // Destructuro el objeto req.body y instancio newItinerary 
-        const {itineraryName,userName,userPicName,likes,duration,price,hashtag,idCity} = req.body;
-        const newItinerary = new Itinerary({
-            itineraryName,
-            userName,
-            userPicName,
-            likes,
-            duration,
-            price,
-            hashtag,
-            idCity,
-        })
+        const newItinerary = new Itinerary(req.body)
         newItinerary.save()
         .then(async loadedItinerary=> { 
             // Al nuevo itinerary lo asocio con la ciudad a traves del idCity 
-            const populateItinerary= await loadedItinerary.populate("idCity").execPopulate()
-            res.json({sucess:true, respuesta: populateItinerary})
+            const populateItinerary= await loadedItinerary.populate("idCity").execPopulate();
+            res.json({sucess:true, respuesta: populateItinerary});
             })
-        .catch(_error=>{ return res.json({sucess:false, error:"Fail to load new itinerary"})})
-
+        .catch(_error=>{ return res.json({sucess:false, error:"Fail to load new itinerary"})});
     },
     getAllItineraries: (req,res)=>{
-        Itinerary.find()
+        Itinerary.find().populate("idCity")
         .then(data=>{return res.json({sucess:true, response:data})})
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
     deleteItinerary: async (req, res) => {
         const {_id} = req.params;
         Itinerary.findOneAndRemove({_id})
-        .then(data=>{return res.json({sucess:true, response:"Itinerary deleted"})})
+        .then(()=>{return res.json({sucess:true, response:"Itinerary deleted"})})
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
+    },
+    editItinerary: (req,res)=>{
+
+        console.log(req.params)
+        const {id}=req.params;
+        Itinerary.findOneAndUpdate({_id:id},req.body,{new:true})
+        .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
+        .catch(error=>res.json({sucess:false,error}));
     }
 }
 
