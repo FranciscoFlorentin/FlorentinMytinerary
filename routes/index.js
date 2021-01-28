@@ -9,8 +9,8 @@ const commentController=require("../controllers/commentController");
 router.route("/cities")
     .get(cityController.allTheCities)
     .post(cityController.addCity);
-router.route("/cities/:cityName")
-    .get(cityController.singleCity)
+router.route("/cities/:_id")
+    .get(cityController.oneCity)
     .delete(cityController.deleteCity);
 
 // ITINERARIES
