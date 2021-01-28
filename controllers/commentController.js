@@ -11,7 +11,7 @@ const commentController= {
         .catch(error=>{return res.json({sucess:false, response: "Fail to load new Comment"})})
     },
     getComments:(req,res)=>{
-        Comment.find()
+        Comment.find().populate("idItinerary")
         .then(data=>{return res.json({sucess:true, response:data})})
         .catch(error=>{return res.json({sucess:false, response:"Fial to get all comments"})})
     }

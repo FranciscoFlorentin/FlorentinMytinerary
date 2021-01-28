@@ -3,41 +3,46 @@ import City from "./City"
 import NavBar from "./NavBar"
 import CityNotFound from "./CityNotFound";
 import Loader from "./Loader"
+import {connect} from "react-redux";
+import cityActions from "../redux/actions/cityActions";
 
-const Cities=()=>{
+
+const Cities=(props)=>{
 
     const [inputValue,setImputValue]=useState("");
-    const [cities,setCities]=useState([]);
-    const [citiesToShow,setCitiesToShow]=useState([]);
-    const [loader,setLoader]=useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/cities")
-        .then(response=>response.json())
-        .then(data=>{setCities(data.response)
-                    setCitiesToShow(data.response)
-                    setLoader(false)})
+        props.allCities() 
         window.scrollTo(0, 0)
     }, [])
+
+    // useEffect(()=>{
     
-    // Cada vez que actualizo el inputValue modifico el estado del array que voy a mostrar
-    useEffect(()=>{
-        setCitiesToShow(cities.filter( city=> city.cityName.toUpperCase().indexOf(inputValue.toUpperCase().trim())===0))
-    },[inputValue])
+    //    props.cities.filter( city=> city.cityName.toUpperCase().indexOf(inputValue.toUpperCase().trim())===0)
+    // },[inputValue])
     
     
     return (
         <>
             <NavBar />
             <section className="container sectionCities">
-                <input type="text" placeholder="Place a city name" onChange={(e)=>setImputValue(e.target.value)}/> 
-                {/* muestra el loader mientras fetchea la data o muestra las ciudades que coinciden y si no coinciden muetra mensaje */ }   
-                {(loader===true)? <Loader/>
-                :  ((citiesToShow.length!==0) ? citiesToShow.map(city => <City key={city._id} city={city}/>)
-                :  <CityNotFound /> )}
+                {/* <input type="text" placeholder="Place a city name" onChange={(e)=>setImputValue(e.target.value)} />    */}
+                {props.cities ? props.cities.map(city => <City key={city._id} city={city}/>) : <Loader />}
                
             </section>
         </>
     )
 }
-export default Cities;
+
+
+
+const mapStateToProps=state=>{
+    return {
+        cities: state.city.cities
+    }
+}
+const mapDispatchToProps={
+    allCities: cityActions.getCities
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Cities);
