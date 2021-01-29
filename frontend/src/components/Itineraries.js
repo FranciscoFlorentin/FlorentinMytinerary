@@ -27,7 +27,7 @@ const Itineraries = (props) => {
         <>
             <NavBar/>
             <section className="container sectionItinerary">
-            {props.itineraries ? props.itineraries.map(itinerary=><h5>{itinerary.itineraryName}</h5>) : <h1>loading-...</h1>}
+            { props.itineraries.map(itinerary=><h5>{itinerary.itineraryName}</h5>) }
 
                 {/* {
                  <div className="itinerarie" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
