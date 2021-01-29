@@ -17,10 +17,11 @@ router.route("/cities/:_id")
 router.route("/itineraries")
     .post(itineraryController.addItinerary)
     .get(itineraryController.getAllItineraries);
-
 router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
     .put(itineraryController.editItinerary)
+router.route("/itineraries/by_city/:idCity")
+    .get(itineraryController.getItinerariesByCity)
 
 // ACTIVITIES
 router.route("/activities")

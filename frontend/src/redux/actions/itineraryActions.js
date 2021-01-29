@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const itineraryActions ={
-    getItineraries: ()=>{
+    getItineraries: (cityId)=>{
         return async (dispatch,getState)=>{
-            const data= await axios.get("http://localhost:4000/api/itineraries");
-            dispatch({type: "ALL_ITINERARIES",payload: data.data.response});
+            const data= await axios.get(`http://localhost:4000/api/itineraries/${cityId}`);
+            dispatch({type: "ITINERARIES_BY_CITY",payload: data.data.response});
         }
     }
 }

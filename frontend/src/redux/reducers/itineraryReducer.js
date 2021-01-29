@@ -1,11 +1,13 @@
-const inicialState={};
+const inicialState={
+    itinerariesByCity:[]
+};
 
 const itineraryReducer=(state=inicialState,action)=>{
     switch (action.type) {
-        case ("ALL_ITINERARIES"):
+        case ("ITINERARIES_BY_CITY"):
             return{
                 ...state,
-                itineraries: action.payload
+                itinerariesByCity: action.payload
             }
             break;
         default:

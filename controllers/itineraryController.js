@@ -15,6 +15,12 @@ const itineraryController ={
         .then(data=>{return res.json({sucess:true, response:data})})
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
+    getItinerariesByCity:(req,res)=>{
+        
+        Itinerary.find(req.params)
+        .then(data=>{return res.json({sucess:true, response: data})})
+        .catch(error=>{return res.json({sucess:false, response: "Fail to get Itineraries by cityID"})})
+    },
     deleteItinerary: async (req, res) => {
         const {_id} = req.params;
         Itinerary.findOneAndRemove({_id})
@@ -23,6 +29,7 @@ const itineraryController ={
     },
     editItinerary: (req,res)=>{
         // ENCUENTRA Y ACTUALIZA CON LOS PARAMETROS DEL REQ.BODY, IDENTIFICO A QUIEN A TRAVES DEL ID EN REQ.PARAMS
+        console.log(req.body)
         Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
         .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
         .catch(error=>res.json({sucess:false,error}));
