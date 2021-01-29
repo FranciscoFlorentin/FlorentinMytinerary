@@ -19,7 +19,8 @@ const Cities=(props)=>{
             <NavBar />
             <section className="container sectionCities">
                 <input type="text" placeholder="Place a city name" onChange={(e)=>props.filteredCities(e.target.value)} /> 
-                {props.citiesFiltered.map(city => <City key={city._id} city={city}/>)}
+                {!props.citiesFiltered  ?<Loader />: props.citiesFiltered.map(city => <City key={city._id} city={city}/>)
+                 }
             </section>
         </>
     )
