@@ -16,7 +16,6 @@ const itineraryController ={
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
     getItinerariesByCity:(req,res)=>{
-        
         Itinerary.find(req.params)
         .then(data=>{return res.json({sucess:true, response: data})})
         .catch(error=>{return res.json({sucess:false, response: "Fail to get Itineraries by cityID"})})

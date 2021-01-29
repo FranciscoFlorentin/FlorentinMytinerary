@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/cities" component={Cities} />
-          <Route path="/cities/:cityName" component={Itineraries} />
+          <Route path="/cities/:idCity" component={Itineraries} />
           <Redirect to="/" />
         </Switch>
         <Footer />
