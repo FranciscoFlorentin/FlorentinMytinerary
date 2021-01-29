@@ -3,8 +3,8 @@ import cityReducer from "./cityReducer";
 import itineraryReducer from "./itineraryReducer";
 
 const mainReducer=combineReducers({
-    city: cityReducer,
-    itinerary: itineraryReducer
+    cityReducer,
+    itineraryReducer
 })
 
 export default mainReducer;

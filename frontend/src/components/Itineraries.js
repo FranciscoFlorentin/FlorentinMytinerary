@@ -44,7 +44,7 @@ const Itineraries = (props) => {
 }
 const mapStateToProps= (state) =>{
     return{
-        itineraries: state.itinerary.itineraries
+        itineraries: state.itineraryReducer.itineraries
     }
 }
 const mapDispatchToProps={

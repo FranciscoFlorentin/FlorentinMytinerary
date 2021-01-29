@@ -18,11 +18,8 @@ const Cities=(props)=>{
         <>
             <NavBar />
             <section className="container sectionCities">
-                <input type="text" placeholder="Place a city name" onChange={(e)=>props.filteredCities(props.cities,e.target.value)} />  
-                
-                {/* {props.cities ? props.cities.map(city => <City key={city._id} city={city}/>) : <Loader />} */}
-                
-                {props.citiesFiltered && props.citiesFiltered.map(city => <City key={city._id} city={city}/>)}
+                <input type="text" placeholder="Place a city name" onChange={(e)=>props.filteredCities(e.target.value)} /> 
+                {props.citiesFiltered.map(city => <City key={city._id} city={city}/>)}
             </section>
         </>
     )
@@ -30,8 +27,9 @@ const Cities=(props)=>{
 
 const mapStateToProps=state=>{
     return {
-        cities: state.city.cities,
-        citiesFiltered: state.city.filteredCities
+        cities: state.cityReducer.cities,
+        citiesFiltered: state.cityReducer.filteredCities,
+        value: state.cityReducer.value
     }
 }
 const mapDispatchToProps={

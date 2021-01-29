@@ -1,11 +1,16 @@
-const inicialState={};
+const inicialState={
+    cities:[],
+    filteredCities:[],
+    value:""
+};
 
 const cityReducer=(state=inicialState,action)=>{
     switch (action.type) {
         case ("ALL_CITIES"):
             return{
                 ...state,
-                cities: action.payload
+                cities: action.payload,
+                filteredCities: action.payload
             }
             break;
         case ("FILTERED_CITIES"):
