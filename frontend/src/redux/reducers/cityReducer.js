@@ -1,8 +1,7 @@
 const inicialState={
     cities:[],
     city:{},
-    filteredCities:[],
-    value:""
+    filteredCities:[]
 };
 
 const cityReducer=(state=inicialState,action)=>{

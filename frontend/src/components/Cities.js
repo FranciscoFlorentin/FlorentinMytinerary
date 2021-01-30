@@ -12,7 +12,6 @@ const Cities=(props)=>{
         props.allCities()
         window.scrollTo(0, 0)
     }, [])
-
     return (
         <>
             <NavBar />
@@ -28,8 +27,7 @@ const Cities=(props)=>{
 const mapStateToProps=state=>{
     return {
         cities: state.cityReducer.cities,
-        citiesFiltered: state.cityReducer.filteredCities,
-        value: state.cityReducer.value
+        citiesFiltered: state.cityReducer.filteredCities
     }
 }
 const mapDispatchToProps={

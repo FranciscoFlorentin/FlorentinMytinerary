@@ -10,8 +10,7 @@ const cityActions ={
     },
     getOneCity: (cityId)=>{
         return async (dispatch,getState)=>{
-            const data=await axios.get(`http://localhost:4000/api/cities/${cityId}`);
-            dispatch({type:"ONE_CITY",payload: data.data.response})
+            dispatch({type:"ONE_CITY",payload: getState().cityReducer.cities.find(city=>city._id===cityId)})
         }
     },
     getFilteredCities:(inputValue)=>{

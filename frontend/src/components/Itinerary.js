@@ -20,7 +20,12 @@ const Itinerary = (props) => {
                     <div className="itineraryContent3">
                         <div><FavoriteIcon/> {props.itinerary.likes}</div>
                         <div>Duration: {props.itinerary.duration} h</div>
-                        <div>Price: {props.itinerary.price}</div>
+                        <div> {props.itinerary.price===1 ? <MonetizationOnIcon/>
+                            :props.itinerary.price===2 ?<div><MonetizationOnIcon/><MonetizationOnIcon/></div>
+                            :props.itinerary.price===3 ?<div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
+                            :props.itinerary.price===4 ?<div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
+                            :props.itinerary.price===5 && <div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
+                            }</div>
                     </div>
                 </div>  
             </div>

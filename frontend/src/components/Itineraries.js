@@ -11,13 +11,15 @@ import cityActions from "../redux/actions/cityActions";
 
 const Itineraries = (props) => {
 
-    useEffect(() => {
+    useEffect(() => {   
         props.getOneCity(props.match.params.idCity)
         props.getItinerariesByCityId(props.match.params.idCity)
         window.scrollTo(0, 0)
     }, [])
+
     return (
         <>
+
             <NavBar/>
             <section className="">
                 <div className="cityTitle"><h3>{props.city.cityName}</h3></div>
