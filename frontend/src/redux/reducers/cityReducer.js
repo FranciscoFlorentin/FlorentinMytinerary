@@ -1,4 +1,4 @@
-const initialState={
+const inicialState={
     cities:[],
     city:{},
     filteredCities:[],
