@@ -338,7 +338,7 @@ footer{
   background-image:linear-gradient(#50b2b4b6,rgba(0, 0, 255, 0.336));
   height: 40vh;
   margin: 2vh 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "lemonade", "cursive";
 }
 
 .itineraryContent{
@@ -365,7 +365,6 @@ footer{
 }
 .itineraryUserName{
   font-size: 1.8vw;
-  font-family: serif;
   width: 100%;
   height: 20%;
   display: flex;
@@ -378,9 +377,10 @@ footer{
 }
 .itineraryName{
   text-align: center;
+  text-shadow: 0.5px 0.5px black;
 }
 .itineraryName h4{
-  font-size: 2.5vw;
+  font-size: 3vw;
 }
 .itineraryHashtag{
   width: 100%;
@@ -389,8 +389,11 @@ footer{
 .itineraryHashtag h6{
   display: inline-flex;
   padding: 0 0.5vw;
+  font-size: 1.5vw;
+  color: blue;
 }
 .itineraryContent3{
+  font-family: 'Lemonada', 'cursive';
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -401,10 +404,33 @@ footer{
   align-items: center;
   justify-content:center;
 }
+.likeIcon{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.likeIcon span { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.likeIcon svg{
+  height: 4vh;
+  color: rgba(255, 0, 0, 0.712);
+}
+.priceIcon div{
+  display: flex;
+  justify-content: center;
+}
+.priceIcon svg{
+  height: 5vh;
+  width: 3vw;
+  color: green;
+  border: solid black;
+  border-radius: 50%;
+  border-color: green;
+  margin-right: 0.5vw;
 
-.itineraryContent3 svg{
-  color: red;
-  height: 3vh;
 }
 
 .itineraryButtons{
@@ -420,7 +446,9 @@ footer{
 /* Loader */
 .loader{
   width: 100%;
+  min-height: 60vh;
   height: 30vh;
   display: flex ;
   justify-content: center;
+  align-items: center;
 }

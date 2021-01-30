@@ -8,14 +8,19 @@ import Itinerary from "./Itinerary";
 import {connect} from "react-redux";
 import itineraryActions from "../redux/actions/itineraryActions";
 import cityActions from "../redux/actions/cityActions";
+import Loader from "./Loader"
 
 const Itineraries = (props) => {
 
-    useEffect(() => {   
-        props.getOneCity(props.match.params.idCity)
+    useEffect(() => {
+        if(props.cities.length===0){props.getCities()}
         props.getItinerariesByCityId(props.match.params.idCity)
         window.scrollTo(0, 0)
+        
     }, [])
+
+    props.getOneCity(props.match.params.idCity)
+    if(!props.city){return <Loader/> }
 
     return (
         <>
@@ -39,11 +44,13 @@ const Itineraries = (props) => {
 }
 const mapStateToProps= (state) =>{
     return{
+        cities: state.cityReducer.cities,
         city: state.cityReducer.city,
         itinerariesByCity: state.itineraryReducer.itinerariesByCity
     }
 }
 const mapDispatchToProps={
+    getCities: cityActions.getCities,
     getItinerariesByCityId: itineraryActions.getItinerariesByCityId,
     getOneCity: cityActions.getOneCity
 }

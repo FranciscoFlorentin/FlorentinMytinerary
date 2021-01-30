@@ -1,9 +1,9 @@
 import React from 'react'
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const Itinerary = (props) => {
-    
+
     return (
         <>  
             <div className="itinerary">
@@ -18,13 +18,13 @@ const Itinerary = (props) => {
                         <button>View More</button>
                         </div>
                     <div className="itineraryContent3">
-                        <div><FavoriteIcon/> {props.itinerary.likes}</div>
-                        <div>Duration: {props.itinerary.duration} h</div>
-                        <div> {props.itinerary.price===1 ? <MonetizationOnIcon/>
-                            :props.itinerary.price===2 ?<div><MonetizationOnIcon/><MonetizationOnIcon/></div>
-                            :props.itinerary.price===3 ?<div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
-                            :props.itinerary.price===4 ?<div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
-                            :props.itinerary.price===5 && <div><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/><MonetizationOnIcon/></div>
+                        <div className="likeIcon"><span><FavoriteIcon/></span> <p>{props.itinerary.likes}</p></div>
+                        <div>Duration: {props.itinerary.duration} h.</div>
+                        <div className="priceIcon"> {props.itinerary.price===1 ? <AttachMoneyIcon/>
+                            :props.itinerary.price===2 ?<div><AttachMoneyIcon/><AttachMoneyIcon/></div>
+                            :props.itinerary.price===3 ?<div><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/></div>
+                            :props.itinerary.price===4 ?<div><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/></div>
+                            :props.itinerary.price===5 && <div><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/><AttachMoneyIcon/></div>
                             }</div>
                     </div>
                 </div>  

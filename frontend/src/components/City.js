@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 export default class City extends Component {
     componentWillUnmount(){
-        console.log(this.props)
+        this.props={}
     }
     render() {
         return (
