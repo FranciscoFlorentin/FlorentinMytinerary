@@ -1,11 +1,10 @@
-import { useState,useEffect } from "react"
-import City from "./City"
-import NavBar from "./NavBar"
+import { useEffect } from "react";
+import City from "./City";
+import NavBar from "./NavBar";
 import CityNotFound from "./CityNotFound";
-import Loader from "./Loader"
+import Loader from "./Loader";
 import {connect} from "react-redux";
 import cityActions from "../redux/actions/cityActions";
-
 
 const Cities=(props)=>{
 

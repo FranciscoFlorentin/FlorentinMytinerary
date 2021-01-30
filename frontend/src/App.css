@@ -318,51 +318,100 @@ footer{
   align-items: center;
 }
 /* Itineraries */
-.sectionItinerary{
-  padding: 2vh 0;
+.itineraryCity{
+  height: 45vh;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.itinerarie{
-  margin: 4vh 0;
-  height: 50vh;
-  width: 100%;
+.cityTitle{
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
+  font-family: 'Lemonada', cursive;
+  background-color: #039ae5ee;
+}
+.itinerary{
+  background-image:linear-gradient(#50b2b4b6,rgba(0, 0, 255, 0.336));
+  height: 40vh;
+  margin: 2vh 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.itineraryContent{
+  height: 100%;
+  display: flex;
+}
+.itineraryContent1,.itineraryContent2,.itineraryContent3{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.itineraryContent2{
+  width: 40%;
+}
+.itineraryUserImg{
+  border-radius: 60%;
+  width: 60%;
+  height: 60%;
   background-size: cover;
-  background-position: 10%;
-  border-radius: 15%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.itineraryUserName{
+  font-size: 1.8vw;
+  font-family: serif;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
-.sectionItinerary h5{
-  background-color: #039ae5de;
-  height: 5vh;
-  font-size: 2.5vw;
-  color: white;
-  width: 100%;
+.itineraryContent2{
+  justify-content: space-evenly;
+}
+.itineraryName{
+  display: block;
+}
+.itineraryName h4{
+  font-size: 2.2vw;
+}
+
+.itineraryHashtag{
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-evenly;
   align-items: center;
 }
-.notItineraries{
-  background-size: cover;
-  padding-left: 2vw;
-  width: 100%;
-  height: 40vh;
+.itineraryContent3{
   display: flex;
-  justify-content: left!important;
+  justify-content: space-evenly;
   align-items: center;
 }
-.notItineraries h3{
-  font-size: 2.5vw;
+.itineraryContent3 div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
-.divItinerary{
-  height: 20vh;
+
+.itineraryContent3 svg{
+  color: red;
+  height: 3vh;
+}
+
+.itineraryButtons{
   display: flex;
   justify-content: center;
-  padding: 5vh 0;
 }
-.divItinerary button{
+.itineraryButtons button{
+  
   margin: 0 2vw;
   color: #039be5;
 }

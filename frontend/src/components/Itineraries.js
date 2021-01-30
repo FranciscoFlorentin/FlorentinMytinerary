@@ -7,40 +7,43 @@ import {Link} from "react-router-dom";
 import Itinerary from "./Itinerary";
 import {connect} from "react-redux";
 import itineraryActions from "../redux/actions/itineraryActions";
+import cityActions from "../redux/actions/cityActions";
 
 const Itineraries = (props) => {
 
     useEffect(() => {
-        console.log(props.match.params)
+        props.getOneCity(props.match.params.idCity)
         props.getItinerariesByCityId(props.match.params.idCity)
         window.scrollTo(0, 0)
-        
     }, [])
     return (
         <>
             <NavBar/>
-            <section className="container sectionItinerary">
-                {/* { <div className="itinerarie" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
-                    <h5>{city.cityName}</h5>
-                </div> */}
-                {console.log(props.itinerariesByCity)}
-                {!props.itinerariesByCity ? <h1>cargando...</h1> : props.itinerariesByCity.map(itinerary=><Itinerary key={itinerary._id} itinerary={itinerary} />)}
+            <section className="">
+                <div className="cityTitle"><h3>{props.city.cityName}</h3></div>
+                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${props.city.cityPic}")`}}></div> 
+                <div className="container">
+                    {!props.itinerariesByCity ? <h1>cargando...</h1> 
+                    : props.itinerariesByCity.map(itinerary=><Itinerary key={itinerary._id} itinerary={itinerary} />)}
+                    <div className="itineraryButtons">
+                        <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
+                        <button ><Link to="/home"><HomeIcon /></Link></button>
+                    </div> 
+                </div>
                 {/* <NotItineraries/> */}
-                <div className="divItinerary">
-                    <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
-                    <button ><Link to="/home"><HomeIcon /></Link></button>
-                </div> 
             </section>
         </>
     )
 }
 const mapStateToProps= (state) =>{
     return{
+        city: state.cityReducer.city,
         itinerariesByCity: state.itineraryReducer.itinerariesByCity
     }
 }
 const mapDispatchToProps={
-    getItinerariesByCityId: itineraryActions.getItinerariesByCityId
+    getItinerariesByCityId: itineraryActions.getItinerariesByCityId,
+    getOneCity: cityActions.getOneCity
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itineraries);

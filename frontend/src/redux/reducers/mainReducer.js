@@ -3,7 +3,7 @@ import cityReducer from "./cityReducer";
 import itineraryReducer from "./itineraryReducer";
 
 const mainReducer=combineReducers({
-    cityReducer,
+    cityReducer ,
     itineraryReducer
 })
 
