@@ -9,14 +9,15 @@ import cityActions from "../redux/actions/cityActions";
 const Cities=(props)=>{
 
     useEffect(() => {
+        if(props.citiesFiltered){props.filterCities("")}
         if(props.cities.length===0){props.allCities()}
         window.scrollTo(0, 0)
     }, [])
 
     if(props.cities.length===0){
         return (<>
-                <NavBar/>
-                <Loader/>
+                  <NavBar/>
+                  <Loader/>
                 </>)
     }
 
@@ -24,7 +25,7 @@ const Cities=(props)=>{
         <>
             <NavBar />
             <section className="container sectionCities">
-                <input type="text" placeholder="Place a city name" onChange={(e)=>props.filteredCities(e.target.value)} /> 
+                <input type="text" placeholder="Place a city name" onChange={(e)=>props.filterCities(e.target.value)} /> 
                 {props.citiesFiltered.length===0 ?<CityNotFound />: props.citiesFiltered.map(city => <City key={city._id} city={city}/>)}
             </section>
         </>
@@ -39,7 +40,7 @@ const mapStateToProps=state=>{
 }
 const mapDispatchToProps={
     allCities: cityActions.getCities,
-    filteredCities: cityActions.getFilteredCities
+    filterCities: cityActions.getFilterCities
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Cities);

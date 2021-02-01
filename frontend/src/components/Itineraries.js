@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect} from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HomeIcon from '@material-ui/icons/Home';
 import NavBar from "./NavBar";
@@ -16,28 +16,32 @@ const Itineraries = (props) => {
         if(props.cities.length===0){props.getCities()}
         props.getItinerariesByCityId(props.match.params.idCity)
         window.scrollTo(0, 0)
-        
     }, [])
-
     props.getOneCity(props.match.params.idCity)
     if(!props.city){return <Loader/> }
-
+    
     return (
         <>
 
             <NavBar/>
             <section className="">
-                <div className="cityTitle"><h3>{props.city.cityName}</h3></div>
-                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${props.city.cityPic}")`}}></div> 
+                
+                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${props.city.cityPic}")`}}>
+                    <div className="cityTitle"><h3>{props.city.cityName}</h3></div>
+                </div> 
                 <div className="container">
-                    {!props.itinerariesByCity ? <h1>cargando...</h1> 
-                    : props.itinerariesByCity.map(itinerary=><Itinerary key={itinerary._id} itinerary={itinerary} />)}
+
+                    {(props.itinerariesByCity.length===0) && <NotItineraries/>}
+                    
+                    {props.itinerariesByCity.map(itinerary=>
+                        <Itinerary key={itinerary._id} itinerary={itinerary}/>
+                    )}
+                    
                     <div className="itineraryButtons">
                         <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
                         <button ><Link to="/home"><HomeIcon /></Link></button>
                     </div> 
                 </div>
-                {/* <NotItineraries/> */}
             </section>
         </>
     )
@@ -52,7 +56,8 @@ const mapStateToProps= (state) =>{
 const mapDispatchToProps={
     getCities: cityActions.getCities,
     getItinerariesByCityId: itineraryActions.getItinerariesByCityId,
-    getOneCity: cityActions.getOneCity
+    getOneCity: cityActions.getOneCity,
+    cleanCity: cityActions.cleanCity
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itineraries);

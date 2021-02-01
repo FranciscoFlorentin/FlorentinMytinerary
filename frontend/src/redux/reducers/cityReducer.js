@@ -17,16 +17,21 @@ const cityReducer=(state=inicialState,action)=>{
         case ("ONE_CITY"):
             return{
                 ...state,
-                city: action.payload
+                city: state.cities.find(city=>city._id===action.payload),
             }
             break;
 
         case ("FILTERED_CITIES"):
             return{
                 ...state,
-                filteredCities: action.payload
+                filteredCities: state.cities.filter(
+                    city=> city.cityName.toUpperCase().indexOf(action.payload.toUpperCase().trim())===0)
             }
             break;
+        case("CLEAN_CITY"):
+            return{
+                city:{}
+            }
         default:
             return state;
     }

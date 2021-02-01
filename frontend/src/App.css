@@ -4,7 +4,12 @@ html *{
   box-sizing: border-box;
 }
 body{
-  background-color: rgba(245, 243, 215, 0.700);
+  background-color: rgba(117, 134, 226, 0.308);
+}
+section input{
+  color: white;
+  background-color: #5285bc!important;
+  
 }
 /* HEADER */
 header{
@@ -110,12 +115,17 @@ header h1:hover{
 .MuiSvgIcon-root{
   font-size: 3rem!important;
 }
+.footerRedes .MuiSvgIcon-root{
+  
+  color: white;
+}
 
 /* Section */
 section{
   min-height: 90vh;
   background-image: radial-gradient(#f8f1f1);
   font-family: 'Fraunces', serif;
+  
 }
 .logoYtitulo{
   width: 50%;
@@ -215,14 +225,13 @@ section{
 /* Footer */
 footer{
   margin-top: 5vh;
-  height: 30vh;
   display: flex;
   background-color: rgba(35, 132, 223, 0.644);
 }
 .footerDiv0{
   display: flex;
   justify-content: space-around;
-  height: 25vh;
+  height: 20vh;
   padding: 2vh 0;
 }
 .footerDiv1{
@@ -242,9 +251,10 @@ footer{
   width: 18vw;
 }
 .navFooter div{
+  color: white;
   height: 80%;
   width: 120%;
-  border: solid black;
+  text-decoration: underline;
   display: flex;
   justify-content: center;
   align-items: center;  
@@ -311,34 +321,44 @@ footer{
   width: 100%;
 }
 .cityNotFound h3{
-  background-color: #3a928485;
-  height: 7vh;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 /* Itineraries */
 .itineraryCity{
-  height: 45vh;
-  background-position: center;
+  height: 55vh;
+  margin-bottom: 5vh;
+  background-position-y: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .cityTitle{
-  color: white;
+  color: black;
+  text-shadow: black 1px 1px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Lemonada', cursive;
-  background-color: #039ae5ee;
+  background-color: #05bac0ea;
+  padding: 1vh 0; 
+}
+.cityTitle h3{
+  color: white;
+  margin: 0;
+  font-size: 4vw;
 }
 .itinerary{
   background-image:linear-gradient(#50b2b4b6,rgba(0, 0, 255, 0.336));
-  height: 40vh;
-  margin: 2vh 0;
+  height: 40vh; 
+  border-top-left-radius: 10%;
   font-family: "lemonade", "cursive";
+  background-size: cover;  background-size: cover;
+  
 }
 
 .itineraryContent{
@@ -351,6 +371,7 @@ footer{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 2vh;
 }
 .itineraryContent2{
   width: 40%;
@@ -364,7 +385,8 @@ footer{
   background-repeat: no-repeat;
 }
 .itineraryUserName{
-  font-size: 1.8vw;
+  font-size: 2vw;
+  text-shadow: black 0.4px 0.4px;
   width: 100%;
   height: 20%;
   display: flex;
@@ -378,13 +400,20 @@ footer{
 .itineraryName{
   text-align: center;
   text-shadow: 0.5px 0.5px black;
+  height: 45%;
 }
 .itineraryName h4{
-  font-size: 3vw;
+  font-size: 3.5vw;
+  height: 100%;
 }
 .itineraryHashtag{
+  height: 45%;
   width: 100%;
   text-align: center;
+  padding-top: 1vh  ;
+}
+.viewMoreLess{
+  height: 10%;
 }
 .itineraryHashtag h6{
   display: inline-flex;
@@ -394,6 +423,7 @@ footer{
 }
 .itineraryContent3{
   font-family: 'Lemonada', 'cursive';
+  text-shadow: black 0.3px 0.3px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -423,12 +453,13 @@ footer{
   justify-content: center;
 }
 .priceIcon svg{
+  background-color: rgb(214, 218, 214);
   height: 5vh;
   width: 3vw;
-  color: green;
+  color: rgba(0, 128, 0, 0.692);
   border: solid black;
   border-radius: 50%;
-  border-color: green;
+  border-color: rgba(0, 128, 0, 0.733);
   margin-right: 0.5vw;
 
 }
@@ -438,9 +469,59 @@ footer{
   justify-content: center;
 }
 .itineraryButtons button{
+  margin: 2vh 2vw;
+}
+
+.notItineraries{
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 45vh;
+  background-position-x: 70%;
+  display: flex;
+  align-items: center;
+  padding-left: 6vw;
+  margin-bottom: 5vh;
+}
+.notItineraries h3{
+  font-size: 3.5vw;
+  font-family: "lemonade", "cursive";
+  text-shadow: black 0.5px 0.5px;
+}
+.itineraryShowHide{
   
-  margin: 0 2vw;
-  color: #039be5;
+  border-bottom-right-radius: 10%;
+  margin-bottom: 2vh;
+  background-image:linear-gradient(rgba(0, 0, 255, 0.336),#50b2b4b6);
+}
+.itineraryShowHide button,.itinerary button{
+  background-color: #347ab6;
+  color: white;
+  font-size: 1vw;
+  height: 4vh;
+  width: 6vw;
+}
+
+/* ACTIVITIES */
+.activities{
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+.activity{
+  width:33%;
+  padding: 1vh 1vw;
+}
+.activityImg{
+  height: 85%;
+  width: 100%;
+  background-size: cover; 
+}
+.activityName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Loader */

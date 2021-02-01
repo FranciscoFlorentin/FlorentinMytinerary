@@ -27,8 +27,6 @@ const itineraryController ={
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
     editItinerary: (req,res)=>{
-        // ENCUENTRA Y ACTUALIZA CON LOS PARAMETROS DEL REQ.BODY, IDENTIFICO A QUIEN A TRAVES DEL ID EN REQ.PARAMS
-        console.log(req.body)
         Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
         .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
         .catch(error=>res.json({sucess:false,error}));

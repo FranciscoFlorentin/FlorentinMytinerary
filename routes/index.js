@@ -19,15 +19,16 @@ router.route("/itineraries")
     .get(itineraryController.getAllItineraries);
 router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
-    .put(itineraryController.editItinerary)
+    .put(itineraryController.editItinerary);
 router.route("/itineraries/by_city/:idCity")
-    .get(itineraryController.getItinerariesByCity)
+    .get(itineraryController.getItinerariesByCity);
 
 // ACTIVITIES
 router.route("/activities")
     .post(activityController.addActivity)
     .get(activityController.getActivities);
-
+router.route("/activities/:idItinerary")
+    .get(activityController.getActivitiesByIdItinerary);
 // COMMENTS
 router.route("/comments")
     .post(commentController.addComment)
