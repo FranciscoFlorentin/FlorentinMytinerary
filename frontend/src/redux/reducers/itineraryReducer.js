@@ -5,9 +5,11 @@ const initial={
 const itineraryReducer=(state=initial,action)=>{
     switch (action.type) {
         case ("ITINERARIES_BY_CITY"):
-            return{
+        console.log(action.payload)    
+        return{
                 ...state,
                 itinerariesByCity: action.payload
+                
             }
             break;
 

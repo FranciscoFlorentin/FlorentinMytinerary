@@ -5,6 +5,7 @@ const initial={
 const activityReducer=(state=initial,action)=>{
     switch (action.type) {
         case ("ACTIVITIES_BY_ITINERARY"):
+            console.log(action.payload)
             return{
                 ...state,
                 activitiesByItinerary: action.payload

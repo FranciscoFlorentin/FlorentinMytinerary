@@ -14,10 +14,12 @@ const Itineraries = (props) => {
 
     useEffect(() => {
         if(props.cities.length===0){props.getCities()}
-        props.getItinerariesByCityId(props.match.params.idCity)
         window.scrollTo(0, 0)
+        props.getItinerariesByCityId(props.match.params.idCity)
+        props.getOneCity(props.match.params.idCity)
     }, [])
-    props.getOneCity(props.match.params.idCity)
+    // console.log(props.match.params.idCity)
+    
     if(!props.city){return <Loader/> }
     
     return (

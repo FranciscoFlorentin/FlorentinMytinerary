@@ -15,6 +15,7 @@ const cityReducer=(state=inicialState,action)=>{
             break;
 
         case ("ONE_CITY"):
+            console.log(state)
             return{
                 ...state,
                 city: state.cities.find(city=>city._id===action.payload),

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 const cityActions ={
 
@@ -6,7 +7,11 @@ const cityActions ={
         return async (dispatch,getState)=>{
             axios.get("http://localhost:4000/api/cities")
             .then(data=>dispatch({type: "ALL_CITIES",payload: data.data.response}))
-            .catch(error=>alert(error))
+            .catch(error=>Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error
+              }))
         }
     },
     getOneCity: (cityId)=>{
