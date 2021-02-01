@@ -15,7 +15,6 @@ const cityReducer=(state=inicialState,action)=>{
             break;
 
         case ("ONE_CITY"):
-            console.log(state)
             return{
                 ...state,
                 city: state.cities.find(city=>city._id===action.payload),
@@ -29,10 +28,7 @@ const cityReducer=(state=inicialState,action)=>{
                     city=> city.cityName.toUpperCase().indexOf(action.payload.toUpperCase().trim())===0)
             }
             break;
-        case("CLEAN_CITY"):
-            return{
-                city:{}
-            }
+
         default:
             return state;
     }

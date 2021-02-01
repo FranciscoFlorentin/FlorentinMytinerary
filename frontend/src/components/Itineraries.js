@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HomeIcon from '@material-ui/icons/Home';
 import NavBar from "./NavBar";
@@ -10,21 +10,23 @@ import itineraryActions from "../redux/actions/itineraryActions";
 import cityActions from "../redux/actions/cityActions";
 import Loader from "./Loader"
 
+
 const Itineraries = (props) => {
 
     useEffect(() => {
         if(props.cities.length===0){props.getCities()}
         window.scrollTo(0, 0)
         props.getItinerariesByCityId(props.match.params.idCity)
-        props.getOneCity(props.match.params.idCity)
     }, [])
-    // console.log(props.match.params.idCity)
+    
+    useEffect(() => {
+        props.getOneCity(props.match.params.idCity)
+    }, [props.cities])
     
     if(!props.city){return <Loader/> }
-    
+
     return (
         <>
-
             <NavBar/>
             <section className="">
                 
@@ -36,9 +38,9 @@ const Itineraries = (props) => {
                     {(props.itinerariesByCity.length===0) && <NotItineraries/>}
                     
                     {props.itinerariesByCity.map(itinerary=>
-                        <Itinerary key={itinerary._id} itinerary={itinerary}/>
+                        <Itinerary key={itinerary._id} itinerary={itinerary} />
                     )}
-                    
+
                     <div className="itineraryButtons">
                         <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
                         <button ><Link to="/home"><HomeIcon /></Link></button>
@@ -52,14 +54,13 @@ const mapStateToProps= (state) =>{
     return{
         cities: state.cityReducer.cities,
         city: state.cityReducer.city,
-        itinerariesByCity: state.itineraryReducer.itinerariesByCity
+        itinerariesByCity: state.itineraryReducer.itinerariesByCity 
     }
 }
 const mapDispatchToProps={
     getCities: cityActions.getCities,
     getItinerariesByCityId: itineraryActions.getItinerariesByCityId,
-    getOneCity: cityActions.getOneCity,
-    cleanCity: cityActions.cleanCity
+    getOneCity: cityActions.getOneCity
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itineraries);

@@ -1,18 +1,13 @@
 import React from 'react';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import {useState,useEffect} from "react";
+import {useState} from "react";
 import Activities from './Activities';
-import {connect} from "react-redux";
-import activityActions from '../redux/actions/activityActions';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const Itinerary = (props) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
-    useEffect(() => {
-        props.getActivitiesByIdItinerary(props.itinerary._id)
-    }, [])
-
+    
     return (
         <>  
             
@@ -36,21 +31,19 @@ const Itinerary = (props) => {
                     </div>
                 </div>  
             </div>
+            
             <div className="itineraryShowHide">
-                {viewMoreLess===true && <Activities activitiesByItinerary={props.activitiesByItinerary}/> }
-                <div className="itineraryButtons">{viewMoreLess===true && <button onClick={()=>setViewMoreLess(!viewMoreLess)} >View Less</button> }</div>
+               {(viewMoreLess===true) &&<Activities activities={props.itinerary.activities}/> }
+                    {viewMoreLess===true && <div className="comment"> <input type="text " disabled="true" placeholder="You must login to comment"/></div>}    
+                <div className="itineraryButtons">
+                    {viewMoreLess===true && <button onClick={()=>setViewMoreLess(!viewMoreLess)}
+                     >View Less</button> }
+                </div>
             </div>
             
         </>
     )
 }
-const mapStateToProps=(state)=>{
-    return{
-        activitiesByItinerary: state.activityReducer.activitiesByItinerary
-    }
-}
-const mapDispatchToProps={
-    getActivitiesByIdItinerary: activityActions.getActivitiesByIdItinerary
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Itinerary);
+
+export default Itinerary;

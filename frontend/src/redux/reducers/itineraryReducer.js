@@ -5,7 +5,6 @@ const initial={
 const itineraryReducer=(state=initial,action)=>{
     switch (action.type) {
         case ("ITINERARIES_BY_CITY"):
-        console.log(action.payload)    
         return{
                 ...state,
                 itinerariesByCity: action.payload

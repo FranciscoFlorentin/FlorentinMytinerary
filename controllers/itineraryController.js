@@ -4,10 +4,8 @@ const itineraryController ={
         const newItinerary = new Itinerary(req.body)
         newItinerary.save()
         .then(async loadedItinerary=> { 
-            // Al nuevo itinerary lo asocio con la ciudad a traves del idCity 
             const populateItinerary= await loadedItinerary.populate("idCity").execPopulate();
-            res.json({sucess:true, respuesta: populateItinerary});
-            })
+            res.json({sucess:true, respuesta: populateItinerary});})
         .catch(_error=>{ return res.json({sucess:false, error:"Fail to load new itinerary"})});
     },
     getAllItineraries: (req,res)=>{

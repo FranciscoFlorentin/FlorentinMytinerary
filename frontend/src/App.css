@@ -357,7 +357,7 @@ footer{
   height: 40vh; 
   border-top-left-radius: 10%;
   font-family: "lemonade", "cursive";
-  background-size: cover;  background-size: cover;
+  background-size: cover;  
   
 }
 
@@ -505,25 +505,45 @@ footer{
 /* ACTIVITIES */
 .activities{
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: left;
+  overflow-x: auto;
+  padding:0  2vw;
 }
 .activity{
-  width:33%;
   padding: 1vh 1vw;
 }
 .activityImg{
-  height: 85%;
   width: 100%;
-  background-size: cover; 
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
 }
 .activityName{
+  color: black;
+  width: 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #e6d474;
 }
-
+.comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.comment input{
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #183e614f!important;
+  width: 80%;
+  border-radius: 5%;
+  text-align: center;
+}
 /* Loader */
 .loader{
   width: 100%;

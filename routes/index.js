@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const activityController = require("../controllers/activityController");
 const cityController=require("../controllers/cityController");
 const itineraryController=require("../controllers/itineraryController");
-const commentController=require("../controllers/commentController");
 
 // CITIES
 router.route("/cities")
@@ -23,15 +21,4 @@ router.route("/itineraries/:_id")
 router.route("/itineraries/by_city/:idCity")
     .get(itineraryController.getItinerariesByCity);
 
-// ACTIVITIES
-router.route("/activities")
-    .post(activityController.addActivity)
-    .get(activityController.getActivities);
-router.route("/activities/:idItinerary")
-    .get(activityController.getActivitiesByIdItinerary);
-// COMMENTS
-router.route("/comments")
-    .post(commentController.addComment)
-    .get(commentController.getComments);
-    
 module.exports=router
