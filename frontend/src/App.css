@@ -553,3 +553,31 @@ footer{
   justify-content: center;
   align-items: center;
 }
+/* Admin */
+.admin{
+  height: 100vh;
+  border: solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.adminCity, .adminItinerary{
+  border: solid #11698e;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+.admin .formAddCity,.formAddItinerary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.admin .formAddCity input,.formAddItinerary input{
+  text-align: center;
+  color: white;
+  background-color: rgb(88, 122, 231)!important;
+  align-self: center;
+  width: 30%!important;
+  border: solid black!important;
+}

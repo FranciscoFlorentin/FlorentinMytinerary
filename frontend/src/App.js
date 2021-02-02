@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import Cities from "./components/Cities";
 import Itineraries from "./components/Itineraries"
 import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
+import Admin from './components/Admin';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/cities" component={Cities} />
           <Route path="/cities/:idCity" component={Itineraries} />
+          <Route path="/admin" component={Admin} />
           <Redirect to="/" />
         </Switch>
         <Footer />

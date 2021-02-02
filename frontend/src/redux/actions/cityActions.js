@@ -21,6 +21,17 @@ const cityActions ={
     },
     getFilterCities:(inputValue)=>{
         return async (dispatch,getState)=>dispatch({type: "FILTERED_CITIES", payload:inputValue})
+    },
+    addCity: (newCity)=>{
+        return async(dispatch,getState)=>{
+            axios.post("http://localhost:4000/api/cities",newCity)
+            .then(data=>dispatch({type:"ADD_CITY",payload: data.data.sucess}))
+            .catch(error=>Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error
+              }))
+        }
     }
 }
 export default cityActions;
