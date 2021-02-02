@@ -14,11 +14,6 @@ const cityActions ={
               }))
         }
     },
-    getOneCity: (cityId)=>{
-        return async (dispatch,getState)=>{
-            dispatch({type:"ONE_CITY",payload: cityId})
-        }
-    },
     getFilterCities:(inputValue)=>{
         return async (dispatch,getState)=>dispatch({type: "FILTERED_CITIES", payload:inputValue})
     },

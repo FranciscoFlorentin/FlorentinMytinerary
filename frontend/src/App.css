@@ -41,12 +41,45 @@ header h1:hover{
   align-items: center;
   padding: 3vh 6vw;
 }
+.divHeader div{
+  width: 100%;
+  height: 12vh;
+}
+.headerUserPic{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .fotoUsuario{
+  height: 90%;
   width: 5vw;
+}
+.logInOut{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logInOut h6{
+  padding-left: 2vw;
+}
+.sectionLogInOut{
+  display: flex;
+  justify-content: center;
+}
+.logIn{
+  width: 25vw;
+  border: solid blue;
+}
+.logIn div{
+  display: flex;
+}
+.logIn2 {
+  width: 35vw;
+  border: solid red;
+  background-size: contain;
 }
 /* Nav */
 #nav1{
-  width: 20vw;
   background-color: rgba(35, 132, 223, 0.74);
 }
 #nav1 ul{

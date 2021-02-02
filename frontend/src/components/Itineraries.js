@@ -11,33 +11,34 @@ import cityActions from "../redux/actions/cityActions";
 import Loader from "./Loader"
 
 
-const Itineraries = (props) => {
+const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,match:{params:{idCity}}}) => {
+    const [city,setCity]=useState({});
 
     useEffect(() => {
-        if(props.cities.length===0){props.getCities()}
+        if(cities.length===0){getCities()}
         window.scrollTo(0, 0)
-        props.getItinerariesByCityId(props.match.params.idCity)
+        getItinerariesByCityId(idCity)
     }, [])
     
     useEffect(() => {
-        props.getOneCity(props.match.params.idCity)
-    }, [props.cities])
+        setCity(cities.find(city=>city._id===idCity))
+    }, [cities])
     
-    if(!props.city){return <Loader/> }
+    if(!city){return <Loader/> }
 
     return (
         <>
             <NavBar/>
             <section className="">
                 
-                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${props.city.cityPic}")`}}>
-                    <div className="cityTitle"><h3>{props.city.cityName}</h3></div>
+                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
+                    <div className="cityTitle"><h3>{city.cityName}</h3></div>
                 </div> 
                 <div className="container">
 
-                    {(props.itinerariesByCity.length===0) && <NotItineraries/>}
+                    {(itinerariesByCity.length===0) && <NotItineraries/>}
                     
-                    {props.itinerariesByCity.map(itinerary=>
+                    {itinerariesByCity.map(itinerary=>
                         <Itinerary key={itinerary._id} itinerary={itinerary} />
                     )}
 
@@ -59,8 +60,7 @@ const mapStateToProps= (state) =>{
 }
 const mapDispatchToProps={
     getCities: cityActions.getCities,
-    getItinerariesByCityId: itineraryActions.getItinerariesByCityId,
-    getOneCity: cityActions.getOneCity
+    getItinerariesByCityId: itineraryActions.getItinerariesByCityId
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itineraries);

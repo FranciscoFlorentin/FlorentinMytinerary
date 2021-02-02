@@ -1,7 +1,6 @@
 
 const inicialState={
     cities:[],
-    city:{},
     filteredCities:[]
 };
 
@@ -12,13 +11,6 @@ const cityReducer=(state=inicialState,action)=>{
                 ...state,
                 cities: action.payload,
                 filteredCities: action.payload
-            }
-            break;
-
-        case ("ONE_CITY"):
-            return{
-                ...state,
-                city: state.cities.find(city=>city._id===action.payload),
             }
             break;
 

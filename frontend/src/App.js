@@ -6,6 +6,7 @@ import Cities from "./components/Cities";
 import Itineraries from "./components/Itineraries"
 import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
 import Admin from './components/Admin';
+import LogInUp from "./components/LogInUp";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route exact path="/cities" component={Cities} />
           <Route path="/cities/:idCity" component={Itineraries} />
           <Route path="/admin" component={Admin} />
-          <Redirect to="/" />
+          <Route path="/logIn"component={LogInUp}/>
+          <Route path="/logUp"component={LogInUp}/>
+          <Redirect to="/"/>
         </Switch>
         <Footer />
       </BrowserRouter>
