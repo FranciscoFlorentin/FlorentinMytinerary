@@ -3,10 +3,11 @@ import "materialize-css/dist/css/materialize.min.css";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import Cities from "./components/Cities";
-import Itineraries from "./components/Itineraries"
+import Itineraries from "./components/Itineraries";
 import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
 import Admin from './components/Admin';
-import LogInUp from "./components/LogInUp";
+import Login from "./components/Login";
+import Register from './components/Register';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Route exact path="/cities" component={Cities} />
           <Route path="/cities/:idCity" component={Itineraries} />
           <Route path="/admin" component={Admin} />
-          <Route path="/logIn"component={LogInUp}/>
-          <Route path="/logUp"component={LogInUp}/>
+          <Route path="/login"component={Login}/>
+          <Route path="/register"component={Register}/>
           <Redirect to="/"/>
         </Switch>
         <Footer />

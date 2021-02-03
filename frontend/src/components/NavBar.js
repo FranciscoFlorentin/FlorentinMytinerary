@@ -5,7 +5,7 @@ const NavBar= () =>{
         <div className="divHeader">
             <div className="logInOut">
                 <Link to="/logIn"><h6>Log In</h6></Link>
-                <Link to="/logUp"><h6>Log Up</h6></Link>
+                <Link to="/register"><h6>Sign Up</h6></Link>
             </div>
             <div className="headerUserPic">
                 <img className="fotoUsuario" alt="" src="../assets/usuario.png"></img>

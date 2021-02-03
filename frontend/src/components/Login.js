@@ -3,13 +3,8 @@ import NavBar from "./NavBar";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 
-const LogInUp=({location:{pathname}})=>{
-    const [logIn,setLogIn]=useState(false);
-    console.log(pathname)
-    useEffect(() => {
-        if(pathname==="/logIn"){setLogIn(true)}
-        else{setLogIn(false)}
-    }, [pathname])
+const Login=()=>{
+    
     return(
         <>
             <NavBar/>
@@ -28,4 +23,4 @@ const LogInUp=({location:{pathname}})=>{
         </>
     )
 }
-export default LogInUp;
+export default Login;

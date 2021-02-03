@@ -73,6 +73,11 @@ header h1:hover{
 .logIn div{
   display: flex;
 }
+.logIn select{  
+  display:inline;
+  background-color: #5285bc;
+  color: white;
+}
 .logIn2 {
   width: 35vw;
   border: solid red;

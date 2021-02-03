@@ -1,11 +1,14 @@
 const mongoose=require("mongoose")
 
 const userSchema= new mongoose.Schema({
-    userName:{type:String, unique:true},
+    userName:String ,
     password: String,
-    name: String,
+    firstName: String,
     lastName: String,
-    rol: {type: String,default: "registered"}
+    userPic: String,
+    countryName: String, 
+    countryPic: String,
+    rol: {type: String , default: "registered"}
 })
 
 const User=mongoose.model("user",userSchema);
