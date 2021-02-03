@@ -8,8 +8,9 @@ import {BrowserRouter,Redirect,Route,Switch} from "react-router-dom";
 import Admin from './components/Admin';
 import Login from "./components/Login";
 import Register from './components/Register';
+import {connect} from "react-redux"
 
-function App() {
+function App({loggedUser}) {
   return (
     <div>
       <BrowserRouter>
@@ -27,5 +28,9 @@ function App() {
     </div>
   );
 }
-
-export default App;
+const mapStateToProps=(state)=>{
+    return {
+      loggedUser:state.userReducer.loggedUser
+    }
+}
+export default connect(mapStateToProps)(App);

@@ -3,17 +3,20 @@ import NavBar from './NavBar';
 import {useState,useEffect} from "react";
 import axios from "axios";
 import Loader from './Loader';
+import {connect} from "react-redux";
+import userActions from "../redux/actions/userActions";
 
-const Register = () => {
+const Register = ({loggedUser,userRegister}) => {
     const[countries,setCountries]=useState([]);
     const[newUser,setNewUser]=useState({userName:"",firstName:"",password:"",lastName:"",
     userPic:"",countryName:"",countryPic:""});
-    // userCountry:{countryName:"",countryPic:""}}
     useEffect( () => {
         axios.get("https://restcountries.eu/rest/v2/all")
         .then(data=>setCountries(data.data))
         .catch(error=>console.log(error))
     }, [])
+    if(countries.length===0){return <> <NavBar/><Loader/> </>}
+    
     const inputValues=(e)=>{
         e.preventDefault();
         setNewUser({
@@ -24,11 +27,10 @@ const Register = () => {
     const sendNewUser=(e)=>{
         e.preventDefault();
         var countryPic1=countries.find(x=>x.name===newUser.countryName).flag;
-        setNewUser({...newUser,countryPic:countryPic1})
-        console.log(newUser)
+        setNewUser({...newUser,countryPic:countryPic1});
+        userRegister(newUser)
     }
-    if(countries.length===0){return <> <NavBar/><Loader/> </>}
-
+    console.log(loggedUser)
     return (
         <>
 
@@ -58,4 +60,12 @@ const Register = () => {
         </>
     )
 }
-export default Register;
+const mapStateToProps=state=>{
+    return {
+        loggedUser:state.userReducer.loggedUser
+    }
+}
+const mapDispatchToProps={
+    userRegister:userActions.userRegister
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Register);

@@ -54,7 +54,6 @@ const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,
 const mapStateToProps= (state) =>{
     return{
         cities: state.cityReducer.cities,
-        city: state.cityReducer.city,
         itinerariesByCity: state.itineraryReducer.itinerariesByCity 
     }
 }

@@ -22,7 +22,7 @@ router.route("/itineraries/:_id")
 router.route("/itineraries/by_city/:idCity")
     .get(itineraryController.getItinerariesByCity);
 
-// USERS
+// USER
 router.route("/user/register")
     .post(userController.register)
 router.route("/user/login")

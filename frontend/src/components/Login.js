@@ -2,9 +2,25 @@ import { useState,useEffect } from "react";
 import NavBar from "./NavBar";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
+import { connect } from "react-redux";
+import userActions from "../redux/actions/userActions";
 
-const Login=()=>{
-    
+const Login=({userLogIn})=>{
+    const [userRegistred,setUser]=useState({userName:"",password:""})
+    const inputValues=(e)=>{
+        e.preventDefault();
+        setUser({
+            ...userRegistred,
+            [e.target.name]:e.target.value
+        })
+
+    }
+    const logIn=(e)=>{
+        e.preventDefault();
+        userLogIn(userRegistred);
+    }
+
+
     return(
         <>
             <NavBar/>
@@ -14,13 +30,16 @@ const Login=()=>{
                 </div>
                 <div className="logIn">
                     <h4>Log In</h4>
-                    <div><AccountCircleIcon/><input type="text" placeholder="username"/></div>
-                    <div><LockIcon/><input type="text" placeholder="password"/></div>
+                    <div><AccountCircleIcon/><input type="text" placeholder="userName" name="userName" onChange={inputValues}/></div>
+                    <div><LockIcon/><input type="text" placeholder="password" name="password" onChange={inputValues}/></div>
                     
-                    <button>Login</button>
+                    <button onClick={logIn}>Login</button>
                 </div>
             </section>
         </>
     )
 }
-export default Login;
+const mapDispatchToProps={
+    userLogIn: userActions.userLogIn
+}
+export default connect(false,mapDispatchToProps)(Login);
