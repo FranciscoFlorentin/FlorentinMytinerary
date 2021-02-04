@@ -8,6 +8,7 @@ import userActions from "../redux/actions/userActions";
 
 const Register = ({loggedUser,userRegister}) => {
     const[countries,setCountries]=useState([]);
+    const[errors,setErrors]=useState([]);
     const[newUser,setNewUser]=useState({userName:"",firstName:"",password:"",lastName:"",
     userPic:"",countryName:"",countryPic:""});
     useEffect( () => {
@@ -15,8 +16,7 @@ const Register = ({loggedUser,userRegister}) => {
         .then(data=>setCountries(data.data))
         .catch(error=>console.log(error))
     }, [])
-    if(countries.length===0){return <> <NavBar/><Loader/> </>}
-    
+
     const inputValues=(e)=>{
         e.preventDefault();
         setNewUser({
@@ -24,13 +24,26 @@ const Register = ({loggedUser,userRegister}) => {
             [e.target.name]:e.target.value
         })
     }
-    const sendNewUser=(e)=>{
+    const sendNewUser= async (e)=>{
         e.preventDefault();
+        if(newUser.userName==="" || newUser.password==="" || newUser.firstName==="" 
+        || newUser.lastName==="" || newUser.userPic==="" || newUser.countryName===""){
+            alert("fill all the fields"); 
+            return false;
+        }
         var countryPic1=countries.find(x=>x.name===newUser.countryName).flag;
+        setErrors([]);
         setNewUser({...newUser,countryPic:countryPic1});
         userRegister(newUser)
+        .then(response=>{
+            (response && !response.sucess)
+            ?setErrors(response.errors)
+            :alert("WELCOME")
+        })
+        
     }
-    console.log(loggedUser)
+
+    if(countries.length===0){return <> <NavBar/><Loader/> </>}
     return (
         <>
 
@@ -53,8 +66,9 @@ const Register = ({loggedUser,userRegister}) => {
                             }
                         </select>
                     </div>
-                    
                     <button onClick={sendNewUser}>Create Account</button>
+                    <div>{errors.map(error=><p>*{error}</p> ) }</div>
+                    
                 </div>
             </section>
         </>

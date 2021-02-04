@@ -5,22 +5,42 @@ import LockIcon from '@material-ui/icons/Lock';
 import { connect } from "react-redux";
 import userActions from "../redux/actions/userActions";
 
-const Login=({userLogIn})=>{
+const Login=({logIn, loggedUser})=>{
     const [userRegistred,setUser]=useState({userName:"",password:""})
+    const [errors,setErrors]=useState([]);
+
     const inputValues=(e)=>{
         e.preventDefault();
         setUser({
             ...userRegistred,
             [e.target.name]:e.target.value
         })
-
     }
-    const logIn=(e)=>{
+    const sendLogin= async (e)=>{
         e.preventDefault();
-        userLogIn(userRegistred);
+        if(userRegistred.userName==="" || userRegistred.password===""){
+            alert("fill all the fields");
+            return false;
+        }
+        setErrors([]);
+        logIn(userRegistred)
+        .then(response=>{
+            (response && !response.sucess)
+            ?setErrors([response.response])
+            :alert("WELCOME")
+        })
+
+
+
+
+        // const response= await logIn(userRegistred);
+
+        // if (response && !response.sucess){
+        //     console.log(response.response)
+        //     setErrors(response.response)
+        // }
+        // alert("Welcome")
     }
-
-
     return(
         <>
             <NavBar/>
@@ -33,13 +53,19 @@ const Login=({userLogIn})=>{
                     <div><AccountCircleIcon/><input type="text" placeholder="userName" name="userName" onChange={inputValues}/></div>
                     <div><LockIcon/><input type="text" placeholder="password" name="password" onChange={inputValues}/></div>
                     
-                    <button onClick={logIn}>Login</button>
+                    <button onClick={sendLogin}>Login</button>
+                    <div>{errors.map(error=><h5>{error}</h5>)}</div>
                 </div>
             </section>
         </>
     )
 }
-const mapDispatchToProps={
-    userLogIn: userActions.userLogIn
+const mapStateToProps=state=>{
+    return{
+        loggedUser:state.userReducer.loggedUser 
+    }
 }
-export default connect(false,mapDispatchToProps)(Login);
+const mapDispatchToProps={
+    logIn: userActions.logIn
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

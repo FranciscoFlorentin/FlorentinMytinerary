@@ -1,27 +1,35 @@
 import axios from "axios";
-import Swal from "sweetalert2"
 
 const userActions={
     userRegister:(newUser)=>{
         return async (dispatch,getState)=>{
-            axios.post("http://localhost:4000/api/user/register",newUser)
-            .then(newUser=>{dispatch({type:"NEW_USER",payload:newUser.data})})
-            .catch(error=>Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error
-              }))
+            const response=await axios.post("http://localhost:4000/api/user/register",newUser)
+            if(!response.data.sucess){
+                return response.data
+            }
+            dispatch({type:"LOG_IN", payload:response.data})
+            
+            
+            // axios.post("http://localhost:4000/api/user/register",newUser)
+            // .then(response=>{
+            //     if(!response.data.sucess){return response.data}
+            //     dispatch({type:"LOG_IN",payload:response.data})
+            // })
         }
     },
-    userLogIn:(userRegistred)=>{
+    logIn:(userRegistred)=>{
         return async (dispatch,getState)=>{
-            axios.post("http://localhost:4000/api/user/login",userRegistred)
-            .then(userRegistred=>{dispatch({type:"LOGIN",payload:userRegistred.data})})
-            .catch(error=>Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error
-              }))
+            const response = await axios.post("http://localhost:4000/api/user/login",userRegistred)
+            if(response && !response.data.sucess){
+                return response.data
+            }
+            dispatch({type:"LOG_IN",payload:response.data})}
+            
+        
+    },
+    logOut:()=>{
+        return (dispatch, getState)=>{
+            dispatch({type:"LOG_OUT"})
         }
     }
 }

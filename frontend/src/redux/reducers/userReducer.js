@@ -1,20 +1,21 @@
 const initial={
-    loggedUser:{}
+    loggedUser:null
 }
 const userReducer=(state=initial,action)=>{
 
     switch (action.type) {
-        case ("NEW_USER"):
+        case ("LOG_IN"):
             return{
                 ...state,
-                loggedUser:action.payload
+                loggedUser: action.payload.response
             }
             break;
-        case ("LOGIN"):
+        case ("LOG_OUT"):
             return{
                 ...state,
-                loggedUser:action.payload
+                loggedUser:null
             }
+                break;    
         default:
             return state;
     }
