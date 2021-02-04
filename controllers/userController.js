@@ -5,10 +5,6 @@ const bcryptjs=require("bcryptjs");
 const userController={
     register: async (req,res)=>{
         var errors=[];
-        const {userName, password,firstName,lastName,userPic,userCountry,rol}=req.body; 
-        if(userName=== "" || password==="" || firstName===""|| lastName===""){
-            errors.push("fill the fields")
-        };
         const userFound= await User.findOne({userName});
         if(userFound){errors.push(("User already exists"))};
         if(errors.length===0){

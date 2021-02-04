@@ -37,7 +37,7 @@ const Register = ({loggedUser,userRegister}) => {
         userRegister(newUser)
         .then(response=>{
             (response && !response.sucess)
-            ?setErrors(response.errors)
+            ?setErrors([response.errors])
             :alert("WELCOME")
         })
         
@@ -50,7 +50,7 @@ const Register = ({loggedUser,userRegister}) => {
         <NavBar/>
             <section className="sectionLogInOut">
                 <div className="logIn2" style={{ backgroundImage:'url("../public/assets/login.jpg")'  }}>
-                    <h2>asd</h2>
+                    <div>{errors.map(error=><p>*{error}</p> ) }</div>
                 </div>
                 <div className="logIn">
                     <h4>Log In</h4>
@@ -67,7 +67,6 @@ const Register = ({loggedUser,userRegister}) => {
                         </select>
                     </div>
                     <button onClick={sendNewUser}>Create Account</button>
-                    <div>{errors.map(error=><p>*{error}</p> ) }</div>
                     
                 </div>
             </section>

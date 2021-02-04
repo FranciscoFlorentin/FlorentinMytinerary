@@ -3,6 +3,7 @@ const router = express.Router();
 const cityController=require("../controllers/cityController");
 const itineraryController=require("../controllers/itineraryController");
 const userController=require("../controllers/userController");
+const validator=require("../controllers/validator");
 
 // CITIES
 router.route("/cities")
@@ -24,7 +25,7 @@ router.route("/itineraries/by_city/:idCity")
 
 // USER
 router.route("/user/register")
-    .post(userController.register)
+    .post(validator.validateNewAccount,userController.register)
 router.route("/user/login")
     .post(userController.logIn)
 

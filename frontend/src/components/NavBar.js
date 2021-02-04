@@ -4,20 +4,14 @@ import userActions from "../redux/actions/userActions";
 
 const NavBar= ({loggedUser,logOut}) =>{
 
-    if(loggedUser===null){ 
-        var linksToShow=<>
-            <Link to="/logIn"><h6>Log In</h6></Link><Link to="/register"><h6>Sign Up</h6></Link>
-        </>
-    }else{
-        var linksToShow=<>
-            <Link to="#" onClick={logOut}><h6>Log Out</h6></Link>
-        </>
-    }
     return(
     <>
         <div className="divHeader">
             <div className="logInOut">
-                {linksToShow}
+                {/* LINKS A MOSTRAR SEGUN USUARIO LOGUEADO */}
+                {loggedUser===null
+                ?<><Link to="/logIn"><h6>Log In</h6></Link><Link to="/register"><h6>Sign Up</h6></Link></>
+                :<><Link to="#" onClick={logOut}><h6>Log Out</h6></Link></>}
             </div>
             <div className="headerUserPic">
                 <img className="fotoUsuario" alt="" src="../assets/usuario.png"></img>

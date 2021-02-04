@@ -7,7 +7,7 @@ const userActions={
             if(!response.data.sucess){
                 return response.data
             }
-            dispatch({type:"LOG_IN", payload:response.data})
+            dispatch({type:"LOG_IN", payload: response.data})
             
             
             // axios.post("http://localhost:4000/api/user/register",newUser)

@@ -46,15 +46,14 @@ const Login=({logIn, loggedUser})=>{
             <NavBar/>
             <section className="sectionLogInOut">
                 <div className="logIn2" style={{ backgroundImage:'url("../public/assets/login.jpg")'  }}>
-                    <h2>asd</h2>
+                    <div>{errors.map(error=><h5>{error}</h5>)}</div>
                 </div>
                 <div className="logIn">
                     <h4>Log In</h4>
                     <div><AccountCircleIcon/><input type="text" placeholder="userName" name="userName" onChange={inputValues}/></div>
-                    <div><LockIcon/><input type="text" placeholder="password" name="password" onChange={inputValues}/></div>
+                    <div><LockIcon/><input type="password" placeholder="password" name="password" onChange={inputValues}/></div>
                     
                     <button onClick={sendLogin}>Login</button>
-                    <div>{errors.map(error=><h5>{error}</h5>)}</div>
                 </div>
             </section>
         </>
