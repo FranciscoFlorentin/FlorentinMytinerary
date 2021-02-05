@@ -30,16 +30,6 @@ const Login=({logIn, loggedUser})=>{
             :alert("WELCOME")
         })
 
-
-
-
-        // const response= await logIn(userRegistred);
-
-        // if (response && !response.sucess){
-        //     console.log(response.response)
-        //     setErrors(response.response)
-        // }
-        // alert("Welcome")
     }
     return(
         <>

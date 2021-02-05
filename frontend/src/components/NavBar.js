@@ -14,7 +14,9 @@ const NavBar= ({loggedUser,logOut}) =>{
                 :<><Link to="#" onClick={logOut}><h6>Log Out</h6></Link></>}
             </div>
             <div className="headerUserPic">
-                <img className="fotoUsuario" alt="" src="../assets/usuario.png"></img>
+
+                {loggedUser && <div className="fotoUsuario" style={{backgroundImage:`url(${loggedUser.userPic})`}}></div>}
+                {!loggedUser && <div className="fotoUsuario" style={{backgroundImage: 'url("../assets/no-usuario.png")'}}></div>}
             </div>
             <nav id="nav1">
                 <ul>

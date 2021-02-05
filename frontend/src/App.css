@@ -49,10 +49,17 @@ header h1:hover{
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 .fotoUsuario{
-  height: 90%;
+  width: 23%!important;
+  height: 98%!important;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 .logInOut{
   display: flex;
   justify-content: center;

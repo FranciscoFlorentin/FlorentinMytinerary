@@ -1,21 +1,25 @@
-const { response } = require("express");
 const User= require("../models/User");
 const bcryptjs=require("bcryptjs");
+const jasonWebToken=require("jsonwebtoken");
 
 const userController={
     register: async (req,res)=>{
+        const {userName,password,firstName,lastName,userPic,userCountry,rol}=req.body;
         var errors=[];
-        const userFound= await User.findOne({userName});
-        if(userFound){errors.push(("User already exists"))};
+        const userFound= User.findOne({userName});
+        if(!userFound){errors.push(("User already exists"))};
         if(errors.length===0){
             const passwordHashed = bcryptjs.hashSync(password,10);
             var newUser= new User({userName,password: passwordHashed,firstName,lastName,userPic,userCountry,rol});
             var newUserSaved= await newUser.save()
+            var token=jasonWebToken.sign({...newUserSaved}, process.env.JWT_SECRET_KEY, {})
+            //              (lo que voy a encriptar, key , options)
         }
         return res.json({
             sucess: (errors.length===0) ? true : false,
             errors: errors,
-            response: newUserSaved})
+            response: {token,name:userFound.userName, userpic: userFound.userPic }
+        })
     },
     logIn: async (req,res)=>{
         const {userName,password}=req.body;
@@ -27,9 +31,11 @@ const userController={
         if(!passwordMatches){
             return res.json({sucess:false, response:"incorrect username or password, please try again"})
         }
+        var token=jasonWebToken.sign({...userFound}, process.env.JWT_SECRET_KEY, {})
         return res.json({
             sucess:true,
-            response: userFound})
+            response: {token,userName:userFound.userName, userPic: userFound.userPic }
+        })
         
 
     }

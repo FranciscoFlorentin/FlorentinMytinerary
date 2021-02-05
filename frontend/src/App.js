@@ -11,7 +11,7 @@ import Register from './components/Register';
 import {connect} from "react-redux"
 
 function App({loggedUser}) {
- 
+  console.log(loggedUser)
   return (
     <div>
       <BrowserRouter>
@@ -19,8 +19,12 @@ function App({loggedUser}) {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/cities" component={Cities} />
           <Route path="/cities/:idCity" component={Itineraries} />
-          <Route path="/login"component={Login}/>
-          <Route path="/register"component={Register}/>
+          {!loggedUser && 
+          <>
+            <Route path="/login"component={Login}/>
+            <Route path="/register"component={Register}/>
+          </>
+          }
           {loggedUser && <Route exact path="/admin"component={Admin}/>}
           <Redirect to="/"/>
         </Switch>

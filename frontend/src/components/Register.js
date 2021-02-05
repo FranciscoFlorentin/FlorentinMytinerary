@@ -28,18 +28,25 @@ const Register = ({loggedUser,userRegister}) => {
         e.preventDefault();
         if(newUser.userName==="" || newUser.password==="" || newUser.firstName==="" 
         || newUser.lastName==="" || newUser.userPic==="" || newUser.countryName===""){
-            alert("fill all the fields"); 
+            alert("Fill all the fields"); 
             return false;
         }
-        var countryPic1=countries.find(x=>x.name===newUser.countryName).flag;
+        var countryPic1= await countries.find(x=>x.name===newUser.countryName).flag;
         setErrors([]);
         setNewUser({...newUser,countryPic:countryPic1});
-        userRegister(newUser)
-        .then(response=>{
-            (response && !response.sucess)
-            ?setErrors([response.errors])
-            :alert("WELCOME")
-        })
+        // userRegister(newUser)
+        // .then(response=>{
+        //     (response && !response.sucess)
+        //     ?setErrors([response.errors])
+        //     :alert(`WELCOME ${loggedUser.userName}`)
+        // })
+        
+        const response= userRegister(newUser);
+        if (response && !response.sucess){
+            setErrors([response.errors])
+        }else{
+            alert(`WELCOME ${loggedUser.userName}`)
+        }
         
     }
 
@@ -50,10 +57,10 @@ const Register = ({loggedUser,userRegister}) => {
         <NavBar/>
             <section className="sectionLogInOut">
                 <div className="logIn2" style={{ backgroundImage:'url("../public/assets/login.jpg")'  }}>
-                    <div>{errors.map(error=><p>*{error}</p> ) }</div>
+                    <div>{errors.map(error=><p>{error}</p> ) }</div>
                 </div>
                 <div className="logIn">
-                    <h4>Log In</h4>
+                    <h4>Sign Up</h4>
                     <div><input type="text" placeholder="Username" name="userName" onChange={inputValues}/></div>
                     <div><input type="password" placeholder="Password" name="password" onChange={inputValues}/></div>
                     <div><input type="text" placeholder="First Name" name="firstName" onChange={inputValues}/></div>

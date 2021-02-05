@@ -14,15 +14,15 @@ const validator={
         })
         const validation = schema.validate(req.body,{abourEarly:false});
         if(!validation.error){
-            next()
+            next();
         }else {
-            console.log(validation.error.details.message)
-            res.json({sucess:false,errors:"fields error"})
+            console.log(validation.error.details[0].message)
+            res.json({sucess:false,errors:"fields errors"})
         }
     },
 
     validateAdmin: (req,res,next)=>{
-        if(res.user.rol==="admin"){
+        if(req.user.rol==="admin"){
             next();
         }else {
             res.json({sucess:false, response: "non-admin user"})
