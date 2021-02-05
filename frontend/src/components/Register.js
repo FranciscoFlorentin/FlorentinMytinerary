@@ -31,21 +31,23 @@ const Register = ({loggedUser,userRegister}) => {
             alert("Fill all the fields"); 
             return false;
         }
-        var countryPic1= await countries.find(x=>x.name===newUser.countryName).flag;
+        var countryPic1= countries.find(x=>x.name===newUser.countryName).flag;
+        newUser.countryPic=countryPic1
+        console.log(newUser)
         setErrors([]);
-        setNewUser({...newUser,countryPic:countryPic1});
-        // userRegister(newUser)
+        setNewUser({...newUser});
+        userRegister(newUser);
         // .then(response=>{
         //     (response && !response.sucess)
         //     ?setErrors([response.errors])
         //     :alert(`WELCOME ${loggedUser.userName}`)
         // })
         
-        const response= userRegister(newUser);
+        const response= await userRegister(newUser);
         if (response && !response.sucess){
             setErrors([response.errors])
         }else{
-            alert(`WELCOME ${loggedUser.userName}`)
+            alert(`WELCOME `)
         }
         
     }

@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
 import {Link, NavLink} from "react-router-dom";
 import userActions from "../redux/actions/userActions";
-
+import {useEffect} from "react";
 const NavBar= ({loggedUser,logOut}) =>{
-
+    useEffect(() => {
+        console.log("se actualizo navbar")
+    }, [loggedUser])
     return(
     <>
         <div className="divHeader">

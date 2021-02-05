@@ -17,7 +17,7 @@ const validator={
             next();
         }else {
             console.log(validation.error.details[0].message)
-            res.json({sucess:false,errors:"fields errors"})
+            res.json({sucess:false,errors:error.details[0].message})
         }
     },
 
