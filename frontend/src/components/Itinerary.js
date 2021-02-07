@@ -7,7 +7,9 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const Itinerary = (props) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
-    
+    const liked=()=>{
+        
+    }
     return (
         <>  
             
@@ -23,7 +25,11 @@ const Itinerary = (props) => {
                         <div className="viewMoreLess">{viewMoreLess===false && <button onClick={()=>setViewMoreLess(!viewMoreLess)} >View More</button> }</div>
                     </div>
                     <div className="itineraryContent3">
-                        <div className="likeIcon">{props.itinerary.likes===0 ?<FavoriteBorderIcon/> : <FavoriteIcon/>}<p>{props.itinerary.likes}</p> </div>
+                        <div className="likeIcon">
+                                {props.itinerary.likes===0 ?<FavoriteBorderIcon/> : <FavoriteIcon/>} 
+                                <p>{props.itinerary.likes}</p>
+                                <button onClick={liked}>Like</button>
+                        </div>
                         <div>Duration: {props.itinerary.duration} h.</div>
                         <div className="priceIcon"> {
                             Array(props.itinerary.price).fill(<AttachMoneyIcon/>) }

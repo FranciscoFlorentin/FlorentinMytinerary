@@ -483,6 +483,14 @@ footer{
   justify-content: space-around;
   align-items: center;
 }
+.likeIcon button{
+  border: none!important;
+  font-size: 1.5vw!important;
+  display: flex !important;
+  justify-content: center!important;
+  align-items: center!important;
+  text-align: center;
+}
 .likeIcon span { 
   display: flex;
   justify-content: center;

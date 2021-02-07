@@ -24,11 +24,16 @@ const itineraryController ={
         .then(()=>{return res.json({sucess:true, response:"Itinerary deleted"})})
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
-    editItinerary: (req,res)=>{
-        Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
-        .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
-        .catch(error=>res.json({sucess:false,error}));
-    }
+    itineraryLikes: async (req,res)=>{
+        Itinerary.findOneAndUpdate(req.params,{likes:req.body.likes},{new:true})
+        .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
+        .catch(error=>res.json({sucess:false, response:error}))
+    },
+    // editItinerary: (req,res)=>{
+    //     Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
+    //     .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
+    //     .catch(error=>res.json({sucess:false,error}));
+    // },
 }
 
 module.exports= itineraryController

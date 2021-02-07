@@ -36,7 +36,7 @@ const Register = ({loggedUser,userRegister}) => {
         console.log(newUser)
         setErrors([]);
         setNewUser({...newUser});
-        userRegister(newUser);
+        // userRegister(newUser)
         // .then(response=>{
         //     (response && !response.sucess)
         //     ?setErrors([response.errors])

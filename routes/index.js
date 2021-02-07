@@ -4,6 +4,8 @@ const cityController=require("../controllers/cityController");
 const itineraryController=require("../controllers/itineraryController");
 const userController=require("../controllers/userController");
 const validator=require("../controllers/validator");
+const passport= require("passport");
+require("../config/passport");
 
 // CITIES
 router.route("/cities")
@@ -19,7 +21,8 @@ router.route("/itineraries")
     .get(itineraryController.getAllItineraries);
 router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
-    .put(itineraryController.editItinerary);
+    .put(itineraryController.itineraryLikes)
+    // .put(itineraryController.editItinerary);
 router.route("/itineraries/by_city/:idCity")
     .get(itineraryController.getItinerariesByCity);
 

@@ -3,9 +3,7 @@ import {Link, NavLink} from "react-router-dom";
 import userActions from "../redux/actions/userActions";
 import {useEffect} from "react";
 const NavBar= ({loggedUser,logOut}) =>{
-    useEffect(() => {
-        console.log("se actualizo navbar")
-    }, [loggedUser])
+    
     return(
     <>
         <div className="divHeader">
@@ -16,9 +14,10 @@ const NavBar= ({loggedUser,logOut}) =>{
                 :<><Link to="#" onClick={logOut}><h6>Log Out</h6></Link></>}
             </div>
             <div className="headerUserPic">
-
-                {loggedUser && <div className="fotoUsuario" style={{backgroundImage:`url(${loggedUser.userPic})`}}></div>}
-                {!loggedUser && <div className="fotoUsuario" style={{backgroundImage: 'url("../assets/no-usuario.png")'}}></div>}
+                {loggedUser && <div className="fotoUsuario" 
+                    style={{backgroundImage:`url("${loggedUser.pic}")`}}></div>}
+                {loggedUser===null && <div className="fotoUsuario" 
+                    style={{backgroundImage: 'url("../assets/no-usuario.png")'}}></div>}
             </div>
             <nav id="nav1">
                 <ul>

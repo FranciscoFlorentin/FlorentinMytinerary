@@ -5,8 +5,8 @@ const userController={
     register: async (req,res)=>{
         const {userName,password,firstName,lastName,userPic,userCountry,rol}=req.body;
         var errors=[];
-        const userFound= User.findOne({userName});
-        if(!userFound){errors.push(("User already exists"))};
+        const userFound=await User.findOne({userName});
+        if(userFound){errors.push(("User already exists"))};
         if(errors.length===0){
             const passwordHashed = bcryptjs.hashSync(password,10);
             var newUser= new User({userName,password: passwordHashed,firstName,lastName,userPic,userCountry,rol});
@@ -18,7 +18,7 @@ const userController={
         return res.json({
             sucess: (errors.length===0) ? true : false,
             errors: errors,
-            response: {token,name:userFound.firstName, userPic:userFound.userPic }
+            response: {token,name:userFound.firstName, pic:userFound.userPic }
         })
     },
     logIn: async (req,res)=>{
