@@ -8,6 +8,7 @@ const userSchema= new mongoose.Schema({
     userPic: String,
     countryName: String, 
     countryPic: String,
+    
     rol: {type: String , default: "registered"}
 })
 

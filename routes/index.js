@@ -21,11 +21,11 @@ router.route("/itineraries")
     .get(itineraryController.getAllItineraries);
 router.route("/itineraries/:_id")
     .delete(itineraryController.deleteItinerary)
-    .put(itineraryController.itineraryLikes)
-    // .put(itineraryController.editItinerary);
+    .put(itineraryController.editItinerary);
 router.route("/itineraries/by_city/:idCity")
     .get(itineraryController.getItinerariesByCity);
-
+router.route("/itinerary/:_id")
+    .put(passport.authenticate("jwt",{session:false}),itineraryController.itineraryLikes)
 // USER
 router.route("/user/register")
     .post(validator.validateNewAccount,userController.register)

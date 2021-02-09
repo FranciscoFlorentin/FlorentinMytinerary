@@ -25,15 +25,35 @@ const itineraryController ={
         .catch(error=>{return res.json({sucess:false, response:"fail to get the itineraries"})})
     },
     itineraryLikes: async (req,res)=>{
-        Itinerary.findOneAndUpdate(req.params,{likes:req.body.likes},{new:true})
-        .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
-        .catch(error=>res.json({sucess:false, response:error}))
+        const itinerary=await Itinerary.findById(req.params);
+        if(itinerary.userLikes.find(user=>user==req.user._id)){
+            var newLikes= itinerary.likes-1;
+            itinerary.userLikes.splice(itinerary.userLikes.indexOf(req.user._id),1)
+            Itinerary.findOneAndUpdate(req.params,{
+                likes: newLikes, 
+                userLikes:itinerary.userLikes},
+                {new:true}
+            )
+            .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
+            .catch(error=>res.json({sucess:false, response:error}))
+        }
+        else {
+            itinerary.userLikes.push(req.user._id);
+            var newLikes=itinerary.likes+ 1;
+            Itinerary.findOneAndUpdate(req.params,{
+                likes: newLikes, 
+                userLikes:itinerary.userLikes},
+                {new:true}
+            )
+            .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
+            .catch(error=>res.json({sucess:false, response:error}))
+        }
     },
-    // editItinerary: (req,res)=>{
-    //     Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
-    //     .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
-    //     .catch(error=>res.json({sucess:false,error}));
-    // },
+    editItinerary: (req,res)=>{
+        Itinerary.findOneAndUpdate(req.params,req.body,{new:true})
+        .then(itineraryUpdated=>res.json({sucess:true, response: itineraryUpdated}))
+        .catch(error=>res.json({sucess:false,error}));
+    }
 }
 
 module.exports= itineraryController

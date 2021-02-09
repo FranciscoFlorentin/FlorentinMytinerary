@@ -408,6 +408,7 @@ footer{
 .itineraryContent{
   height: 100%;
   display: flex;
+  margin: 2vh;
 }
 .itineraryContent1,.itineraryContent2,.itineraryContent3{
   width: 30%;
@@ -541,10 +542,13 @@ footer{
   text-shadow: black 0.5px 0.5px;
 }
 .itineraryShowHide{
-  
+  height: 80vh;
   border-bottom-right-radius: 10%;
   margin-bottom: 2vh;
   background-image:linear-gradient(rgba(0, 0, 255, 0.336),#50b2b4b6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .itineraryShowHide button,.itinerary button{
   background-color: #347ab6;
@@ -580,13 +584,13 @@ footer{
   align-items: center;
   background-color: #e6d474;
 }
-.comment{
-  display: flex;
+.comments{
   justify-content: center;
   align-items: center;
   height: 10vh;
+  width: 80%;
 }
-.comment input{
+.comments input{
   height: 5vh;
   display: flex;
   justify-content: center;
@@ -595,6 +599,31 @@ footer{
   width: 80%;
   border-radius: 5%;
   text-align: center;
+}
+.divInputComment{
+  display: flex;
+  justify-content: center;
+}
+.comment{
+  padding: 0.5vh 0.5vw;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  margin-top: 1vh;
+}
+.comment .userPic{
+  height: 100%;
+  width: 10%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 35%;
+}
+.comment .userName, .userComment{
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 /* Loader */
 .loader{

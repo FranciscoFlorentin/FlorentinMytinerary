@@ -6,7 +6,7 @@ import Loader from './Loader';
 import {connect} from "react-redux";
 import userActions from "../redux/actions/userActions";
 
-const Register = ({loggedUser,userRegister}) => {
+const Register = ({userRegister}) => {
     const[countries,setCountries]=useState([]);
     const[errors,setErrors]=useState([]);
     const[newUser,setNewUser]=useState({userName:"",firstName:"",password:"",lastName:"",
@@ -31,11 +31,10 @@ const Register = ({loggedUser,userRegister}) => {
             alert("Fill all the fields"); 
             return false;
         }
-        var countryPic1= countries.find(x=>x.name===newUser.countryName).flag;
-        newUser.countryPic=countryPic1
-        console.log(newUser)
+        var countryPic1= countries.find(country=>country.name===newUser.countryName).flag;
+        newUser.countryPic=countryPic1;
         setErrors([]);
-        setNewUser({...newUser});
+        // setNewUser({...newUser});
         // userRegister(newUser)
         // .then(response=>{
         //     (response && !response.sucess)
@@ -43,12 +42,13 @@ const Register = ({loggedUser,userRegister}) => {
         //     :alert(`WELCOME ${loggedUser.userName}`)
         // })
         
-        const response= await userRegister(newUser);
+        const response = await userRegister(newUser);
         if (response && !response.sucess){
             setErrors([response.errors])
         }else{
-            alert(`WELCOME `)
+            alert(`WELCOME`)
         }
+        console.log(response)
         
     }
 
@@ -82,12 +82,8 @@ const Register = ({loggedUser,userRegister}) => {
         </>
     )
 }
-const mapStateToProps=state=>{
-    return {
-        loggedUser:state.userReducer.loggedUser
-    }
-}
+
 const mapDispatchToProps={
     userRegister:userActions.userRegister
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Register);
+export default connect(null,mapDispatchToProps)(Register);
