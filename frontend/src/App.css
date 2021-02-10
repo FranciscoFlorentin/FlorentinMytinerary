@@ -587,15 +587,16 @@ footer{
 .comments{
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 30vh;
+  overflow: auto;
   width: 80%;
 }
 .comments input{
-  height: 5vh;
+  height: 4vh!important;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #183e614f!important;
+  background-color: #0b0d0f4f!important;
   width: 80%;
   border-radius: 5%;
   text-align: center;
@@ -603,10 +604,15 @@ footer{
 .divInputComment{
   display: flex;
   justify-content: center;
+  padding: 2vh 0;
+}
+.divInputComment form{
+  display: flex;
+  justify-content: center;
 }
 .comment{
   padding: 0.5vh 0.5vw;
-  height: 10vh;
+  height: 8vh;
   width: 100%;
   display: flex;
   margin-top: 1vh;
@@ -618,12 +624,24 @@ footer{
   background-repeat: no-repeat;
   border-radius: 35%;
 }
-.comment .userName, .userComment{
+.comment .userName{
   width: 100%;
   height: 50%;
   background-color: white;
   display: flex;
   justify-content: center;
+}
+.userComment, .userComment form{
+  width: 100%;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.411);
+}
+.comment1{
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  flex-direction: column;
+  
 }
 /* Loader */
 .loader{

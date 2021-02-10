@@ -9,9 +9,13 @@ import Admin from './components/Admin';
 import Login from "./components/Login";
 import Register from './components/Register';
 import {connect} from "react-redux"
+import userActions from "./redux/actions/userActions";
+function App({loggedUser,logInLS}) {
 
-function App({loggedUser}) {
-  console.log(loggedUser)
+  if (!loggedUser && localStorage.getItem("token")){
+    logInLS(localStorage.getItem("token"))
+    
+  }
   return (
     <div>
       <BrowserRouter>
@@ -38,4 +42,7 @@ const mapStateToProps=(state)=>{
       loggedUser:state.userReducer.loggedUser
     }
 }
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps={
+  logInLS:userActions.logInLS
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);

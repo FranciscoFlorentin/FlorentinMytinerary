@@ -1,5 +1,6 @@
 const initial={
-    itinerariesByCity:[]
+    itinerariesByCity:[],
+    itinerary:{}
 };
 
 const itineraryReducer=(state=initial,action)=>{
@@ -10,6 +11,11 @@ const itineraryReducer=(state=initial,action)=>{
                 itinerariesByCity: action.payload
             }
             break;
+        case ("ITINERARY"):
+            return {
+                ...state,
+                itinerary:action.payload
+            }
         default:
             return state;
     }

@@ -6,43 +6,32 @@ import {useState,useEffect} from "react";
 import Activities from './Activities';
 import Comment from "./Comment";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import axios from "axios"
+import itineraryActions from '../redux/actions/itineraryActions';
 
-const Itinerary = ({loggedUser,itinerary}) => {
+const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
-    const [likesUpdated,setLikesUpdated]=useState(itinerary.likes);
-    const [userLiked,setUserliked]=useState(null);
     const [newComment,setNewComment]=useState("");
+    const [itinerary, setItinerary]=useState(itinerary1);
 
-    useEffect(() => {
-        // consulto si el usuario ya dio like el itinerario
-        if (loggedUser && itinerary.userLikes.find(id=>id===loggedUser.id)){
-            setUserliked(true)
-        }
-    }, [])
+    
+    
     const liked=async()=>{
-        if(loggedUser){
-            axios.put(`http://localhost:4000/api/itinerary/${itinerary._id}`,{},{
-            headers:{
-                Authorization: `Bearer ${loggedUser.token}`
-            }
-        })
-        .then(data=>setLikesUpdated(data.data.response.likes))
-        .catch(error=>console.log(error))
-        setUserliked(!userLiked)
-        } 
-        else{
-            alert("necesita estar logeado")
-        }
+        const response = await itineraryLiked(itinerary._id);
+        setItinerary(response);
     }
-    // const commentInput=(e)=>{
-    //     e.preventDefault()
-    //     setNewComment(e.target.value)
-    // }
-    // const commentSend=(e)=>{
-    //     e.preventDefault();
-    //     console.log(newComment)
-    // }
+
+    // COMENTARIOS
+    const commentInput=(e)=>{
+        e.preventDefault()
+        setNewComment(e.target.value); 
+    }
+    const commentSend= async (e)=>{
+        e.preventDefault();
+        setNewComment(e.target.value);
+        
+        const response= await addComment(newComment,itinerary._id);
+        setItinerary(response)
+    }
     
     return (
         <>  
@@ -60,9 +49,8 @@ const Itinerary = ({loggedUser,itinerary}) => {
                     </div>
                     <div className="itineraryContent3">
                         <div className="likeIcon">
-                            
-                                {userLiked===true ?<FavoriteIcon/>:<FavoriteBorderIcon/>} 
-                                <p>{likesUpdated}</p>
+                                {itinerary.userLikes.find(id=>id===loggedUser.id) ?<FavoriteIcon/>:<FavoriteBorderIcon/>} 
+                                <p>{itinerary.likes}</p>
                                 <button onClick={liked}>Like</button>
                         </div>
                         <div>Duration: {itinerary.duration} h.</div>
@@ -76,16 +64,22 @@ const Itinerary = ({loggedUser,itinerary}) => {
             ?  <div className="itineraryShowHide">
                     <Activities activities={itinerary.activities}/> 
                     <div className="comments"> 
-                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment}/>)}
+                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id}/>)}
                         <div className="divInputComment">
                             {loggedUser 
-                            ?<input type="text " placeholder="Write a comment" onChange={commentInput}  />
+                            ?
+                                <>
+                                    <form onSubmit={commentSend}>
+                                        <input type="text " placeholder="Write a comment" onChange={commentInput} />
+                                        <button type="submit">Comment</button>
+                                    </form>
+                                </>
                             :<input type="text " disabled placeholder="You must logged to comment"/>}
                         </div>
+                    </div>
                         <div className="itineraryButtons">
                             {viewMoreLess===true && <button onClick={()=>setViewMoreLess(!viewMoreLess)}>View Less</button> }
                         </div>
-                    </div>
                 </div>
             :<></>  
             }
@@ -97,5 +91,9 @@ const mapStateToProps= state=>{
         loggedUser: state.userReducer.loggedUser
     }
 }
+const mapDispatchToProps={
+    addComment:itineraryActions.addComment,
+    itineraryLiked:itineraryActions.itineraryLiked
+}
 
-export default connect(mapStateToProps,null)(Itinerary);
+export default connect(mapStateToProps,mapDispatchToProps)(Itinerary);

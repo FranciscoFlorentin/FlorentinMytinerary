@@ -36,8 +36,11 @@ const userController={
             sucess:true,
             response: {token,id: userFound._id,name:userFound.firstName, pic: userFound.userPic }
         })
-        
-
+    },
+    logInLS:(req,res)=>{
+        console.log(req.body.token)
+        res.json({sucess:true, response:{
+            token: req.body.token, name: req.user.firstName, pic: req.user.userPic, id:req.user._id}})
     }
 }
 module.exports= userController;

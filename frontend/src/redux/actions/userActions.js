@@ -22,10 +22,28 @@ const userActions={
             const response = await axios.post("http://localhost:4000/api/user/login",userRegistred)
             if(response && !response.data.sucess){
                 return response.data
+            }   
+            dispatch({type:"LOG_IN",payload:response.data})}  
+    },
+    logInLS:(token)=>{
+        return async (dispatch,getState)=>{
+            try{ 
+                const response= await axios.post("http://localhost:4000/api/user/loginLS",{token},{
+                headers:{
+                    Authorization: `Bearer ${token}` 
+                }})
+                if(response.data.sucess){
+                    dispatch({type:"LOG_IN", payload: {
+                        response:{...response.data.response}
+                    }})
+                }
+            }catch(error){
+                if(error.response.status===401){
+                    alert("Access denied")
+                    localStorage.clear()
+                }
             }
-            dispatch({type:"LOG_IN",payload:response.data})}
-            
-        
+        }
     },
     logOut:()=>{
         return (dispatch, getState)=>{

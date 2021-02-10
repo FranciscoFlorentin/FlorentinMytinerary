@@ -24,12 +24,22 @@ router.route("/itineraries/:_id")
     .put(itineraryController.editItinerary);
 router.route("/itineraries/by_city/:idCity")
     .get(itineraryController.getItinerariesByCity);
-router.route("/itinerary/:_id")
+// router.route("/itinerary/one/:_id")
+//     .get(itineraryController.itinerary)
+router.route("/itinerary/likes/:_id")
     .put(passport.authenticate("jwt",{session:false}),itineraryController.itineraryLikes)
+router.route("/itinerary/addComment/:_id")
+    .put(passport.authenticate("jwt",{session:false}),itineraryController.addComment)
+router.route("/itinerary/deleteComment/:_id")
+    .put(passport.authenticate("jwt",{session:false}),itineraryController.deleteComment)
+router.route("/itinerary/editComment/:_id")
+    .put(passport.authenticate("jwt",{session:false}),itineraryController.editComment)    
 // USER
 router.route("/user/register")
     .post(validator.validateNewAccount,userController.register)
 router.route("/user/login")
     .post(userController.logIn)
+router.route("/user/loginLS")
+    .post(passport.authenticate("jwt",{session:false}),userController.logInLS)
 
 module.exports=router

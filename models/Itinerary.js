@@ -13,9 +13,10 @@ const itinerarySchema= new mongoose.Schema({
         activityPic: {type:String, required: true}
     }],
     comments: [{
+        userId:{type:String,required:true},
         userName: {type: String, required:true},
         userPic: {type:String, required: true},
-        userComment: {type:String,required: true}
+        userComment: {type:String}
     }],
     idCity: {type: mongoose.Schema.ObjectId , ref: "city"}
 })
