@@ -71,6 +71,7 @@ header h1:hover{
 .sectionLogInOut{
   display: flex;
   justify-content: center;
+  height: 60vh;
 }
 .logIn{
   display: flex!important;
@@ -78,10 +79,14 @@ header h1:hover{
   align-items: center!important;
   justify-content: center!important;
   width: 25vw;
-  border: solid blue;
 }
 .logIn input{
   text-align: center;
+}
+.logIn button{
+  margin: 1vh;
+  width: 60%;
+  height: 5vh;
 }
 .logIn div{
   display: flex;
@@ -94,13 +99,27 @@ header h1:hover{
   text-align-last: center!important;
 }
 .logIn2 {
+  padding: 8% 0;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   
   width: 35vw;
-  border: solid red;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.errorsDiv{
+  text-align: center;
+  font-size: 1.2vw;
+  
+}
+.errorsDiv h5 {
+  margin: 1vh 0;
+}
+.linkToRegister{
+  text-align: center;
 }
 /* Nav */
 #nav1{
@@ -504,6 +523,9 @@ footer{
   justify-content: center!important;
   align-items: center!important;
   text-align: center;
+  background-color: transparent!important;
+  color: blue!important;
+  text-decoration: underline!important;
 }
 .likeIcon span { 
   display: flex;

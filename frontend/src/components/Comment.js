@@ -6,7 +6,6 @@ import {useState,useEffect} from "react"
 const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,loggedUser}) => {
     const [editMode,setEditMode]=useState(false);
     const [editedComment,setEditedComment]=useState(comment.userComment);
-    const [userState,setUserState]=useState(false);
     
     const sendCommentToDelete=async (e)=>{
         e.preventDefault();
@@ -17,6 +16,7 @@ const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,log
         e.preventDefault();
         const response= await editComment(comment,editedComment,itineraryId);
         setItinerary(response);
+        setEditMode(!editMode); 
     }
 
     return (
@@ -29,13 +29,13 @@ const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,log
                         <form onSubmit={sendCommentEdited}>
                             <input type="text" defaultValue={comment.userComment} onChange={e=>setEditedComment(e.target.value)}/> 
                             <button onClick={()=>setEditMode(!editMode)}>Cancel</button> 
-                            <button type="submit" onClick={()=>setUserState(true)}>Confirm</button>
+                            <button type="submit" >Confirm</button>
                         </form> 
                     </div>
                 }
                 <div className="userComment">
                 <div className="userComment">{comment.userComment}</div>
-                    {loggedUser && loggedUser.id===comment._id &&  
+                    {(loggedUser && loggedUser.id===comment._id && !editMode)&&  
                         <>    
                             <button onClick={sendCommentToDelete}>X</button>
                             <button onClick={()=>setEditMode(!editMode)}>Edit</button>

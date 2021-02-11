@@ -8,7 +8,7 @@ const userSchema= new mongoose.Schema({
     userPic: String,
     countryName: String, 
     countryPic: String,
-    
+    googleUser: Boolean,    
     rol: {type: String , default: "registered"}
 })
 

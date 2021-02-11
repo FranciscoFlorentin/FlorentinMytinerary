@@ -6,5 +6,5 @@ mongoose.connect(process.env.MONGOBD,{
     useUnifiedTopology: true,
     useFindAndModify: false
 })
-.then(()=>console.log("Base de datos conectada"))
+.then(()=>console.log("Database conected"))
 .catch(error=>console.log(error))

@@ -18,12 +18,13 @@ const userController={
         return res.json({
             sucess: (errors.length===0) ? true : false,
             errors: errors,
-            response: {token,name:firstName, pic:userPic }
+            response: errors.length===0 && {token,name:firstName,pic:userPic,id:newUserSaved._id}
         })
     },
     logIn: async (req,res)=>{
         const {userName,password}=req.body;
         const userFound= await User.findOne({userName})
+
         if(!userFound){
             return res.json({sucess:false, response: "incorrect username or password, please try again"})
         }

@@ -7,6 +7,7 @@ import Activities from './Activities';
 import Comment from "./Comment";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import itineraryActions from '../redux/actions/itineraryActions';
+import Swal from 'sweetalert2';
 
 const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
@@ -21,9 +22,12 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
     }, [])
     // LIKES
     const liked=async()=>{
-        const response = await itineraryLiked(itinerary._id);
-        setItinerary(response);
-        setUserLike(!userLike)
+        if(loggedUser){
+            const response = await itineraryLiked(itinerary._id);
+            setItinerary(response);
+            setUserLike(!userLike)
+        }
+        else{Swal.fire(`You must be logged `)}
     }
     // COMMENTS
     const commentInput=(e)=>{
@@ -56,7 +60,7 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
                         <div className="likeIcon">
                                 {userLike===true?<FavoriteIcon/>:<FavoriteBorderIcon/>} 
                                 <p>{itinerary.likes}</p>
-                                <button onClick={liked}>Like</button>
+                                <button onClick={liked}>{userLike===false ?<p>Like</p>: <p>Dislike</p> }</button>
                         </div>
                         <div>Duration: {itinerary.duration} h.</div>
                         <div className="priceIcon"> {
