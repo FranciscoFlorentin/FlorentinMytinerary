@@ -44,7 +44,7 @@ const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,
 
                     <div className="itineraryButtons">
                         <button ><Link to="/cities"><ArrowBackIcon /></Link></button>
-                        <button ><Link to="/home"><HomeIcon /></Link></button>
+                        <button ><Link to="/"><HomeIcon /></Link></button>
                     </div> 
                 </div>
             </section>

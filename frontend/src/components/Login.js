@@ -30,7 +30,7 @@ const Login=({logIn})=>{
         .then(response=>{
             (response && !response.sucess)
             ?setErrors([response.response])
-            :Swal.fire(`Welcome ${userRegistred.firstName}`)
+            :Swal.fire(`Welcome ${localStorage.getItem("name")}`)
         })
     }
     const responseGoogle= async (response)=>{

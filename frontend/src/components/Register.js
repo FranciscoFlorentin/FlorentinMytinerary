@@ -46,7 +46,6 @@ const Register = ({userRegister}) => {
         newUser.countryPic=countryPic1;
         setErrors([]);
         
-        
         const response = await userRegister(newUser);
         if (response && !response.sucess){
             setErrors([response.errors])
@@ -75,7 +74,7 @@ const Register = ({userRegister}) => {
             if (response1 && !response1.sucess){
                 setErrors([response1.errors])
             }else{
-                Swal.fire(`Welcome ${newUser.firstName}`)
+                Swal.fire(`Welcome ${localStorage.getItem("name")}`)
             }
         }
       }

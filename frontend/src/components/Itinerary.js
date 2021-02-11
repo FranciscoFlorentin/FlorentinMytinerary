@@ -9,16 +9,20 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import itineraryActions from '../redux/actions/itineraryActions';
 import Swal from 'sweetalert2';
 
-const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
+const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked,getItinerariesByCityId}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
     const [newComment,setNewComment]=useState("");
     const [itinerary, setItinerary]=useState(itinerary1);
     const [userLike,setUserLike]=useState(null);
 
     useEffect(() => {
+        console.log(itinerary)
         if(loggedUser && itinerary.userLikes.find(id=>id===loggedUser.id)){
             setUserLike(true);
         }else{ setUserLike(false)}
+        return ()=>{
+            getItinerariesByCityId(itinerary.idCity)
+        }
     }, [])
     // LIKES
     const liked=async()=>{
@@ -102,7 +106,8 @@ const mapStateToProps= state=>{
 }
 const mapDispatchToProps={
     addComment:itineraryActions.addComment,
-    itineraryLiked:itineraryActions.itineraryLiked
+    itineraryLiked:itineraryActions.itineraryLiked,
+    getItinerariesByCityId: itineraryActions.getItinerariesByCityId
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itinerary);
