@@ -669,6 +669,7 @@ footer{
 .userComment, .userComment form{
   width: 100%;
   display: flex;
+  padding-left: 0.1vw;
   background-color: rgba(255, 255, 255, 0.411);
 }
 .comment1{
@@ -676,6 +677,7 @@ footer{
   height: 8vh;
   display: flex;
   flex-direction: column;
+  padding-left: 1vw;
   
 }
 /* Loader */
