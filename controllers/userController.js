@@ -10,7 +10,7 @@ const userController={
         if(errors.length===0){
             const passwordHashed = bcryptjs.hashSync(password,10);
             var newUser= new User({userName,password: passwordHashed,firstName,
-                lastName,userPic,countryName,countryPic,rol,itinerariesLiked});
+                lastName,userPic,countryName,countryPic,rol});
             var newUserSaved = await newUser.save();
             var token= jasonWebToken.sign({...newUserSaved}, process.env.JWT_SECRET_KEY, {})
             //              (lo que voy a encriptar, key , options)
@@ -38,7 +38,6 @@ const userController={
         })
     },
     logInLS:(req,res)=>{
-        console.log(req.body.token)
         res.json({sucess:true, response:{
             token: req.body.token, name: req.user.firstName, pic: req.user.userPic, id:req.user._id}})
     }

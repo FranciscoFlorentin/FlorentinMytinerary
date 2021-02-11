@@ -8,11 +8,6 @@ const itineraryController ={
             res.json({sucess:true, respuesta: populateItinerary});})
         .catch(_error=>{ return res.json({sucess:false, error:"Fail to load new itinerary"})});
     },
-    // itinerary: (req,res)=>{
-    //     Itinerary.findOne(req.params)
-    //     .then(data=>{return res.json({sucess:true, response:data})})
-    //     .catch(error=>{return res.json({sucess:false, response:"Fail to get Itinerary"})})
-    // },
     getAllItineraries: (req,res)=>{
         Itinerary.find().populate("idCity")
         .then(data=>{return res.json({sucess:true, response:data})})
@@ -73,15 +68,14 @@ const itineraryController ={
         // .catch(error=>res.json({sucess:false, response:error}))
     },
     deleteComment: async (req,res)=>{
-
-        const itinerary= await Itinerary.findById(req.params);
+        const itinerary= await Itinerary.findById(req.params)
         var commentAux=(itinerary.comments.find((comment)=>
             comment.userComment===req.body.commentToDelete.userComment
         ))
 
         itinerary.comments.splice(itinerary.comments.indexOf(commentAux),1)
         Itinerary.updateOne(req.params,{comments:itinerary.comments},{new:true})
-        .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
+        .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))
         .catch(error=>res.json({sucess:false, response:error}))
        
     },
@@ -93,7 +87,7 @@ const itineraryController ={
         var index=(itinerary.comments.indexOf(commentAux))
         itinerary.comments[index].userComment=req.body.editedComment;
         Itinerary.updateOne(req.params,{comments:itinerary.comments},{new:true})
-        .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
+        .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))
         .catch(error=>res.json({sucess:false, response:error}))
     },
     editItinerary: (req,res)=>{

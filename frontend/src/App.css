@@ -73,18 +73,31 @@ header h1:hover{
   justify-content: center;
 }
 .logIn{
+  display: flex!important;
+  flex-direction: column!important;
+  align-items: center!important;
+  justify-content: center!important;
   width: 25vw;
   border: solid blue;
+}
+.logIn input{
+  text-align: center;
 }
 .logIn div{
   display: flex;
 }
-.logIn select{  
-  display:inline;
+.logIn select{ 
+  display: inline-flex;
+  width:60%;
   background-color: #5285bc;
   color: white;
+  text-align-last: center!important;
 }
 .logIn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   width: 35vw;
   border: solid red;
   background-size: contain;

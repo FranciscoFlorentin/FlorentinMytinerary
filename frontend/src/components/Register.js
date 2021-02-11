@@ -67,14 +67,13 @@ const Register = ({userRegister}) => {
                     <div><input type="password" placeholder="Password" name="password" onChange={inputValues}/></div>
                     <div><input type="text" placeholder="First Name" name="firstName" onChange={inputValues}/></div>
                     <div><input type="text" placeholder="Last Name" name="lastName" onChange={inputValues}/></div>
-                    <div><input type="url" placeholder="url img" name="userPic" onChange={inputValues}/></div>
-                    <div><select name="countryName" id="" onChange={inputValues}>
+                    <div><input type="url" placeholder="Url img" name="userPic" onChange={inputValues}/></div>
+                    <select name="countryName" id="" onChange={inputValues}>
                             <option value="" selected disabled >Country</option>
                             {countries.map(country=>{
                                 return <option value={country.name}>{country.name}</option>})
                             }
                         </select>
-                    </div>
                     <button onClick={sendNewUser}>Create Account</button>
                     
                 </div>

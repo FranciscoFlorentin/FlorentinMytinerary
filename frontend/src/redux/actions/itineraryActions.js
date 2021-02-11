@@ -26,34 +26,24 @@ const itineraryActions ={
     },
     deleteComment: (commentToDelete,itineraryId)=>{
         return async(dispatch,getState)=>{
-            axios.put(`http://localhost:4000/api/itinerary/deleteComment/${itineraryId}`,{commentToDelete},{
+            const response = await axios.put(`http://localhost:4000/api/itinerary/deleteComment/${itineraryId}`,{commentToDelete},{
                 headers: {
                     Authorization: `Bearer ${getState().userReducer.loggedUser.token}`
                 }
             })
-            .then(response=>{return response})
-            .catch(error=>Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error
-            }))
-            dispatch({type: ""})
+            if(response){return response.data.response}
+            else{console.log(response)}
         }
     },
     editComment: (comment,editedComment,itineraryId)=>{
         return async(dispatch,getState)=>{
-            axios.put(`http://localhost:4000/api/itinerary/editComment/${itineraryId}`,{comment,editedComment},{
+            const response = await axios.put(`http://localhost:4000/api/itinerary/editComment/${itineraryId}`,{comment,editedComment},{
                 headers: {
                     Authorization: `Bearer ${getState().userReducer.loggedUser.token}`
                 }
             })
-            .then(response=>{return response})
-            .catch(error=>Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error
-            }))
-            dispatch({type: ""})
+            if(response){return response.data.response}
+            else { console.log(response)}
         }
     },
     // ,

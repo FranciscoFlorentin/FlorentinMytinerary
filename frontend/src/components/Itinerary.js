@@ -12,15 +12,20 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
     const [newComment,setNewComment]=useState("");
     const [itinerary, setItinerary]=useState(itinerary1);
+    const [userLike,setUserLike]=useState(null);
 
-    
-    
+    useEffect(() => {
+        if(loggedUser && itinerary.userLikes.find(id=>id===loggedUser.id)){
+            setUserLike(true);
+        }else{ setUserLike(false)}
+    }, [])
+    // LIKES
     const liked=async()=>{
         const response = await itineraryLiked(itinerary._id);
         setItinerary(response);
+        setUserLike(!userLike)
     }
-
-    // COMENTARIOS
+    // COMMENTS
     const commentInput=(e)=>{
         e.preventDefault()
         setNewComment(e.target.value); 
@@ -49,7 +54,7 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
                     </div>
                     <div className="itineraryContent3">
                         <div className="likeIcon">
-                                {itinerary.userLikes.find(id=>id===loggedUser.id) ?<FavoriteIcon/>:<FavoriteBorderIcon/>} 
+                                {userLike===true?<FavoriteIcon/>:<FavoriteBorderIcon/>} 
                                 <p>{itinerary.likes}</p>
                                 <button onClick={liked}>Like</button>
                         </div>
@@ -64,7 +69,7 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked}) => {
             ?  <div className="itineraryShowHide">
                     <Activities activities={itinerary.activities}/> 
                     <div className="comments"> 
-                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id}/>)}
+                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} setItinerary={setItinerary}/>)}
                         <div className="divInputComment">
                             {loggedUser 
                             ?
