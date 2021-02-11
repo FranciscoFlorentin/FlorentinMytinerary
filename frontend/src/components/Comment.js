@@ -34,7 +34,7 @@ const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,log
                     </div>
                 }
                 <div className="userComment">
-                <div className="userComment">{comment.userComment}</div>
+                {!editMode && <div className="userComment">{comment.userComment}</div>}
                     {(loggedUser && loggedUser.id===comment._id && !editMode)&&  
                         <>    
                             <button onClick={sendCommentToDelete}>X</button>
