@@ -20,7 +20,10 @@ const itineraryActions ={
                     Authorization: `Bearer ${getState().userReducer.loggedUser.token}`
                 }
             })
-            if(response){return response.data.response}
+            if(response){
+                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
+                // return response.data.response
+            }
             else {console.log(response)}
         }
     },
@@ -31,7 +34,10 @@ const itineraryActions ={
                     Authorization: `Bearer ${getState().userReducer.loggedUser.token}`
                 }
             })
-            if(response){return response.data.response}
+            if(response){
+                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
+                // return response.data.response
+            }
             else{console.log(response)}
         }
     },
@@ -42,7 +48,10 @@ const itineraryActions ={
                     Authorization: `Bearer ${getState().userReducer.loggedUser.token}`
                 }
             })
-            if(response){return response.data.response}
+            if(response){
+                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
+                // return response.data.response
+            }
             else { console.log(response)}
         }
     },

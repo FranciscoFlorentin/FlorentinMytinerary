@@ -9,26 +9,26 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import itineraryActions from '../redux/actions/itineraryActions';
 import Swal from 'sweetalert2';
 
-const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked,getItinerariesByCityId}) => {
+const Itinerary = ({loggedUser,addComment,itinerary,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
     const [newComment,setNewComment]=useState("");
-    const [itinerary, setItinerary]=useState(itinerary1);
+    // const [itinerary,setItinerary]=useState(itinerary1);
     const [userLike,setUserLike]=useState(null);
 
     useEffect(() => {
-        console.log(itinerary)
+      
         if(loggedUser && itinerary.userLikes.find(id=>id===loggedUser.id)){
             setUserLike(true);
-        }else{ setUserLike(false)}
-        return ()=>{
-            getItinerariesByCityId(itinerary.idCity)
-        }
+        }else{ setUserLike(false)}  
+        
     }, [])
+   
     // LIKES
     const liked=async()=>{
         if(loggedUser){
             const response = await itineraryLiked(itinerary._id);
-            setItinerary(response);
+           
+            // setItinerary(response);
             setUserLike(!userLike)
         }
         else{Swal.fire(`You must be logged `)}
@@ -41,9 +41,8 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked,getItinerari
     const commentSend= async (e)=>{
         e.preventDefault();
         setNewComment(e.target.value);
-        
-        const response= await addComment(newComment,itinerary._id);
-        setItinerary(response)
+        const response= await addComment(newComment,itinerary._id);  
+        // setItinerary(response);
     }
     
     return (
@@ -77,7 +76,9 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked,getItinerari
             ?  <div className="itineraryShowHide">
                     <Activities activities={itinerary.activities}/> 
                     <div className="comments"> 
-                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} setItinerary={setItinerary}/>)}
+                        {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} 
+                        //  setItinerary={setItinerary}
+                        />)}
                         <div className="divInputComment">
                             {loggedUser 
                             ?
@@ -94,7 +95,9 @@ const Itinerary = ({loggedUser,addComment,itinerary1,itineraryLiked,getItinerari
                             {viewMoreLess===true && <button onClick={()=>setViewMoreLess(!viewMoreLess)}>View Less</button> }
                         </div>
                 </div>
+                
             :<></>  
+            
             }
         </>
     )
@@ -106,8 +109,7 @@ const mapStateToProps= state=>{
 }
 const mapDispatchToProps={
     addComment:itineraryActions.addComment,
-    itineraryLiked:itineraryActions.itineraryLiked,
-    getItinerariesByCityId: itineraryActions.getItinerariesByCityId
+    itineraryLiked:itineraryActions.itineraryLiked
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Itinerary);

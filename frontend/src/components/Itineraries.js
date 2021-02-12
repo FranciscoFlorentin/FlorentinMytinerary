@@ -39,7 +39,7 @@ const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,
                     {(itinerariesByCity.length===0) && <NotItineraries/>}
                     
                     {itinerariesByCity.map(itinerary=>
-                        <Itinerary key={itinerary._id} itinerary1={itinerary} />
+                        <Itinerary key={itinerary._id} itinerary={itinerary} />
                     )}
 
                     <div className="itineraryButtons">

@@ -61,7 +61,6 @@ const itineraryController ={
         Itinerary.updateOne(req.params,{comments: itinerary.comments},{new:true})
         .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))
         .catch(error=>res.json({sucess:false, response:error}))
-        // console.log(itinerary)
         
         // Itinerary.updateOne(req.params,{comments: itinerary.comments},{new:true})
         // .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))

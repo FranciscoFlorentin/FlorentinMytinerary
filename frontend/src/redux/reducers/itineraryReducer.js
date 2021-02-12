@@ -1,6 +1,5 @@
 const initial={
-    itinerariesByCity:[],
-    itinerary:{}
+    itinerariesByCity:[]
 };
 
 const itineraryReducer=(state=initial,action)=>{
@@ -11,10 +10,14 @@ const itineraryReducer=(state=initial,action)=>{
                 itinerariesByCity: action.payload
             }
             break;
-        case ("ITINERARY"):
+        
+        case ("UPDATE_COMMENTS"):
             return {
                 ...state,
-                itinerary:action.payload
+                itinerariesByCity: state.itinerariesByCity.map(itinerary=>{
+                    itinerary._id===action.payload._id 
+                    ? itinerary=action.payload 
+                    : itinerary })
             }
         default:
             return state;

@@ -25,7 +25,7 @@ const Cities=(props)=>{
         <>
             <NavBar />
             <section className="container sectionCities">
-                <input type="text" placeholder="Place a city name" onChange={(e)=>props.filterCities(e.target.value)} /> 
+                <input type="text" placeholder="Search city" onChange={(e)=>props.filterCities(e.target.value)} /> 
                 {props.citiesFiltered.length===0 ?<CityNotFound />: props.citiesFiltered.map(city => <City key={city._id} city={city}/>)}
             </section>
         </>
