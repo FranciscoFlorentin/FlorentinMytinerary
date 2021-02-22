@@ -1,7 +1,14 @@
 const initial={
-    itinerariesByCity:[]
+    itinerariesByCity:[],
+    update:false,
 };
-
+const hola=(oldsItineraries,newItinerary)=>{
+    return (oldsItineraries.map(itinerary=>{
+        if(itinerary._id===newItinerary._id){itinerary=newItinerary;}
+        return itinerary
+    }
+    ))
+}
 const itineraryReducer=(state=initial,action)=>{
     switch (action.type) {
         case ("ITINERARIES_BY_CITY"):
@@ -11,13 +18,16 @@ const itineraryReducer=(state=initial,action)=>{
             }
             break;
         
-        case ("UPDATE_COMMENTS"):
+        case ("UPDATE_ITINERARIES"):
+            const aux=hola(state.itinerariesByCity,action.payload);
+            // console.log("/////////////STORE////////////////////////////")
+            // console.log(aux)
+            // console.log("//////////////PAYLOAD//////////////////////////////////")
+            // console.log(action.payload)
             return {
                 ...state,
-                itinerariesByCity: state.itinerariesByCity.map(itinerary=>{
-                    itinerary._id===action.payload._id 
-                    ? itinerary=action.payload 
-                    : itinerary })
+                staitinerariesByCity:aux,
+                update: (state.update===true)? false : true
             }
         default:
             return state;

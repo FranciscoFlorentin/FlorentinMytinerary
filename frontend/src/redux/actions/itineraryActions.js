@@ -21,8 +21,15 @@ const itineraryActions ={
                 }
             })
             if(response){
-                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
-                // return response.data.response
+                
+                var aux=getState().itineraryReducer.itinerariesByCity
+                aux.map(itinerary=>{
+                    if(itinerary._id===response.data.response._id){
+                        console.log(aux)
+                        aux.splice(itinerary,1,response.data.response)
+                        console.log(aux)
+                    }})
+                dispatch({type:"UPDATE_ITINERARIES", payload:aux})
             }
             else {console.log(response)}
         }
@@ -49,27 +56,13 @@ const itineraryActions ={
                 }
             })
             if(response){
-                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
+                dispatch({type: "UPDATE_ITINERARIES",payload: response.data.response})
                 // return response.data.response
             }
             else { console.log(response)}
         }
     },
-    // ,
-    // getItinerary:(itineraryId)=>{
-    //     return async (dispatch,getState)=>{
-    //         axios.get(`http://localhost:4000/api/itinerary/one/${itineraryId}`)
-    //         .then(data=>dispatch({type: "ITINERARY",payload: data.data.response}))
-    //         .catch(error=>Swal.fire({
-    //             icon: 'error',
-    //             title: 'Oops...',
-    //             text: error
-    //         }))
-    //     }
-    // }
-    // ,
     itineraryLiked: (itineraryId)=>{
-    
         return async (dispatch,getState)=>{
             if(getState().userReducer.loggedUser){
                 const response= await axios.put(`http://localhost:4000/api/itinerary/likes/${itineraryId}`,{},{
@@ -78,8 +71,7 @@ const itineraryActions ={
                 }
             })
             if(response){
-                return response.data.response
-                
+                dispatch({type:"UPDATE_ITINERARIES", payload:response.data.response})
             } else{
                 alert("You must logged")
             }
