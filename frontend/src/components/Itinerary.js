@@ -70,7 +70,7 @@ const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => 
                 </div>  
             </div>
             {viewMoreLess===true  
-            ?  <div className="itineraryShowHide">
+            ?   <div className="itineraryShowHide">
                     <Activities activities={itinerary.activities}/> 
                     <div className="comments"> 
                         {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} 
@@ -81,7 +81,7 @@ const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => 
                             ?
                                 <>
                                     <form onSubmit={commentSend}>
-                                        <input type="text " placeholder="Write a comment" onChange={commentInput} />
+                                        <input type="text" placeholder="Write a comment" onChange={commentInput} />
                                         <button type="submit">Comment</button>
                                     </form>
                                 </>

@@ -15,8 +15,6 @@ const itineraryReducer=(state=initial,action)=>{
                 ...state,
                 itinerariesByCity: action.payload
             }
-            break;
-        
         case ("UPDATE_ITINERARIES"):
             const aux=updateItinerary(state.itinerariesByCity,action.payload);
             return {

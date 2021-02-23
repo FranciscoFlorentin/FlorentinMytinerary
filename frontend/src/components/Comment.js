@@ -1,7 +1,7 @@
 import React from 'react'
 import itineraryActions from '../redux/actions/itineraryActions';
 import {connect} from "react-redux"
-import {useState,useEffect} from "react"
+import {useState} from "react"
 
 const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,loggedUser}) => {
     const [editMode,setEditMode]=useState(false);
@@ -17,6 +17,7 @@ const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,log
         const response= await editComment(comment,editedComment,itineraryId);
         setItinerary(response);
         setEditMode(!editMode); 
+        setEditedComment("");
     }
 
     return (
