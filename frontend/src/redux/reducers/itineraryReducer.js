@@ -20,10 +20,10 @@ const itineraryReducer=(state=initial,action)=>{
         
         case ("UPDATE_ITINERARIES"):
             const aux=hola(state.itinerariesByCity,action.payload);
-            // console.log("/////////////STORE////////////////////////////")
-            // console.log(aux)
-            // console.log("//////////////PAYLOAD//////////////////////////////////")
-            // console.log(action.payload)
+            console.log("/////////////STORE////////////////////////////")
+            console.log(aux)
+            console.log("//////////////PAYLOAD//////////////////////////////////")
+            console.log(action.payload)
             return {
                 ...state,
                 staitinerariesByCity:aux,

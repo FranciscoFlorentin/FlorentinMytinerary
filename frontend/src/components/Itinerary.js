@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 const Itinerary = ({loggedUser,addComment,update,itinerary,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
     const [newComment,setNewComment]=useState("");
-    // const [itinerary,setItinerary]=useState(itinerary1);
+    const [itinerary,setItinerary]=useState(itinerary1);
     const [userLike,setUserLike]=useState(null);
 
     useEffect(() => {

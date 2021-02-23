@@ -14,8 +14,8 @@ function App({loggedUser,logInLS}) {
 
   if (!loggedUser && localStorage.getItem("token")){
     logInLS(localStorage.getItem("token"))
-    
   }
+
   return (
     <div>
       <BrowserRouter>
@@ -39,7 +39,7 @@ function App({loggedUser,logInLS}) {
 }
 const mapStateToProps=(state)=>{
     return {
-      loggedUser:state.userReducer.loggedUser
+      loggedUser: state.userReducer.loggedUser
     }
 }
 const mapDispatchToProps={
