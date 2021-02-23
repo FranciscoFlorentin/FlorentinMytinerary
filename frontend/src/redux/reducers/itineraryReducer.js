@@ -1,8 +1,7 @@
 const initial={
-    itinerariesByCity:[],
-    update:false,
-};
-const hola=(oldsItineraries,newItinerary)=>{
+    itinerariesByCity:[]
+}
+const updateItinerary=(oldsItineraries,newItinerary)=>{
     return (oldsItineraries.map(itinerary=>{
         if(itinerary._id===newItinerary._id){itinerary=newItinerary;}
         return itinerary
@@ -19,15 +18,10 @@ const itineraryReducer=(state=initial,action)=>{
             break;
         
         case ("UPDATE_ITINERARIES"):
-            const aux=hola(state.itinerariesByCity,action.payload);
-            console.log("/////////////STORE////////////////////////////")
-            console.log(aux)
-            console.log("//////////////PAYLOAD//////////////////////////////////")
-            console.log(action.payload)
+            const aux=updateItinerary(state.itinerariesByCity,action.payload);
             return {
                 ...state,
-                staitinerariesByCity:aux,
-                update: (state.update===true)? false : true
+                itinerariesByCity:aux
             }
         default:
             return state;

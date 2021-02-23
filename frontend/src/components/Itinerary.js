@@ -9,27 +9,23 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import itineraryActions from '../redux/actions/itineraryActions';
 import Swal from 'sweetalert2';
 
-const Itinerary = ({loggedUser,addComment,update,itinerary,itineraryLiked}) => {
+const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
     const [newComment,setNewComment]=useState("");
     const [itinerary,setItinerary]=useState(itinerary1);
     const [userLike,setUserLike]=useState(null);
 
     useEffect(() => {
-      
         if(loggedUser && itinerary.userLikes.find(id=>id===loggedUser.id)){
             setUserLike(true);
         }else{ setUserLike(false)}  
-        console.log(update)
-        console.log(itinerary)
     }, [" ",update])
    
     // LIKES
     const liked=async()=>{
         if(loggedUser){
             const response = await itineraryLiked(itinerary._id);
-           
-            // setItinerary(response);
+            setItinerary(response);
             setUserLike(!userLike)
         }
         else{Swal.fire(`You must be logged `)}
@@ -43,9 +39,9 @@ const Itinerary = ({loggedUser,addComment,update,itinerary,itineraryLiked}) => {
         e.preventDefault();
         setNewComment(e.target.value);
         const response= await addComment(newComment,itinerary._id);  
-        // setItinerary(response);
+        setItinerary(response);
     }
-    
+    if(!itinerary){return <h1>loading...</h1> }
     return (
         <>  
             
@@ -78,7 +74,7 @@ const Itinerary = ({loggedUser,addComment,update,itinerary,itineraryLiked}) => {
                     <Activities activities={itinerary.activities}/> 
                     <div className="comments"> 
                         {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} 
-                        //  setItinerary={setItinerary}
+                         setItinerary={setItinerary}
                         />)}
                         <div className="divInputComment">
                             {loggedUser 

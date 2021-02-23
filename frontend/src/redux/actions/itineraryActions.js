@@ -5,7 +5,7 @@ const itineraryActions ={
     getItinerariesByCityId: (cityId)=>{
         return async (dispatch,getState)=>{
             axios.get(`http://localhost:4000/api/itineraries/by_city/${cityId}`)
-            .then(data=>dispatch({type: "ITINERARIES_BY_CITY",payload: data.data.response}))
+            .then(response=>dispatch({type: "ITINERARIES_BY_CITY",payload: response.data.response}))
             .catch(error=>Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -21,15 +21,8 @@ const itineraryActions ={
                 }
             })
             if(response){
-                
-                var aux=getState().itineraryReducer.itinerariesByCity
-                aux.map(itinerary=>{
-                    if(itinerary._id===response.data.response._id){
-                        console.log(aux)
-                        aux.splice(itinerary,1,response.data.response)
-                        console.log(aux)
-                    }})
-                dispatch({type:"UPDATE_ITINERARIES", payload:aux})
+                dispatch({type:"UPDATE_ITINERARIES", payload:response.data.response})
+                return response.data.response
             }
             else {console.log(response)}
         }
@@ -42,8 +35,8 @@ const itineraryActions ={
                 }
             })
             if(response){
-                dispatch({type: "UPDATE_COMMENTS",payload: response.data.response})
-                // return response.data.response
+                dispatch({type: "UPDATE_ITINERARIES",payload: response.data.response})
+                return response.data.response
             }
             else{console.log(response)}
         }
@@ -57,7 +50,7 @@ const itineraryActions ={
             })
             if(response){
                 dispatch({type: "UPDATE_ITINERARIES",payload: response.data.response})
-                // return response.data.response
+                return response.data.response
             }
             else { console.log(response)}
         }
@@ -72,6 +65,7 @@ const itineraryActions ={
             })
             if(response){
                 dispatch({type:"UPDATE_ITINERARIES", payload:response.data.response})
+                return (response.data.response)
             } else{
                 alert("You must logged")
             }
