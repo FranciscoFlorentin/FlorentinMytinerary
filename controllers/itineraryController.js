@@ -58,13 +58,10 @@ const itineraryController ={
             userPic: req.user.userPic,
             userComment: req.body.userComment
         })
-        Itinerary.updateOne(req.params,{comments: itinerary.comments},{new:true})
-        .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))
+        Itinerary.findOneAndUpdate(req.params,{comments: itinerary.comments},{new:true})
+        .then(itineraryUpdated=>res.json({sucess:true, response:itineraryUpdated}))
         .catch(error=>res.json({sucess:false, response:error}))
         
-        // Itinerary.updateOne(req.params,{comments: itinerary.comments},{new:true})
-        // .then(itineraryUpdated=>res.json({sucess:true, response:itinerary}))
-        // .catch(error=>res.json({sucess:false, response:error}))
     },
     deleteComment: async (req,res)=>{
         const itinerary= await Itinerary.findById(req.params)
