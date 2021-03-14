@@ -6,7 +6,14 @@ const Header=()=>{
             <header style={{height:"50vh", backgroundImage: 'url("../assets/1.jpg")',
             backgroundSize:"cover", backgroundRepeat:"no-repeat", backgroundPositionY:"45%"}}>
                 <NavBar />
-                <h1><Link to="/cities" style={{color:"white"}}>Explore and discover cities here</Link> </h1>
+                <div id="headerDiv">
+                    <h1>WELCOME TO MYTINERARY</h1>
+                    <div>
+                        <h3>THE PLACE TO GET THE LATEST</h3>
+                        <h3>NEW OF TRAVEL ITINERARIES</h3>
+                    </div>
+                    <h2>SIGN UP</h2>
+                </div>  
           
             </header>
         </>

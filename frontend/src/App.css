@@ -2,37 +2,40 @@ html *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
+  font-family: "Roboto",sans-serif;
 }
 body{
   background-color: rgba(117, 134, 226, 0.308);
 }
 section input{
   color: white;
-  background-color: #5285bc!important;
-  
 }
 /* HEADER */
 header{
   display: flex!important;
   flex-direction: column;
-  justify-content: space-between;
-  height: 90vh!important;
+  height: 100vh!important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 20%;
   align-items: center;
 }
-header h1{
-  font-family: 'Lemonada', cursive;
-  width: 35%;
+#headerDiv{ 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   text-align: center;
-  color: white;
-  background-color: #48afb1af;
-  margin-bottom: 45vh;
+  align-items: center;
 }
-header h1:hover{
-  background-color: #48afb1;
-  
+#headerDiv h1, #headerDiv h3, #headerDiv h2{
+  font-weight: 600;
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.308);
+  text-shadow: 2px 2px 3px rgb(28, 0, 151);
+  width: fit-content;
 }
 .divHeader{
   display: flex;
