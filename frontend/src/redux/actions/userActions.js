@@ -3,14 +3,14 @@ import axios from "axios";
 const userActions={
     userRegister:(newUser)=>{
         return async (dispatch,getState)=>{
-            const response=await axios.post("http://localhost:4000/api/user/register",newUser)
+            const response=await axios.post("https://mytinerary-florentin.herokuapp.com/api/user/register",newUser)
             if(!response.data.sucess){
                 return response.data
             }
             dispatch({type:"LOG_IN", payload: response.data})
             
             
-            // axios.post("http://localhost:4000/api/user/register",newUser)
+            // axios.post("https://mytinerary-florentin.herokuapp.com/api/user/register",newUser)
             // .then(response=>{
             //     if(!response.data.sucess){return response.data}
             //     dispatch({type:"LOG_IN",payload:response.data})
@@ -19,7 +19,7 @@ const userActions={
     },
     logIn:(userRegistred)=>{
         return async (dispatch,getState)=>{
-            const response = await axios.post("http://localhost:4000/api/user/login",userRegistred)
+            const response = await axios.post("https://mytinerary-florentin.herokuapp.com/api/user/login",userRegistred)
             if(response && !response.data.sucess){
                 return response.data
             }   
@@ -28,7 +28,7 @@ const userActions={
     logInLS:(token)=>{
         return async (dispatch,getState)=>{
             try{ 
-                const response= await axios.post("http://localhost:4000/api/user/loginLS",{token},{
+                const response= await axios.post("https://mytinerary-florentin.herokuapp.com/api/user/loginLS",{token},{
                 headers:{
                     Authorization: `Bearer ${token}` 
                 }})

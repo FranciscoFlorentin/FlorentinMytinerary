@@ -9,7 +9,7 @@ export default class City extends Component {
                 <div className="city1">
                     {/* Cambio el url por /cities/(nombre de la ciudad sin espacio) */}
                     <Link to={`/cities/${(this.props.city._id)}`}>
-                        <div style={{backgroundImage:`url("./assets/${this.props.city.cityPic}")`}}> 
+                        <div style={{backgroundImage:`url("${this.props.city.cityPic}")`}}> 
                             {<h5>{this.props.city.cityName}</h5>}
                         </div>
                     </Link>

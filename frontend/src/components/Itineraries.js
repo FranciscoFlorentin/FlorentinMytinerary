@@ -31,7 +31,7 @@ const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,
             <NavBar/>
             <section className="">
                 
-                <div className="itineraryCity" style={{backgroundImage:`url("../assets/${city.cityPic}")`}}>
+                <div className="itineraryCity" style={{backgroundImage:`url("${city.cityPic}")`}}>
                     <div className="cityTitle"><h3>{city.cityName}</h3></div>
                 </div> 
                 <div className="container">
