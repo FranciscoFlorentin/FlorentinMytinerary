@@ -1,5 +1,4 @@
-import './App.css';
-import "materialize-css/dist/css/materialize.min.css";
+import './App.css'; 
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import Cities from "./components/Cities";

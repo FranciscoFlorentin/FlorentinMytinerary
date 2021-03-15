@@ -25,7 +25,7 @@ header{
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   text-align: center;
   align-items: center;
 }
@@ -33,18 +33,19 @@ header{
   font-weight: 600;
   font-size: 3rem;
   color: rgb(255, 255, 255);
-  background: rgba(0, 0, 0, 0.308);
-  text-shadow: 2px 2px 3px rgb(28, 0, 151);
+  text-shadow: 4px 4px 3px rgba(28, 0, 151, 0.671);
   width: fit-content;
 }
 .divHeader{
+  background-color: #fff;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 3vh 6vw;
+  border-bottom: solid black  ;
 }
-.divHeader div{
+.divHeader div,.divHeader nav{
   width: 100%;
   height: 12vh;
 }
@@ -63,14 +64,6 @@ header{
   background-position: center;
 }
 
-.logInOut{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logInOut h6{
-  padding-left: 2vw;
-}
 .sectionLogInOut{
   display: flex;
   justify-content: center;
@@ -125,18 +118,28 @@ header{
   text-align: center;
 }
 /* Nav */
-#nav1{
-  background-color: rgba(35, 132, 223, 0.74);
-}
 #nav1 ul{
   display: flex;
+  align-items: center!important;
   justify-content: space-evenly;
+  height: 100%;
+}
+a:-webkit-any-link {
+  text-decoration: none;
 }
 .active{
-  background-color: rgba(67, 70, 243, 0.5);
+  text-shadow: 0 0 10px rgba(0, 150, 243, 0.63);
+  text-decoration: underline!important;
 }
 #nav1 ul p{
   font-size: 1.7rem;
+  transition: .3s ease;
+}
+#nav1 ul p:hover{
+  transform: scale(1.05);
+}
+#nav1 ul p:active {
+  color: black!important;
 }
 /* CAROUSEL */
 .tituloCar{
@@ -206,21 +209,14 @@ section{
   font-family: 'Fraunces', serif;
   
 }
-.logoYtitulo{
-  width: 50%;
+#logoTitulo,#titulo{
   display: flex;
-  align-items: center;
-  height: 30vh;
-  margin-bottom: 8vh;
-  padding-bottom: 1vh;
-  border-bottom: 4px solid black;
+  align-items: center;  
 }
 .logo{ 
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
-  width: 40%;
-  height: 95%;
   
 }
 .tituloLogo{

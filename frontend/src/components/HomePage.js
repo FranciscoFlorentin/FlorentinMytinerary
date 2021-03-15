@@ -12,7 +12,6 @@ const HomePage=()=>{
         <>
             <Header/>
             <section className="container" >
-                <Logo />
                 <CallToAction />
                 <Carousel />
             </section>
