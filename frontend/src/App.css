@@ -2,9 +2,9 @@ html *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
   font-family: "Roboto",sans-serif;
 }
+
 body{
   background-color: rgba(117, 134, 226, 0.308);
 }
@@ -25,25 +25,28 @@ header{
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end ;
   text-align: center;
   align-items: center;
+  padding-bottom: 35vh;
 }
 #headerDiv h1, #headerDiv h3, #headerDiv h2{
   font-weight: 600;
   font-size: 3rem;
   color: rgb(255, 255, 255);
-  text-shadow: 4px 4px 3px rgba(28, 0, 151, 0.671);
+  text-shadow: 4px 4px 3px black;
   width: fit-content;
 }
+#headerDiv h1{
+  background-color: rgba(77, 94, 255, 0.596);
+}
 .divHeader{
-  background-color: #fff;
+  background-color: #353636fd;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 3vh 6vw;
-  border-bottom: solid black  ;
+  padding: 1vh 6vw;
 }
 .divHeader div,.divHeader nav{
   width: 100%;
@@ -53,7 +56,33 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-
+}
+#logoTitulo,#titulo{
+  display: flex;
+  align-items: center;  
+}
+.logo{ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+.tituloLogo{
+  color: #2dc0da;
+  text-shadow: 2px 3px 1px rgba(23, 49, 163, 0.877);
+  width: 50%;
+  font-size: 3.5rem;
+  padding-left: 0.5vw;
+} 
+#callToAction{
+  border-radius: 4rem;
+  transition: all .2s linear;
+  background-color:rgb(36 41 56 / 80%);
+  padding: 2vh 4vw;
+  margin-top: 2vh;
+  cursor: pointer;
+}
+#callToAction:hover{
+  padding: 2.5vh 4.5vw;
 }
 .fotoUsuario{
   width: 23%!important;
@@ -128,27 +157,31 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 .active{
-  text-shadow: 0 0 10px rgba(0, 150, 243, 0.63);
-  text-decoration: underline!important;
+  text-shadow: 0px 0px 10px rgba(172, 195, 238, 0.986);
 }
 #nav1 ul p{
+  color: #2dc0da;
   font-size: 1.7rem;
-  transition: .3s ease;
+  font-weight:550;
+  transition: all .2s linear;
 }
 #nav1 ul p:hover{
   transform: scale(1.05);
 }
 #nav1 ul p:active {
-  color: black!important;
+  text-decoration-color: black;
 }
+
 /* CAROUSEL */
 .tituloCar{
   color: white;
+  font-size: 2.3rem;
   padding: 2vh;
   text-align: center;
-  background-color: #50b2b4;
+  background-color: #353636fd;
 }
 .car1{
+  padding: 2vh 2vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,32 +190,36 @@ a:-webkit-any-link {
   margin: 0 0 !important;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 80vh;
 }
 .fotos1{
-  width: 30vw;
-  height: 35vh;
+  width: 45%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.5%;
+  transition: all .2s linear;
 }
 .fotos2{
-  width: 29vw;
-  height: 34vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-repeat:no-repeat;
   background-size: cover;
 }
-.fotos2:hover{ 
-  width: 29.5vw;
-  height: 34.5vh;
+.fotos1:hover{ 
+  padding: 0.2% ;
 }
-.fotos2 div:hover{
+.fotos1 div:hover{
   font-size: 1.8vw;
 }
 .nombreCiudad{
+  transition: all .2s linear;
   color: white  ;
   font-size: 1.4rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
@@ -193,6 +230,11 @@ a:-webkit-any-link {
 .car1 button{
   background-color: rgba(0, 128, 0, 0);
   border: none;
+  cursor: pointer;
+}
+.car1 button:focus{
+  outline: none!important;
+  border: none!important;
 }
 .MuiSvgIcon-root{
   font-size: 3rem!important;
@@ -202,100 +244,6 @@ a:-webkit-any-link {
   color: white;
 }
 
-/* Section */
-section{
-  min-height: 90vh;
-  background-image: radial-gradient(#f8f1f1);
-  font-family: 'Fraunces', serif;
-  
-}
-#logoTitulo,#titulo{
-  display: flex;
-  align-items: center;  
-}
-.logo{ 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  
-}
-.tituloLogo{
-  color: #11698e;
-  text-shadow: 2px 1px rgba(37, 24, 155, 0.377);
-  width: 50%;
-  font-size: 55px;
-  padding-left: 0.5vw;
-}
-.textoLogo{
-  border-top-left-radius: 20%;
-  border-bottom-right-radius: 20%;
-  box-shadow: 6px 6px black;
-  border-bottom: solid rgb(0, 0, 0); 
-  padding: 2vh 0; 
-  color: white;
-  background-color:#50b2b4;
-  width: 50%;
-  text-align: center;
-}
-.logoTexto{
-  display: flex;
-  margin-bottom: 10vh;
-}
-.divCall1{
-  background-color: white;
-  height: 50vh;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  margin-bottom: 10vh;
-  background-size: 65%;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-x: 120%;
-}
-.divCall1 h2{
-  text-align: center;
-  width: 45%;
-  font-size: 3rem;
-  background-color: #11698e;
-  color: white;
-  margin: 0;
-  border-bottom-left-radius: 20%;
-  border-bottom: solid black;
-}
-.divCall1 p{
-  background-color: #11698e;
-  color: white;
-  width: 45%;
-  text-align: center;
-  font-size: 1.4rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-.divBotonCallToAction{
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 13vh;
-
-}
-.divBotonCallToAction button{
-  color: black;
-  border-top-left-radius: 25%;
-  border-bottom-right-radius: 25%;
-  font-size: 150%;
-  background-color: rgba(35, 132, 223, 0.74)  ;
-  color :white;
-  height: 8vh;
-  width: 13vw;
-  box-shadow: 3px 3px black;
-}
-.divBotonCallToAction button:hover{
-  width:15vw ;
-  height: 10vh  ;
-  font-size: 170%;
-}
 
 /* Footer */
 footer{

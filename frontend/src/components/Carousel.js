@@ -25,28 +25,33 @@ const slides=[
 
 const Carousel = () => {
     const [indiceActual,setIndiceActual]=useState(0);
+    
     return (
         <>  
-            <h4 className="tituloCar">Popular Mytineraries</h4>
+            <h4 className="tituloCar">Popular Itineraries</h4>
             <div className="car1">
-                <button onClick={ (indiceActual!==0) ? ( ()=>setIndiceActual(indiceActual-1) )
-                    : (()=>setIndiceActual(2) )}><ArrowBackIosIcon/></button>
-
+                <button onClick={ (indiceActual!==0) 
+                    ? ( ()=>setIndiceActual(indiceActual-1) )
+                    : ( ()=>setIndiceActual(2) )}><ArrowBackIosIcon/>
+                </button>
                 <div className="car2 ">
                     {slides[indiceActual].map(slider=>{
                         return (
                         <>
                             <div className="fotos1">
-                                <div className="fotos2 " key={slider.ciudad} style={{backgroundImage:`url("${slider.dir}")`}}>
+                                <div className="fotos2 " key={slider.ciudad} 
+                                style={{backgroundImage:`url("${slider.dir}")`}}>
                                     <div className="nombreCiudad">{slider.ciudad}</div>
                                 </div>
                             </div>
                         </>)
                         })}
                 </div>
-
-                <button onClick={ (indiceActual!==2) ? ( ()=>setIndiceActual(indiceActual+1) )
-                    : ( ()=>setIndiceActual(0) )}><ArrowForwardIosIcon/></button>
+                <button onClick={ (indiceActual!==2) 
+                ? ( ()=>setIndiceActual(indiceActual+1) )
+                : ( ()=>setIndiceActual(0) )}>
+                    <ArrowForwardIosIcon/>
+                </button>
             </div>
         </>
     )

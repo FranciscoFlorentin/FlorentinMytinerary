@@ -9,7 +9,7 @@ const NavBar= ({loggedUser,logOut}) =>{
             <div id="logoTitulo">
                 <div className="logo" style={{backgroundImage:'url("./assets/1.png")'}}></div>
                 <div id="titulo"> 
-                    <h1 className="tituloLogo">MYtinerary</h1>
+                    <Link to="/"><h1 className="tituloLogo">MYtinerary</h1></Link>
                 </div>
             </div>
             <div className="headerUserPic">
@@ -26,7 +26,7 @@ const NavBar= ({loggedUser,logOut}) =>{
                     {loggedUser===null
                     ?<><NavLink to="/logIn"><p>Log In</p></NavLink>
                         <NavLink to="/register"><p>Sign Up</p></NavLink></>
-                    :<NavLink to="#" onClick={logOut}><p>Log Out</p></NavLink>}
+                    :<Link to="#" onClick={logOut}><p>Log Out</p></Link>}
                 </ul>
             </nav>
         </div>
