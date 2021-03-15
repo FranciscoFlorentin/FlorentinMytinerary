@@ -1,35 +1,37 @@
-    
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import { ImFacebook2,ImTwitter,ImLinkedin,ImTelegram } from "react-icons/im";
+import { FiInstagram } from "react-icons/fi";
+import {NavLink } from 'react-router-dom';
+import { IconContext } from "react-icons/lib";
 
-import { Link } from 'react-router-dom';
 const Footer=()=>{
     return (
         <>
             <footer>
-                <div>
+                <div style={{width:"100%"}}>
                     <div className="footerDiv0"> 
                         <div className="footerDiv1">
                             
                             <div className="navFooter">
-                                <Link to="/" style={{color:"black"}}>
+                                <NavLink exact to="/" style={{color:"black"}}>
                                     <div>
                                         <p>Home</p>
                                     </div>
-                                </Link>
-                                <Link to="/cities" style={{color:"black"}}>
+                                </NavLink>
+                                <NavLink to="/cities" style={{color:"black"}}>
                                     <div>
                                         <p>Cities</p>
                                     </div>
-                                </Link>
+                                </NavLink>
                             </div>
                         </div>
                         <div className="footerDiv1">
-                            <div className="footerRedes"><FacebookIcon /><TwitterIcon />
-                            <LinkedInIcon   /><InstagramIcon /><TelegramIcon /></div>
+                            <div className="footerRedes">
+                                <IconContext.Provider value={{ color: "#2dc0da",
+                                size:"2rem", className: "iconosFooter" }} >
+                                    <ImFacebook2/><ImTwitter />
+                                    <ImLinkedin/><FiInstagram /><ImTelegram />
+                                </IconContext.Provider>
+                            </div>
                         </div>
                     </div>
                 </div>

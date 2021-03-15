@@ -19,7 +19,7 @@ const HomePage=()=>{
                 </div>      
             </header>
             <section className="container" >
-                <Carousel />
+                <Carousel/>
             </section>
         </>
     )

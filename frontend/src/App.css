@@ -190,7 +190,7 @@ a:-webkit-any-link {
   margin: 0 0 !important;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 90%;
   height: 80vh;
 }
@@ -249,11 +249,13 @@ a:-webkit-any-link {
 footer{
   margin-top: 5vh;
   display: flex;
-  background-color: rgba(35, 132, 223, 0.644);
+  background-color: #353636fd;
+  flex-direction: column;
+  align-items: center;
 }
 .footerDiv0{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 20vh;
   padding: 2vh 0;
 }
@@ -264,26 +266,20 @@ footer{
   align-items: center;
   justify-content: space-evenly;
 }
-.footerDiv1 p{
-  font-size: 2rem;
-
+.footerDiv1 p{  
+  color: #2dc0da;
+  font-size: 1.7rem;
+  font-weight:550;
+  transition: all .2s linear;
 }
 .navFooter{
   display: flex;
   justify-content: space-evenly;
   width: 18vw;
 }
-.navFooter div{
-  color: white;
-  height: 80%;
-  width: 120%;
-  text-decoration: underline;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
 .navFooter div:hover,.footerRedes svg:hover{
-  background-color:#11698e;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 .navFooter p{
   font-size: 150%;
@@ -294,7 +290,9 @@ footer{
   justify-content: space-evenly;
 }
 .footerText{
+  color: #fff;
   text-align: center;
+  padding-bottom: 1vh;
 }
 
 /* City */
