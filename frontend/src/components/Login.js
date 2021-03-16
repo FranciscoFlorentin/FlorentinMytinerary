@@ -55,13 +55,12 @@ const Login=({logIn})=>{
     return(
         <>
             <NavBar/>
-            <section className="sectionLogInOut">
+            <div className="register" >
                 
-                <div className="logIn2" style={{backgroundImage:'url("../assets/login.jpg")'}}>
-                    <div className="errorsDiv">{errors.map(error=><h5>{error}</h5>)}</div>
+                <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
                     <div className="linkToRegister"><Link to="/register">Don't have an account yet?  Sign Up</Link></div>
-                </div>
-                <div className="logIn">
+                
+                <div className="registerForm" >
                     <h4>Log In</h4>
                     <div><AccountCircleIcon/><input type="text" placeholder="username" name="userName" onChange={inputValues}/></div>
                     <div><LockIcon/><input type="password" placeholder="password" name="password" onChange={inputValues}/></div>
@@ -74,7 +73,7 @@ const Login=({logIn})=>{
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}/>
                 </div>
-            </section>
+            </div>
         </>
     )
 }

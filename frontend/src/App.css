@@ -9,7 +9,7 @@ body{
   background-color: rgba(117, 134, 226, 0.308);
 }
 section input{
-  color: white;
+  color: black;
 }
 /* HEADER */
 header{
@@ -46,7 +46,7 @@ header{
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh 6vw;
+  padding: 2vh 6vw;
 }
 .divHeader div,.divHeader nav{
   width: 100%;
@@ -93,58 +93,66 @@ header{
   background-position: center;
 }
 
-.sectionLogInOut{
+/* REGISTRO */
+.register{
+  width: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  height: 60vh;
+  justify-content: flex-start;
+  padding: 1vh 0;
 }
-.logIn{
-  display: flex!important;
-  flex-direction: column!important;
-  align-items: center!important;
-  justify-content: center!important;
-  width: 25vw;
-}
-.logIn input{
-  text-align: center;
-}
-.logIn button{
-  margin: 1vh;
-  width: 60%;
-  height: 5vh;
-}
-.logIn div{
-  display: flex;
-}
-.logIn select{ 
-  display: inline-flex;
-  width:60%;
-  background-color: #5285bc;
-  color: white;
-  text-align-last: center!important;
-}
-.logIn2 {
-  padding: 8% 0;
-
+.registerForm{
+  background-color: #373838;
+  width: 40%;
+  padding: 2vh 5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  width: 35vw;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50%;
+  text-align: center;
+}
+.registerForm button{
+  height: 5vh;
+  width:20vw;
+  align-self: center;
+  background-color: #2dc0da ;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  outline: none;
+  transition: all .2s linear;
+}
+.registerForm button:hover{
+  transform: scale(1.1);
+}
+.registerForm h2{
+  color: #fff;
+  text-shadow: 1px 1px  #2dc0da;
+  font-size: 1.7rem;
+  height: 5vh;
+  border-bottom: solid #2dc0da;
+  padding: 1vh 0;
+}
+.registerForm input,.registerForm select{
+  height: 5vh;
+  width: 80%;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+  outline: none;
+  border: solid 2px #2dc0da;
+  padding-left: 1vw;
+  border-radius: 5px;
 }
 .errorsDiv{
-  text-align: center;
-  font-size: 1.2vw;
-  
+  padding: 0 2vw;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.errorsDiv h5 {
-  margin: 1vh 0;
-}
-.linkToRegister{
-  text-align: center;
+.errorsDiv p{
+  color: rgba(221, 56, 56, 0.966);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 /* Nav */
 #nav1 ul{
@@ -244,7 +252,6 @@ a:-webkit-any-link {
   color: white;
 }
 
-
 /* Footer */
 footer{
   margin-top: 5vh;
@@ -256,7 +263,7 @@ footer{
 .footerDiv0{
   display: flex;
   justify-content: space-between;
-  height: 20vh;
+  height: 15vh;
   padding: 2vh 0;
 }
 .footerDiv1{
@@ -299,30 +306,43 @@ footer{
 .sectionCities{
   display: flex;
   flex-wrap: wrap;
-  padding: 3vh 0;
+  padding: 3vh 5vw;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
 }
-.sectionCities input{
+#inputCities{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+#inputCities input{
   height: 10vh!important;
+  color: black;
   text-align: center;
   font-size: 2.7vw !important;
 }
 .city1{
+  transition: all .2s linear;
   width: 50%;
   height: 50vh;
-  padding: 4vh 1vw;
-}
-.city1 div{
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15%;
+  padding: 2vh 1vw;
 }
-.city1:hover{
-  padding: 3vh 1.5vh;
+.city1 div{
+  width: 40vw;
+  height: 45vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  transition: all .2s linear;
+}
+.city1 div:hover{
+  transform: scale(1.04);
 }
 .city1 h5{
   color: white;
@@ -331,6 +351,7 @@ footer{
   align-items: center;
   width: 100%;
   height: 10%;
+  font-size: 2rem;
   padding: 0.5vh;
   background-color: rgba(35, 132, 223, 0.74);
 }
@@ -340,10 +361,12 @@ footer{
   background-repeat: no-repeat;
   height: 50vh;
   width: 100%;
+  padding-top: 8vh;
 }
 .cityNotFound h3{
   height: 8vh;
   display: flex;
+  font-size: 2rem;
   justify-content: center;
   align-items: center;
 }

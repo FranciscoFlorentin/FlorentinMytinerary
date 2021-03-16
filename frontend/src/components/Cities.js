@@ -23,8 +23,10 @@ const Cities=(props)=>{
     return (
         <>
             <NavBar />
-            <section className="container sectionCities">
-                <input type="text" placeholder="Search city" onChange={(e)=>props.filterCities(e.target.value)} /> 
+            <section className="sectionCities">
+                <div id="inputCities">
+                    <input type="text" placeholder="Search city" onChange={(e)=>props.filterCities(e.target.value)} /> 
+                </div>
                 {props.citiesFiltered.length===0 
                 ? 
                 <div className="cityNotFound" style={{backgroundImage:`url("./assets/city404.jpg")`}}> 

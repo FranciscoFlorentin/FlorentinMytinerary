@@ -5,10 +5,6 @@ import axios from "axios";
 import Loader from './Loader';
 import {connect} from "react-redux";
 import userActions from "../redux/actions/userActions";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
-import RecentActorsIcon from '@material-ui/icons/RecentActors';
-import ImageIcon from '@material-ui/icons/Image';
 import GoogleLogin from 'react-google-login';
 import Swal from 'sweetalert2';
 
@@ -79,38 +75,37 @@ const Register = ({userRegister}) => {
         }
       }
     if(countries.length===0){return <> <NavBar/><Loader/> </>}
+    console.log(errors)
     return (
         <>
 
         <NavBar/>
-            <section className="sectionLogInOut">
-                <div className="logIn2" style={{ backgroundImage:'url("../assets/login.jpg")'  }}>
-                    <div className="errorsDiv">{errors.map(error=><p>{error}</p> ) }</div>
-
-                        <GoogleLogin
-                            clientId= "185568068022-l55ir1g6dst91vrc9l497j28jflnaoqp.apps.googleusercontent.com"
-                            buttonText="Create Account with Google"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'}
-                            />
+            <div className="register" >
+            <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
+                <div className="registerForm" >
+                        <h2>Sign Up</h2>
+                        <div><input type="text" placeholder="Username" name="userName" onChange={inputValues}/></div>
+                        <div><input type="password" placeholder="Password" name="password" onChange={inputValues}/></div>
+                        <div><input type="text" placeholder="First Name" name="firstName" onChange={inputValues}/></div>
+                        <div><input type="text" placeholder="Last Name" name="lastName" onChange={inputValues}/></div>
+                        <div><input type="url" placeholder="Url img" name="userPic" onChange={inputValues}/></div>
+                        <div><select name="countryName" id="" onChange={inputValues}>
+                                <option value="" selected disabled >Country</option>
+                                {countries.map(country=>{
+                                    return <option value={country.name}>{country.name}</option>})
+                                }
+                            </select>
+                        </div>
+                        <button onClick={sendNewUser}>Create Account</button>
+                    <GoogleLogin
+                        clientId= "185568068022-l55ir1g6dst91vrc9l497j28jflnaoqp.apps.googleusercontent.com"
+                        buttonText="Create Account with Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
                 </div>
-                <div className="logIn">
-                    <h4>Sign Up</h4>
-                    <div><AccountCircleIcon/><input type="text" placeholder="Username" name="userName" onChange={inputValues}/></div>
-                    <div><LockIcon/><input type="password" placeholder="Password" name="password" onChange={inputValues}/></div>
-                    <div><RecentActorsIcon/><input type="text" placeholder="First Name" name="firstName" onChange={inputValues}/></div>
-                    <div><RecentActorsIcon/><input type="text" placeholder="Last Name" name="lastName" onChange={inputValues}/></div>
-                    <div><ImageIcon/><input type="url" placeholder="Url img" name="userPic" onChange={inputValues}/></div>
-                    <select name="countryName" id="" onChange={inputValues}>
-                            <option value="" selected disabled >Country</option>
-                            {countries.map(country=>{
-                                return <option value={country.name}>{country.name}</option>})
-                            }
-                        </select>
-                    <button onClick={sendNewUser}>Create Account</button>
-                </div>
-            </section>
+            </div>
         </>
     )
 }

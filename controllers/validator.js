@@ -4,7 +4,7 @@ const validator={
     validateNewAccount:(req,res,next)=>{
         if(!req.body.googleUser){
             const schema=Joi.object({
-                userName: Joi.string().trim().required().email().rule({ message: '"username" must be a valid email' }),
+                userName: Joi.string().trim().required().email().rule({ message: ' "username" must be a valid email' }),
                 password: Joi.string().required().regex(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/).rule({ message: '"password" must contain at least one number, one lowercase and one uppercase letter, six characters' }),
                 firstName:Joi.string().trim().required().min(2).max(13),
                 lastName:Joi.string().trim().required().min(2).max(13),
