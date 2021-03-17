@@ -2,7 +2,6 @@ import React,{useEffect,useState} from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HomeIcon from '@material-ui/icons/Home';
 import NavBar from "./NavBar";
-import NotItineraries from './NotItineraries';
 import {Link} from "react-router-dom";
 import Itinerary from "./Itinerary";
 import {connect} from "react-redux";
@@ -35,9 +34,11 @@ const Itineraries = ({getCities,cities,itinerariesByCity,getItinerariesByCityId,
                     <div className="cityTitle"><h3>{city.cityName}</h3></div>
                 </div> 
                 <div className="container">
-
-                    {(itinerariesByCity.length===0) && <NotItineraries/>}
-                    
+                    {(itinerariesByCity.length===0) 
+                    && <div className="notItineraries" style={{backgroundImage:`url("../assets/notItineraries.png")`}}> 
+                            <h3>We don't have <br/> itineraries for <br/> this city yet, <br/>  be the first</h3>
+                        </div>
+                    }
                     {itinerariesByCity.map(itinerary=>
                         <Itinerary key={itinerary._id} itinerary1={itinerary} />
                     )}

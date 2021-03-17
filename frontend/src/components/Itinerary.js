@@ -8,6 +8,9 @@ import Comment from "./Comment";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import itineraryActions from '../redux/actions/itineraryActions';
 import Swal from 'sweetalert2';
+import Loader from './Loader';
+import { BiSend } from "react-icons/bi";
+
 
 const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => {
     const [viewMoreLess,setViewMoreLess]=useState(false);
@@ -41,14 +44,14 @@ const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => 
         const response= await addComment(newComment,itinerary._id);  
         setItinerary(response);
     }
-    if(!itinerary){return <h1>loading...</h1> }
+    if(!itinerary){return <Loader/> }
     return (
         <>  
             
             <div className="itinerary">
                 <div className="itineraryContent">
                     <div className="itineraryContent1">
-                        <div className="itineraryUserImg" style={{backgroundImage:`url("../assets/${itinerary.userPicName}")`}}></div>
+                        <div className="itineraryUserImg" style={{backgroundImage:`url("${itinerary.userPicName}")`}}></div>
                         <div className="itineraryUserName">{itinerary.userName}</div>
                     </div>
                     <div className="itineraryContent2">
@@ -76,13 +79,15 @@ const Itinerary = ({loggedUser,addComment,update,itinerary1,itineraryLiked}) => 
                         {itinerary.comments.map(comment=><Comment key={comment._id} comment={comment} itineraryId={itinerary._id} 
                          setItinerary={setItinerary}
                         />)}
+                        {itinerary.comments.length===0 && 
+                            <h2 style={{textAlign:"center",paddingTop:"5vh"}}>Not comments yet :( </h2> }
                         <div className="divInputComment">
                             {loggedUser 
                             ?
                                 <>
                                     <form onSubmit={commentSend}>
                                         <input type="text" placeholder="Write a comment" onChange={commentInput} />
-                                        <button type="submit">Comment</button>
+                                        <button type="submit"><BiSend/></button>
                                     </form>
                                 </>
                             :<input type="text " disabled placeholder="You must logged to comment"/>}

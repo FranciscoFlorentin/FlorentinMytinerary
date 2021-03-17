@@ -92,13 +92,26 @@ header{
   background-repeat: no-repeat;
   background-position: center;
 }
-
+/* LOGIN */
+.loginForm{
+  background-color: #373838;
+  width: 40%;
+  height: 80vh;
+  padding: 2vh 5vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.loginForm p,.registerForm p{
+  color: #3489ad;
+}
 /* REGISTRO */
 .register{
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 1vh 0;
 }
 .registerForm{
@@ -109,8 +122,9 @@ header{
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  
 }
-.registerForm button{
+.registerForm button,.loginForm button{
   height: 5vh;
   width:20vw;
   align-self: center;
@@ -121,18 +135,19 @@ header{
   outline: none;
   transition: all .2s linear;
 }
-.registerForm button:hover{
+.registerForm button:hover,.loginForm button:hover{
   transform: scale(1.1);
+  cursor: pointer;
 }
-.registerForm h2{
+.registerForm h2,.loginForm h2{
   color: #fff;
   text-shadow: 1px 1px  #2dc0da;
   font-size: 1.7rem;
   height: 5vh;
   border-bottom: solid #2dc0da;
-  padding: 1vh 0;
+  padding: 0vh 0;
 }
-.registerForm input,.registerForm select{
+.registerForm input,.registerForm select,.loginForm input{
   height: 5vh;
   width: 80%;
   box-shadow: 0 0 10px rgb(0 0 0 / 30%);
@@ -143,8 +158,8 @@ header{
 }
 .errorsDiv{
   padding: 0 2vw;
-  width: 30%;
-  height: 100%;
+  width: 100%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -397,12 +412,11 @@ footer{
   font-size: 4vw;
 }
 .itinerary{
-  background-image:linear-gradient(#50b2b4b6,rgba(0, 0, 255, 0.336));
-  height: 40vh; 
-  border-top-left-radius: 10%;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1013%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%23SvgjsLinearGradient1014)'%3e%3c/rect%3e%3cpath d='M1557.65 197.84C1413.69 206.44 1309.46 473.38 1050.23 472.24 790.99 471.1 714.69 22.18 542.8-15.05' stroke='rgba(42%2c 118%2c 195%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1586.26 516.73C1422.48 516.1 1292.16 398.78 943.9 387.93 595.65 377.08 491.49-6.42 301.55-23.56' stroke='rgba(42%2c 118%2c 195%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1466.73 68.36C1290.46 68.84 1035.27 191.89 772.5 191.56 509.72 191.23 533.72-59.73 425.38-74.43' stroke='rgba(42%2c 118%2c 195%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1705.05 233.9C1554.07 238.66 1366.68 471.92 1148.48 469.1 930.27 466.28 991.48 50.73 870.19-20.94' stroke='rgba(42%2c 118%2c 195%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1451.03 504.12C1350.57 503.85 1253.19 434.12 1055.35 434.12 857.51 434.12 888.81 521.14 659.67 504.12 430.53 487.1 418.86 28.77 263.99-33.28' stroke='rgba(42%2c 118%2c 195%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1013'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='100%25' y1='50%25' x2='0%25' y2='50%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1014'%3e%3cstop stop-color='rgba(146%2c 182%2c 197%2c 0.92)' offset='0.22'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='0.31'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='0.33'%3e%3c/stop%3e%3cstop stop-color='rgba(146%2c 182%2c 197%2c 0.92)' offset='0.69'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='0.81'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='0.81'%3e%3c/stop%3e%3cstop stop-color='rgba(146%2c 182%2c 197%2c 0.92)' offset='0.89'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='1'%3e%3c/stop%3e%3cstop stop-color='rgba(97%2c 178%2c 211%2c 0.92)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");  height: 40vh; 
+  border-top-left-radius:30px;
   font-family: "lemonade", "cursive";
   background-size: cover;  
-  
+  margin: 0 10vw;
 }
 
 .itineraryContent{
@@ -412,6 +426,7 @@ footer{
 }
 .itineraryContent1,.itineraryContent2,.itineraryContent3{
   width: 30%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -431,7 +446,8 @@ footer{
 }
 .itineraryUserName{
   font-size: 2vw;
-  text-shadow: black 0.4px 0.4px;
+  color: #fff;
+  text-shadow: 3px 3px 2px black;
   width: 100%;
   height: 20%;
   display: flex;
@@ -450,6 +466,8 @@ footer{
 .itineraryName h4{
   font-size: 3.5vw;
   height: 100%;
+  color: rgb(238, 235, 49);
+  text-shadow: 3px 3px 2px black;
 }
 .itineraryHashtag{
   height: 45%;
@@ -464,7 +482,7 @@ footer{
   display: inline-flex;
   padding: 0 0.5vw;
   font-size: 1.5vw;
-  color: blue;
+  color: rgb(73, 73, 255);
 }
 .itineraryContent3{
   font-family: 'Lemonada', 'cursive';
@@ -483,6 +501,7 @@ footer{
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
 .likeIcon button{
   border: none!important;
@@ -492,8 +511,15 @@ footer{
   align-items: center!important;
   text-align: center;
   background-color: transparent!important;
-  color: blue!important;
+  color: rgb(58, 58, 231)!important;
+  font-weight: 550;
   text-decoration: underline!important;
+  outline: none;
+  transition: all .1s linear;
+}
+.likeIcon button:hover{
+  transform: scale(1.05);
+  cursor: pointer;
 }
 .likeIcon span { 
   display: flex;
@@ -545,13 +571,12 @@ footer{
   text-shadow: black 0.5px 0.5px;
 }
 .itineraryShowHide{
+  
+  margin: 0 10vw;
   height: 80vh;
-  border-bottom-right-radius: 10%;
+  border-bottom-right-radius: 30px;
   margin-bottom: 2vh;
-  background-image:linear-gradient(rgba(0, 0, 255, 0.336),#50b2b4b6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1021%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(133%2c 186%2c 241%2c 1)'%3e%3c/rect%3e%3cpath d='M -983.3524273891658%2c232 C -839.35%2c248.6 -551.35%2c312.8 -263.35242738916577%2c315 C 24.65%2c317.2 168.65%2c245.4 456.64757261083423%2c243 C 744.65%2c240.6 979.98%2c304 1176.6475726108342%2c303 C 1373.32%2c302 1387.33%2c251 1440%2c238' stroke='rgba(51%2c 121%2c 194%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -865.2083452641511%2c328 C -721.21%2c298.8 -433.21%2c183.8 -145.2083452641511%2c182 C 142.79%2c180.2 286.79%2c322.2 574.7916547358489%2c319 C 862.79%2c315.8 1121.75%2c149.2 1294.7916547358489%2c166 C 1467.83%2c182.8 1410.96%2c355.6 1440%2c403' stroke='rgba(51%2c 121%2c 194%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1021'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
 .itineraryShowHide button,.itinerary button{
   background-color: #347ab6;
@@ -567,8 +592,8 @@ footer{
   height: 40vh;
   display: flex;
   justify-content: left;
-  overflow-x: auto;
-  padding:0  2vw;
+  overflow-x:scroll;
+  padding:0 2vw;
 }
 .activity{
   padding: 1vh 1vw;
@@ -592,16 +617,18 @@ footer{
   align-items: center;
   height: 30vh;
   overflow: auto;
-  width: 80%;
+  width:100%;
 }
 .comments input{
-  height: 4vh!important;
+  height: 5vh!important;
   display: flex;
+  outline: none;
   justify-content: center;
   align-items: center;
-  background-color: #0b0d0f4f!important;
-  width: 80%;
-  border-radius: 5%;
+  background-color: #ffffff56!important;
+  font-size: 1rem;
+  width: 65%;
+  border-radius: 3px;
   text-align: center;
 }
 .divInputComment{
@@ -611,11 +638,13 @@ footer{
 }
 .divInputComment form{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .comment{
-  padding: 0.5vh 0.5vw;
-  height: 8vh;
+  padding: 0vh 10vw;
+  height: 10vh;
   width: 100%;
   display: flex;
   margin-top: 1vh;
@@ -623,26 +652,34 @@ footer{
 .comment .userPic{
   height: 100%;
   width: 10%;
-  background-size: 100%;
+  background-size: cover;
+  background-position:50%;
   background-repeat: no-repeat;
-  border-radius: 35%;
+  border-radius: 30px;
 }
 .comment .userName{
   width: 100%;
-  height: 50%;
+  height: 100%;
+  align-items: center;
   background-color: white;
   display: flex;
   justify-content: center;
+  font-size:1.1rem;
 }
 .userComment, .userComment form{
   width: 100%;
   display: flex;
+  height: 100%;
   padding-left: 0.1vw;
+  padding-top: 0.1vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.411);
 }
 .comment1{
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   padding-left: 1vw;

@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import userActions from "../redux/actions/userActions";
 import GoogleLogin from 'react-google-login';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Register = ({userRegister}) => {
     const[countries,setCountries]=useState([]);
@@ -81,7 +82,6 @@ const Register = ({userRegister}) => {
 
         <NavBar/>
             <div className="register" >
-            <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
                 <div className="registerForm" >
                         <h2>Sign Up</h2>
                         <div><input type="text" placeholder="Username" name="userName" onChange={inputValues}/></div>
@@ -104,6 +104,8 @@ const Register = ({userRegister}) => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
+                    <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
+                    <div><Link to="/login"><p>You have account?  Log In</p></Link></div>
                 </div>
             </div>
         </>

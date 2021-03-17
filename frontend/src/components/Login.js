@@ -1,7 +1,5 @@
 import { useState } from "react";
 import NavBar from "./NavBar";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
 import { connect } from "react-redux";
 import userActions from "../redux/actions/userActions";
 import GoogleLogin from 'react-google-login';
@@ -57,13 +55,10 @@ const Login=({logIn})=>{
             <NavBar/>
             <div className="register" >
                 
-                <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
-                    <div className="linkToRegister"><Link to="/register">Don't have an account yet?  Sign Up</Link></div>
-                
-                <div className="registerForm" >
-                    <h4>Log In</h4>
-                    <div><AccountCircleIcon/><input type="text" placeholder="username" name="userName" onChange={inputValues}/></div>
-                    <div><LockIcon/><input type="password" placeholder="password" name="password" onChange={inputValues}/></div>
+                <div className="loginForm" >
+                    <h2>Log In</h2>
+                    <div><input type="text" placeholder="username" name="userName" onChange={inputValues}/></div>
+                    <div><input type="password" placeholder="password" name="password" onChange={inputValues}/></div>
                     
                     <button onClick={sendLogin}>Login</button>
                     <GoogleLogin
@@ -71,7 +66,10 @@ const Login=({logIn})=>{
                             buttonText="Login with Google"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'}/>
+                            cookiePolicy={'single_host_origin'}
+                    />
+                    <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>             
+                    <div><Link to="/register"><p>Don't have an account yet?  Sign Up</p></Link></div>
                 </div>
             </div>
         </>

@@ -2,6 +2,8 @@ import React from 'react'
 import itineraryActions from '../redux/actions/itineraryActions';
 import {connect} from "react-redux"
 import {useState} from "react"
+import { FiEdit2,FiTrash2} from "react-icons/fi";
+
 
 const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,loggedUser}) => {
     const [editMode,setEditMode]=useState(false);
@@ -38,8 +40,8 @@ const Comment = ({comment,deleteComment,editComment,itineraryId,setItinerary,log
                 {!editMode && <div className="userComment">{comment.userComment}</div>}
                     {(loggedUser && loggedUser.id===comment._id && !editMode)&&  
                         <>    
-                            <button onClick={sendCommentToDelete}>X</button>
-                            <button onClick={()=>setEditMode(!editMode)}>Edit</button>
+                            <button onClick={sendCommentToDelete}><FiTrash2/></button>
+                            <button onClick={()=>setEditMode(!editMode)}><FiEdit2/></button>
                         </>
                     }
                 </div>          
