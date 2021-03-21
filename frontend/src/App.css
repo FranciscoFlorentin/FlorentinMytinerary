@@ -328,6 +328,7 @@ footer{
 }
 #inputCities{
   width: 100vw;
+  max-height: 10vh!important;
   display: flex;
   justify-content: center;
 }
@@ -721,4 +722,11 @@ footer{
   align-self: center;
   width: 30%!important;
   border: solid black!important;
+}
+
+/* RESPONSIVE */
+@media(min-width:900px){
+  section{
+    background-color: red;
+  }
 }
