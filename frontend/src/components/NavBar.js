@@ -11,7 +11,7 @@ const NavBar= ({loggedUser,logOut}) =>{
     <>
         <div className="divHeader">
             <div id="logoTitulo">
-                <div className="logo" style={{backgroundImage:'url("./assets/1.png")'}}></div>
+                <div className="logo" style={{backgroundImage:'url("../assets/1.png")'}}></div>
                 <div id="titulo"> 
                     <Link to="/"><h1 className="tituloLogo">MYtinerary</h1></Link>
                 </div>
