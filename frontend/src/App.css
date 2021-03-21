@@ -52,26 +52,28 @@ header{
   width: 100%;
   height: 12vh;
 }
-.headerUserPic{
+.headerUserPic,.headerUserPic1{
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.headerUserPic1{
+  height: 20%;
+}
 #logoTitulo,#titulo{
   display: flex;
   align-items: center;  
+  min-width:30%;
 }
 .logo{ 
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position-x: center;
 }
 .tituloLogo{
   color: #2dc0da;
   text-shadow: 2px 3px 1px rgba(23, 49, 163, 0.877);
-  width: 50%;
-  font-size: 3.5rem;
-  padding-left: 0.5vw;
+  font-size: 3rem;
 } 
 #callToAction{
   border-radius: 4rem;
@@ -170,11 +172,18 @@ header{
   font-weight: 600;
 }
 /* Nav */
-#nav1 ul{
+#nav1 ul,#nav1Responsive ul{
   display: flex;
   align-items: center!important;
   justify-content: space-evenly;
   height: 100%;
+}
+#nav1Responsive ul{
+  flex-direction: column;
+  justify-content: right;
+}
+#nav1Responsive{
+  display: flex;
 }
 a:-webkit-any-link {
   text-decoration: none;
@@ -182,7 +191,7 @@ a:-webkit-any-link {
 .active{
   text-shadow: 0px 0px 10px rgba(172, 195, 238, 0.986);
 }
-#nav1 ul p{
+#nav1 ul p,#nav1Responsive ul p{
   color: #2dc0da;
   font-size: 1.7rem;
   font-weight:550;
@@ -194,7 +203,25 @@ a:-webkit-any-link {
 #nav1 ul p:active {
   text-decoration-color: black;
 }
-
+#nav2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+}
+#nav3{
+  background-color: transparent;
+  position: inherit;
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+#nav4{
+  background-color: rgba(255, 255, 255, 0.541);
+  width: 50%;
+}
 /* CAROUSEL */
 .tituloCar{
   color: white;
@@ -726,7 +753,40 @@ footer{
 
 /* RESPONSIVE */
 @media(min-width:900px){
-  section{
-    background-color: red;
+
+  .logo{
+    min-width: 100px;
+  }
+  #nav2{
+    width: 0;
+  }
+  .hamburger-react{
+    display: none;
+  }
+  #nav3{
+    display: none;
+  }
+}
+@media(max-width:900px){
+  .logo{
+    min-width: 50px;
+  }
+  #nav1,.headerUserPic{
+    display: none;
+  }
+  .tituloLogo{
+    font-size: 1.6rem;
+  }
+  .nombreCiudad{
+    font-size: 1rem;
+  }
+  .car2 {
+    height: 60vh;
+  }
+  .navFooter {
+    width: 50vw;
+  }
+  .footerRedes{
+    width: 50vw;
   }
 }
