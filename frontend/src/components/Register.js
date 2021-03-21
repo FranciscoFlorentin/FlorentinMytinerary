@@ -98,7 +98,7 @@ const Register = ({userRegister}) => {
                         </div>
                         <button onClick={sendNewUser}>Create Account</button>
                     <GoogleLogin
-                        clientId= "185568068022-l55ir1g6dst91vrc9l497j28jflnaoqp.apps.googleusercontent.com"
+                        clientId= "185568068022-0qfhsg5ndsthf6m15vt3jb4vo5blbami.apps.googleusercontent.com"
                         buttonText="Create Account with Google"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
