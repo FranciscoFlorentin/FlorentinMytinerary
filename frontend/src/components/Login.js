@@ -62,7 +62,7 @@ const Login=({logIn})=>{
                     
                     <button onClick={sendLogin}>Login</button>
                     <GoogleLogin
-                            clientId= "185568068022-0qfhsg5ndsthf6m15vt3jb4vo5blbami.apps.googleusercontent.com"
+                            clientId= "409520969344-3dls3cu2s3e5magt3ipi9j8in4du56kd.apps.googleusercontent.com"
                             buttonText="Login with Google"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
