@@ -105,7 +105,7 @@ const Register = ({userRegister}) => {
                         cookiePolicy={'single_host_origin'}
                     />
                     <div className="errorsDiv">{errors.map(error=><p>{error}</p>)}</div>
-                    <div><Link to="/login"><p>You have account?  Log In</p></Link></div>
+                    <div><Link to="/login"><p>You have account? Log In</p></Link></div>
                 </div>
             </div>
         </>
